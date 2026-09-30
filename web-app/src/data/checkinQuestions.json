@@ -1,0 +1,106 @@
+[
+  {
+    "id": "safety",
+    "category": "SAFETY",
+    "prompt": "Do you feel safe right now?",
+    "heard": "I am inside. I do not want to go out today.",
+    "options": [
+      "Yes, I feel safe",
+      "Mostly safe",
+      "I am not sure",
+      "Not really safe",
+      "I do not feel safe"
+    ]
+  },
+  {
+    "id": "sleep",
+    "category": "SLEEP",
+    "prompt": "How well did you sleep last night?",
+    "heard": "I kept waking up. Tomorrow feels heavy.",
+    "options": [
+      "Very well",
+      "Fairly well",
+      "Light or broken sleep",
+      "Very little",
+      "I did not sleep"
+    ]
+  },
+  {
+    "id": "mood",
+    "category": "MOOD",
+    "prompt": "How has your mood been today?",
+    "heard": "I have been quiet. I do not feel like talking much.",
+    "options": [
+      "Steady",
+      "A bit low",
+      "Up and down",
+      "Heavy for most of the day",
+      "Very heavy"
+    ]
+  },
+  {
+    "id": "fear",
+    "category": "FEAR",
+    "prompt": "Have you felt afraid or threatened?",
+    "heard": "I keep thinking someone might come to the house.",
+    "options": [
+      "No",
+      "Only a little",
+      "Some of the time",
+      "Most of the day",
+      "Yes, I feel threatened"
+    ]
+  },
+  {
+    "id": "support",
+    "category": "SUPPORT",
+    "prompt": "Do you feel supported by people around you?",
+    "heard": "My counsellor knows. I have not told anyone else.",
+    "options": [
+      "Yes, I feel supported",
+      "Somewhat",
+      "Only one person",
+      "Not really",
+      "I feel alone in this"
+    ]
+  },
+  {
+    "id": "engagement",
+    "category": "ENGAGEMENT",
+    "prompt": "Have you been able to do your daily activities?",
+    "heard": "I stayed in. I did not finish what I planned.",
+    "options": [
+      "Yes, as usual",
+      "Most of them",
+      "Only a few",
+      "Almost none",
+      "I could not start"
+    ]
+  },
+  {
+    "id": "physical",
+    "category": "PHYSICAL",
+    "prompt": "How is your physical health?",
+    "heard": "My head hurts and I have not eaten much.",
+    "options": [
+      "I feel well",
+      "A bit tired",
+      "Uncomfortable",
+      "Quite unwell",
+      "I need a person to check on me"
+    ]
+  },
+  {
+    "id": "thoughts",
+    "category": "THOUGHTS",
+    "prompt": "Any thoughts you'd like to share?",
+    "heard": "I want my counsellor to know the hearing is on my mind.",
+    "options": [
+      "Nothing more today",
+      "A little, and I can say it",
+      "I would rather tell my counsellor",
+      "Please have someone contact me",
+      "I would rather not put it in words"
+    ]
+  }
+]

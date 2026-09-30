@@ -1,0 +1,39 @@
+{
+  "subtitle": "You are safe here. Your next check-in is ready whenever you are.",
+  "heroEyebrow": "TODAY'S CHECK-IN",
+  "heroTitle": "How are you feeling today?",
+  "heroMeta": "6 short questions · about 3 minutes",
+  "modes": ["Tap", "Voice", "Chat"],
+  "weekInsight": "Five check-ins are in. Two days were missed.",
+  "moods": [
+    { "id": "calm", "emoji": "😌", "label": "Calm" },
+    { "id": "okay", "emoji": "🙂", "label": "Okay" },
+    { "id": "tense", "emoji": "😟", "label": "Tense" },
+    { "id": "afraid", "emoji": "😨", "label": "Afraid" },
+    { "id": "low", "emoji": "😔", "label": "Low" }
+  ],
+  "talk": [
+    {
+      "id": "counsellor",
+      "title": "Call counsellor",
+      "detail": "Priya Sharma can speak with you."
+    },
+    {
+      "id": "chat",
+      "title": "Chat with Sahayak",
+      "detail": "Write in your own words, at your pace."
+    },
+    {
+      "id": "helpline",
+      "title": "Helpline 14566",
+      "detail": "Free, any time, if you want a person now."
+    }
+  ],
+  "nextSteps": [
+    "Your counsellor reviews this check-in",
+    "Your hearing stays on 14 Oct",
+    "You choose how and when we reach you"
+  ],
+  "safeTimeTitle": "Your safe check-in time",
+  "safeTimeWindow": "Tue & Thu · 6:00–8:00 PM"
+}

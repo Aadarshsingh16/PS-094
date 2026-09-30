@@ -1,0 +1,63 @@
+{
+  "title": "Privacy & channels",
+  "subtitle": "Choose how, when and where we reach you. Change this any time.",
+  "channels": [
+    {
+      "id": "sms",
+      "title": "SMS",
+      "description": "Text messages at your safe times.",
+      "enabled": true,
+      "preferred": true
+    },
+    {
+      "id": "ivrs",
+      "title": "Phone call (IVRS)",
+      "description": "A phone call you can answer in private.",
+      "enabled": true,
+      "preferred": false
+    },
+    {
+      "id": "chatbot",
+      "title": "Chatbot",
+      "description": "A written chat when you want it.",
+      "enabled": false,
+      "preferred": false
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile app",
+      "description": "Open Sahayak on your phone.",
+      "enabled": true,
+      "preferred": false
+    },
+    {
+      "id": "web",
+      "title": "Web portal",
+      "description": "Sign in from a browser.",
+      "enabled": false,
+      "preferred": false
+    },
+    {
+      "id": "helpline",
+      "title": "Helpline 14566",
+      "description": "Call 14566, free, any time.",
+      "enabled": true,
+      "preferred": false
+    }
+  ],
+  "days": ["M", "T", "W", "T", "F", "S", "S"],
+  "activeDayIndexes": [1, 3],
+  "safeTime": "6:00 – 8:00 PM",
+  "viewers": [
+    { "id": "counsellor", "label": "My counsellor", "detail": "Priya Sharma", "enabled": true },
+    { "id": "protection", "label": "Protection officer", "detail": "Only if you allow it", "enabled": false },
+    { "id": "district", "label": "District officer", "detail": "Summary only", "enabled": false },
+    { "id": "administrator", "label": "Administrator", "detail": "No answers", "enabled": false }
+  ],
+  "discreet": [
+    { "id": "hide-names", "label": "Hide names on this screen", "enabled": true },
+    { "id": "plain-notifications", "label": "Use plain notifications", "enabled": true },
+    { "id": "ask-before-links", "label": "Ask before opening links", "enabled": false }
+  ],
+  "nextCheckin": "Tue & Thu · 6:00–8:00 PM"
+}
