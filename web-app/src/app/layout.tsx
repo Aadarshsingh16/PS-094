@@ -27,7 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <p className="pointer-events-none fixed bottom-3 left-1/2 z-40 -translate-x-1/2 rounded-full border border-border-default bg-bg-surface px-3 py-1 text-xs text-text-muted">
+          PROTOTYPE · SYNTHETIC DATA
+        </p>
+      </body>
     </html>
   );
 }

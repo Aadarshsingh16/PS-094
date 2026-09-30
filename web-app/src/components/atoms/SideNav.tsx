@@ -53,7 +53,7 @@ function NavItem({ label, href, Icon, active }: NavItemProps) {
       `}
     >
       <Icon size={18} strokeWidth={active ? 2.5 : 1.8} />
-      {label}
+      <span className="nav-copy">{label}</span>
     </Link>
   );
 }
@@ -64,7 +64,7 @@ export function VictimSideNav({ embedded = false }: SideNavFrameProps) {
 
   return (
     <aside
-      className={`bg-bg-primary border-r border-border-default flex flex-col w-sidebar-victim ${
+      className={`side-rail bg-bg-primary border-r border-border-default flex flex-col w-sidebar-victim ${
         embedded ? "relative h-[720px] shrink-0" : "fixed left-0 top-0 h-full"
       }`}
     >
@@ -75,8 +75,8 @@ export function VictimSideNav({ embedded = false }: SideNavFrameProps) {
             <span className="text-text-inverse font-bold text-sm font-heading">S</span>
           </div>
           <div>
-            <div className="font-heading font-bold text-text-primary text-sm leading-tight">SAHAYAK</div>
-            <div className="text-text-muted text-xs">Your safe space</div>
+            <div className="nav-copy font-heading font-bold text-text-primary text-sm leading-tight">SAHAYAK</div>
+            <div className="nav-copy text-text-muted text-xs">Your safe space</div>
           </div>
         </div>
       </div>
@@ -112,8 +112,8 @@ export function VictimSideNav({ embedded = false }: SideNavFrameProps) {
             AS
           </div>
           <div>
-            <div className="text-xs font-medium text-text-primary">Asha</div>
-            <div className="text-xs text-text-muted">Preferred: SMS · English</div>
+            <div className="nav-copy text-xs font-medium text-text-primary">Asha</div>
+            <div className="nav-copy text-xs text-text-muted">Preferred: SMS · English</div>
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ export function OfficerSideNav({
 
   return (
     <aside
-      className={`bg-bg-primary border-r border-border-default flex flex-col w-sidebar-officer ${
+      className={`side-rail bg-bg-primary border-r border-border-default flex flex-col w-sidebar-officer ${
         embedded ? "relative h-[720px] shrink-0" : "fixed left-0 top-0 h-full"
       }`}
     >
@@ -151,8 +151,8 @@ export function OfficerSideNav({
             <span className="text-text-inverse font-bold text-sm font-heading">S</span>
           </div>
           <div>
-            <div className="font-heading font-bold text-text-primary text-sm leading-tight">SAHAYAK AI</div>
-            <div className="text-text-muted text-xs">Well-being monitoring</div>
+            <div className="nav-copy font-heading font-bold text-text-primary text-sm leading-tight">SAHAYAK AI</div>
+            <div className="nav-copy text-text-muted text-xs">Well-being monitoring</div>
           </div>
         </div>
       </div>
@@ -175,8 +175,8 @@ export function OfficerSideNav({
             {initials}
           </div>
           <div className="min-w-0">
-            <div className="text-xs font-semibold text-text-primary truncate">{userName}</div>
-            <div className="text-xs text-text-muted truncate">{userRole} · {userLocation}</div>
+            <div className="nav-copy text-xs font-semibold text-text-primary truncate">{userName}</div>
+            <div className="nav-copy text-xs text-text-muted truncate">{userRole} · {userLocation}</div>
           </div>
         </div>
       </div>

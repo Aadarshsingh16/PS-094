@@ -25,7 +25,7 @@ export function QuickExit({ redirectUrl = "https://www.google.com" }: QuickExitP
       aria-label="Quick exit — leave this site immediately"
     >
       <span aria-hidden="true">✕</span>
-      Quick exit
+      <span className="nav-copy">Quick exit</span>
     </button>
   );
 }

@@ -47,6 +47,9 @@ export function DistressTrend({ data, highlightWeek, highlightScore }: DistressT
           stroke="var(--color-chart-lime)"
           strokeWidth={3}
           dot={false}
+          isAnimationActive
+          animationDuration={800}
+          animationEasing="ease-in-out"
         />
         <ReferenceDot
           x={highlightWeek}

@@ -47,6 +47,9 @@ export function RiskDonut({ segments, center, caption }: RiskDonutProps) {
               innerRadius={68}
               outerRadius={88}
               stroke="none"
+              isAnimationActive
+              animationDuration={800}
+              animationEasing="ease-in-out"
             >
               {segments.map((segment) => (
                 <Cell key={segment.key} fill={FILLS[tone(segment.key)]} />

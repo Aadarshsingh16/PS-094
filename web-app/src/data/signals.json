@@ -26,6 +26,8 @@
   "path": "Fast Crisis Path",
   "toast": "HIGH RISK alert created for #USR-7844",
   "outcome": "Outcome improved · Continue monitoring",
+  "monitoring": "Monitoring active",
+  "nextCheckin": "Next check-in scheduled",
   "followUp": "Follow-up scheduled with Priya Sharma",
   "confirmed": ["Counsellor follow-up", "Safety reassessment", "Legal-aid coordination"]
 }

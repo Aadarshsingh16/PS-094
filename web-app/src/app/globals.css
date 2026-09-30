@@ -113,6 +113,25 @@ h1, h2, h3, h4, h5, h6,
   margin-left: var(--width-sidebar-officer);
 }
 
+@media (max-width: 1024px) {
+  .officer-shell,
+  .victim-shell {
+    margin-left: 4.5rem;
+  }
+
+  .side-rail {
+    width: 4.5rem;
+  }
+
+  .nav-copy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+
 .hero-panel {
   background-image: linear-gradient(
     145deg,

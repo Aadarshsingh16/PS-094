@@ -45,7 +45,7 @@ export function RiskBadge({ level, size = "md", showDot = true }: RiskBadgeProps
   const c = config[level];
   return (
     <span
-      className={`inline-flex items-center rounded-full font-semibold ${c.bg} ${c.text} ${sizeClasses[size]}`}
+      className={`inline-flex items-center rounded-full font-semibold ${c.bg} ${c.text} ${sizeClasses[size]} ${level === "CRITICAL" ? "animate-pulse" : ""}`}
     >
       {showDot && (
         <span className={`inline-block rounded-full ${c.dot} ${size === "lg" ? "w-2 h-2" : "w-1.5 h-1.5"}`} />
