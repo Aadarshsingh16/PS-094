@@ -32,13 +32,10 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Accept Android SDK Licenses
+      - name: Setup Android SDK Licenses & Platform
         run: |
-          if [ -d "$ANDROID_HOME/cmdline-tools/latest/bin" ]; then
-            yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
-          elif command -v sdkmanager >/dev/null 2>&1; then
-            yes | sdkmanager --licenses || true
-          fi
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-36" || true
 
       - name: Install Web App Dependencies
         working-directory: ./web-app
@@ -63,7 +60,13 @@ jobs:
       - name: Build Debug APK via Gradle
         working-directory: ./moible/android
         run: |
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 | tee gradle-build.log || {
+            echo "### ❌ Gradle Build Failure Details" >> $GITHUB_STEP_SUMMARY
+            echo '```text' >> $GITHUB_STEP_SUMMARY
+            tail -n 80 gradle-build.log >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            exit 1
+          }
 
       - name: Verify APK Generated
         run: |
@@ -79,5 +82,5 @@ jobs:
       - name: Job Summary
         run: |
           echo "### 🚀 SAHAYAK AI Android APK Built Successfully!" >> $GITHUB_STEP_SUMMARY
-          echo "You can download the APK directly from the **Artifacts** section of this workflow run." >> $GITHUB_STEP_SUMMARY
-          echo "File: **sahayak-ai-mobile-debug-apk**" >> $GITHUB_STEP_SUMMARY
+          echo "Download the APK directly from the **Artifacts** section of this workflow run." >> $GITHUB_STEP_SUMMARY
+          echo "Artifact: **sahayak-ai-mobile-debug-apk** (contains \`app-debug.apk\`)" >> $GITHUB_STEP_SUMMARY
