@@ -1,0 +1,17 @@
+{
+  "action": "REPORT IMMEDIATE SAFETY CONCERN",
+  "steps": [
+    {
+      "title": "REPORT IMMEDIATE SAFETY CONCERN",
+      "detail": "A person reported an immediate safety concern for #USR-7844."
+    },
+    {
+      "title": "CRITICAL ALERT",
+      "detail": "A critical alert is raised. A person reviews it before any support change."
+    },
+    {
+      "title": "PRIORITY ROUTING",
+      "detail": "Routed to the protection officer ahead of other signals."
+    }
+  ]
+}

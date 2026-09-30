@@ -1,0 +1,16 @@
+{
+  "categories": [
+    "Threatened Witness",
+    "Sexual Violence",
+    "Caste-based Violence",
+    "Serious Violence"
+  ],
+  "stages": [
+    "Complaint",
+    "Investigation",
+    "Court Hearing",
+    "Compensation & Relief",
+    "Rehabilitation"
+  ],
+  "channels": ["SMS", "IVRS", "Chatbot", "Mobile app", "Web portal", "Helpline 14566"]
+}
