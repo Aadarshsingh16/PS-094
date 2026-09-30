@@ -282,46 +282,46 @@ Screen items were checked in the browser at 1440px. The Frame 5 PNG is not in th
 **Goal:** Clicking `Analyse Incoming Signals →` auto-plays the full sequence and looks like a real system.
 
 ### 4A — Incoming Signals Banner
-- [ ] Banner appears at top of Risk Analysis tab in `stable` state
-- [ ] Style: amber-50 bg + amber border — looks like a real system notification
-- [ ] "🔔 New signals received for Case #USR-7844" heading
-- [ ] "Text · Voice · Behaviour · Case Event · 3 min ago" subtext
-- [ ] "Analyse Incoming Signals →" button: emerald filled, white text
-- [ ] Banner does NOT look like a "demo mode" control
+- [x] Banner appears at top of Risk Analysis tab in `stable` state
+- [x] Style: amber-50 bg + amber border — looks like a real system notification
+- [x] "🔔 New signals received for Case #USR-7844" heading
+- [x] "Text · Voice · Behaviour · Case Event · 3 min ago" subtext
+- [x] "Analyse Incoming Signals →" button: emerald filled, white text
+- [x] Banner does NOT look like a "demo mode" control
 
 ### 4A — Signal Panels
-- [ ] Text Analysis panel: fear keyword highlights
-- [ ] Voice Analysis panel: waveform icon + "Elevated stress indicator"
-- [ ] Behaviour Analysis panel: missed check-ins + engagement metrics
-- [ ] Case Context panel: court hearing date + delay + threat report
-- [ ] Visual flow arrow: 4 signals → Baseline → Risk
+- [x] Text Analysis panel: fear keyword highlights
+- [x] Voice Analysis panel: waveform icon + "Elevated stress indicator"
+- [x] Behaviour Analysis panel: missed check-ins + engagement metrics
+- [x] Case Context panel: court hearing date + delay + threat report
+- [x] Visual flow arrow: 4 signals → Baseline → Risk
 
 ### 4A — Baseline & Risk Panels
-- [ ] Personal Baseline panel: 28 (baseline) vs 72 (current) vs +44 (change)
-- [ ] Dynamic Risk panel: HIGH badge + 72/100 animated arc + "Elevated" label
-- [ ] Explainability panel: 4 factors with bars (+18 / +14 / +11 / +09)
-- [ ] Processing path badge: "Fast Crisis Path" or "Deep AI Path"
+- [x] Personal Baseline panel: 28 (baseline) vs 72 (current) vs +44 (change)
+- [x] Dynamic Risk panel: HIGH badge + 72/100 animated arc + "Elevated" label
+- [x] Explainability panel: 4 factors with bars (+18 / +14 / +11 / +09)
+- [x] Processing path badge: "Fast Crisis Path" or "Deep AI Path"
 
 ### 4B — Auto-Play Sequence
-- [ ] Click `Analyse Incoming Signals →` → banner disappears, sequence starts
-- [ ] "Processing signals..." skeleton appears (not instant data)
-- [ ] Signal panels fill in sequentially (~1.5s each)
-- [ ] Fusion arrow pulses + "Analysing..." loader
-- [ ] Distress count-up: 28 → 72 (animated, not instant)
-- [ ] Risk badge animates LOW → HIGH (pulse effect)
-- [ ] Explainability factors slide in one by one
-- [ ] Toast notification: "⚠ HIGH RISK alert created for #USR-7844"
-- [ ] Human Review panel slides in
+- [x] Click `Analyse Incoming Signals →` → banner disappears, sequence starts
+- [x] "Processing signals..." skeleton appears (not instant data)
+- [x] Signal panels fill in sequentially (~1.5s each)
+- [x] Fusion arrow pulses + "Analysing..." loader
+- [x] Distress count-up: 28 → 72 (animated, not instant)
+- [x] Risk badge animates LOW → HIGH (pulse effect)
+- [x] Explainability factors slide in one by one
+- [x] Toast notification: "⚠ HIGH RISK alert created for #USR-7844"
+- [x] Human Review panel slides in
 - [ ] APPROVE click → intervention cards animate in
 - [ ] Distress counts down: 72 → 49
 - [ ] Risk badge flips HIGH → MEDIUM
 - [ ] "Outcome improved · Continue monitoring" green banner
 
 ### 4B — Reset
-- [ ] `↺ Reset to initial state` link present at page bottom
-- [ ] Style: `text-xs text-slate-400` — barely visible
-- [ ] Click resets all state, banner reappears
-- [ ] NO visible demo controller / step buttons / state labels anywhere
+- [x] `↺ Reset to initial state` link present at page bottom
+- [x] Style: `text-xs text-slate-400` — barely visible
+- [x] Click resets all state, banner reappears
+- [x] NO visible demo controller / step buttons / state labels anywhere
 
 ### Demo Realism Check
 - [ ] Watch the full sequence — does it look like a real AI system? YES / NO
@@ -341,6 +341,7 @@ Status: [ ] PASS — proceed to Phase 5
         [ ] FAIL — list issues below
 
 Issues:
+Browser check on 2026-09-30 watched the sequence through Human review. The distress figure moved 28 → 29 → 57 → 72, not an instant swap. Reset brought the banner back. The APPROVE click was skipped, so the 72 → 49 outcome steps are still open.
 
 
 ```
@@ -443,7 +444,7 @@ Issues:
 | 1 | Login & Role Selection | ✅ PASS |
 | 2 | Victim Portal | ⬜ SCREENS VERIFIED · FIGMA OPEN |
 | 3 | Officer Dashboard | ⬜ SCREENS VERIFIED · FIGMA OPEN |
-| 4 | AI Risk Analysis & Demo Engine | ⬜ NOT STARTED |
+| 4 | AI Risk Analysis & Demo Engine | ⬜ IN REVIEW · APPROVE OPEN |
 | 5 | Outcome, Monitoring & Polish | ⬜ NOT STARTED |
 
 > Update this table as phases are completed. Change ⬜ to ✅ PASS or ❌ FAIL.

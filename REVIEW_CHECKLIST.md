@@ -251,15 +251,15 @@ For each phase:
 ### Screen 4A: AI Risk Analysis Tab
 **Route:** `/officer/cases/nhaa-demo-1042` (Risk Analysis tab)
 
-- [ ] 4 signal panels visible: Text · Voice · Behaviour · Case Context
+- [x] 4 signal panels visible: Text · Voice · Behaviour · Case Context
 - [ ] Each panel has correct icon and signal indicators
-- [ ] Visual flow arrow: 4 signals → Baseline → Risk
-- [ ] Personal Baseline panel: shows 28 (baseline) vs 72 (current) vs +44 (change)
-- [ ] Dynamic Risk panel: "HIGH" badge prominent, 72/100 score, arc/ring animation
-- [ ] "Escalation Risk: Elevated" label
-- [ ] Explainability panel: 4 factors with scores and colored bars
-- [ ] "+18 Increased fear indicators" · "+14 Missed check-ins" · "+11 Safety concern" · "+09 Court hearing"
-- [ ] "Fast Crisis Path" or "Deep AI Path" processing badge
+- [x] Visual flow arrow: 4 signals → Baseline → Risk
+- [x] Personal Baseline panel: shows 28 (baseline) vs 72 (current) vs +44 (change)
+- [x] Dynamic Risk panel: "HIGH" badge prominent, 72/100 score, arc/ring animation
+- [x] "Escalation Risk: Elevated" label
+- [x] Explainability panel: 4 factors with scores and colored bars
+- [x] "+18 Increased fear indicators" · "+14 Missed check-ins" · "+11 Safety concern" · "+09 Court hearing"
+- [x] "Fast Crisis Path" or "Deep AI Path" processing badge
 
 ### Screen 4B: Demo Simulation Panel
 
@@ -283,7 +283,7 @@ For each phase:
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — Auto-play replaces the old 13-button demo panel (PHASE_PLAN.md). Browser: banner, Processing signals, four panels, Analysing arrow, count 28 → 72, HIGH, factors, toast, Human review, and Reset back to the banner. Voice has a waveform; the other panels are text only, so the icon line stays open. APPROVE was not clicked, so 72 → 49 and the outcome banner are still open. No step buttons or "demo mode" label.
 ```
 
 ---
@@ -364,7 +364,7 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 | Phase 1 — Login | ✅ PASS | Implementation review | 2026-09-30 |
 | Phase 2 — Victim Portal | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
 | Phase 3 — Officer Dashboard | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
-| Phase 4 — AI Risk Analysis | ⬜ PENDING | | |
+| Phase 4 — AI Risk Analysis | ⬜ APPROVE OPEN | Implementation review | 2026-09-30 |
 | Phase 5 — Outcome & Polish | ⬜ PENDING | | |
 
 **Prototype ready for video recording:** ⬜ NO
