@@ -52,10 +52,10 @@ export default function TokensTestPage() {
         <section>
           <h2 className="font-heading text-xl font-bold text-text-primary mb-4">Typography</h2>
           <div className="space-y-2">
-            <p className="font-heading text-4xl font-bold text-text-primary">Space Grotesk Bold — Heading 2XL</p>
-            <p className="font-heading text-2xl font-bold text-text-primary">Space Grotesk Bold — Heading LG</p>
-            <p className="font-heading text-5xl font-bold text-text-primary">128</p>
-            <p className="text-base text-text-primary">Inter Regular — Body Large — The quiet signal before the crisis</p>
+            <p className="font-heading text-display-2xl font-bold text-text-primary">Space Grotesk Bold — Display 2XL · 40px</p>
+            <p className="font-heading text-heading-xl font-bold text-text-primary">Space Grotesk Bold — Heading XL · 32px</p>
+            <p className="font-heading text-display-2xl font-bold text-text-primary">128</p>
+            <p className="text-body-lg text-text-primary">Inter Regular — Body Large — The quiet signal before the crisis</p>
             <p className="text-sm text-text-secondary">Inter Regular — Body Small — Secondary text</p>
             <p className="text-xs text-text-muted">Inter Regular — Caption — Muted text</p>
           </div>
@@ -160,6 +160,25 @@ export default function TokensTestPage() {
           </p>
         </section>
 
+        {/* ── SideNav ── */}
+        <section>
+          <h2 className="font-heading text-xl font-bold text-text-primary mb-4">SideNav</h2>
+          <div className="flex gap-6 items-start overflow-x-auto">
+            <div>
+              <p className="text-sm text-text-secondary mb-2">Victim · 5 items + footer</p>
+              <div className="border border-border-default rounded-2xl overflow-hidden">
+                <VictimSideNav embedded />
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-text-secondary mb-2">Officer · 6 items + user chip</p>
+              <div className="border border-border-default rounded-2xl overflow-hidden">
+                <OfficerSideNav embedded />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── TopBar ── */}
         <section>
           <h2 className="font-heading text-xl font-bold text-text-primary mb-4">TopBar</h2>
@@ -185,7 +204,7 @@ export default function TokensTestPage() {
               <p className="text-sm text-accent-lavender">bg-accent-subtle — AI / Risk panels</p>
             </div>
             <div className="bg-bg-dark-chart rounded-2xl p-5">
-              <p className="text-sm text-white">bg-dark-chart — Distress trend chart</p>
+              <p className="text-sm text-text-inverse">bg-dark-chart — Distress trend chart</p>
             </div>
           </div>
         </section>

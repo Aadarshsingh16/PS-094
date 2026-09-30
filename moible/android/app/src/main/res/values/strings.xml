@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SAHAYAK AI</string>
+    <string name="title_activity_main">SAHAYAK AI</string>
+    <string name="package_name">ai.sahayak.prototype</string>
+    <string name="custom_url_scheme">ai.sahayak.prototype</string>
+</resources>

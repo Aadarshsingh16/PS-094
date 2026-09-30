@@ -61,13 +61,13 @@
 ### ✅ PHASE 0 GATE
 
 ```
-Reviewer sign-off: ______________________
-Date: ______________________
-Status: [ ] PASS — proceed to Phase 1
+Reviewer sign-off: Implementation review against REVIEW_CHECKLIST.md
+Date: 2026-09-30
+Status: [x] PASS — proceed to Phase 1
         [ ] FAIL — list issues below
 
 Issues:
-
+None. `/dev/tokens` checked in the browser. Colors, type scale (40px / 32px / 16px), both sidenavs, toggle, metric cards, and quick exit match the gate. Palette classes and inline sidebar widths were replaced with design tokens before sign-off.
 
 ```
 
@@ -78,37 +78,37 @@ Issues:
 **Goal:** All 4 role cards are clickable and route to the correct portal. No real auth.
 
 ### Visual
-- [ ] SAHAYAK AI logo / icon visible
-- [ ] "Your safe space" tagline present
-- [ ] 4 role cards displayed with icon + title + description
-- [ ] Cards have hover state
-- [ ] Language selector visible
+- [x] SAHAYAK AI logo / icon visible
+- [x] "Your safe space" tagline present
+- [x] 4 role cards displayed with icon + title + description
+- [x] Cards have hover state
+- [x] Language selector visible
 
 ### Behaviour
-- [ ] Clicking District Officer → `/officer/dashboard`
-- [ ] Clicking Counsellor → `/officer/dashboard`
-- [ ] Clicking Responder → `/officer/dashboard`
-- [ ] Clicking Administrator → `/admin/settings`
-- [ ] Role stored in `sessionStorage.role`
-- [ ] No authentication required (any click works)
+- [x] Clicking District Officer → `/officer/dashboard`
+- [x] Clicking Counsellor → `/officer/dashboard`
+- [x] Clicking Responder → `/officer/dashboard`
+- [x] Clicking Administrator → `/admin/settings`
+- [x] Role stored in `sessionStorage.role`
+- [x] No authentication required (any click works)
 
 ### Design
-- [ ] Only design system tokens used (no raw hex)
-- [ ] Space Grotesk on heading, Inter on labels
-- [ ] Cards: `bg-surface` + `border` + `rounded-2xl` + `shadow-sm`
+- [x] Only design system tokens used (no raw hex)
+- [x] Space Grotesk on heading, Inter on labels
+- [x] Cards: `bg-surface` + `border` + `rounded-2xl` + `shadow-sm`
 
 ---
 
 ### ✅ PHASE 1 GATE
 
 ```
-Reviewer sign-off: ______________________
-Date: ______________________
-Status: [ ] PASS — proceed to Phase 2
+Reviewer sign-off: Implementation review against REVIEW_CHECKLIST.md
+Date: 2026-09-30
+Status: [x] PASS — proceed to Phase 2
         [ ] FAIL — list issues below
 
 Issues:
-
+None. `/` and `/login` show the role screen. Card clicks stored `sessionStorage.role` and landed on the matching portal entry. District uses `?role=district`. Officer and admin pages are entry points only; their full screens stay in later phases.
 
 ```
 
@@ -437,8 +437,8 @@ Issues:
 
 | Phase | Description | Gate Status |
 |---|---|---|
-| 0 | Scaffold & Design System | ⬜ NOT STARTED |
-| 1 | Login & Role Selection | ⬜ NOT STARTED |
+| 0 | Scaffold & Design System | ✅ PASS |
+| 1 | Login & Role Selection | ✅ PASS |
 | 2 | Victim Portal | ⬜ NOT STARTED |
 | 3 | Officer Dashboard | ⬜ NOT STARTED |
 | 4 | AI Risk Analysis & Demo Engine | ⬜ NOT STARTED |

@@ -61,12 +61,12 @@ export function TopBar({
         {/* Notification bell */}
         <button
           id="notification-bell"
-          className="relative p-2 rounded-xl hover:bg-slate-100 transition-colors"
+          className="relative p-2 rounded-xl hover:bg-nav-hover transition-colors"
           aria-label={`${notificationCount} notifications`}
         >
           <Bell size={20} className="text-text-secondary" />
           {notificationCount > 0 && (
-            <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-risk-critical rounded-full flex items-center justify-center text-white text-[9px] font-bold">
+            <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-risk-critical rounded-full flex items-center justify-center text-text-inverse text-[9px] font-bold">
               {notificationCount > 9 ? "9+" : notificationCount}
             </span>
           )}
@@ -74,7 +74,7 @@ export function TopBar({
 
         {/* Avatar */}
         <div
-          className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-xs font-bold text-brand-primary cursor-pointer"
+          className="w-9 h-9 rounded-full bg-brand-subtle flex items-center justify-center text-xs font-bold text-brand-primary cursor-pointer"
           aria-label={`User ${userInitials}`}
         >
           {userInitials}

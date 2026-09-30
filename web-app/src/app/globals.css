@@ -14,10 +14,29 @@
   --color-brand-primary:   #16A34A;
   --color-brand-secondary: #059669;
   --color-brand-hover:     #15803D;
+  --color-brand-subtle:    #D1FAE5;
 
   /* ── Accent ── */
   --color-accent-lavender: #8B5CF6;
   --color-accent-lavender-light: #EDE9FE;
+
+  /* ── Status toggle (blue ON, grey OFF) ── */
+  --color-status-on:  #2563EB;
+  --color-status-off: #CBD5E1;
+
+  /* ── Nav + info surfaces ── */
+  --color-nav-active: #ECFDF5;
+  --color-nav-hover:  #F1F5F9;
+  --color-info-bg:    #EFF6FF;
+  --color-info-text:  #1D4ED8;
+  --color-info-muted: #2563EB;
+
+  /* ── Inverse text (on filled buttons and badges) ── */
+  --color-text-inverse: #FFFFFF;
+
+  /* ── Quick exit ── */
+  --color-quick-exit:       #0F172A;
+  --color-quick-exit-hover: #1E293B;
 
   /* ── Risk / Status ── */
   --color-risk-critical:    #EF4444;
@@ -52,9 +71,17 @@
   --color-border-default: #E2E8F0;
   --color-border-subtle:  #F1F5F9;
 
-  /* ── Spacing (sidebar widths) ── */
-  --sidebar-victim:  220px;
-  --sidebar-officer: 200px;
+  /* ── Sidebar widths ── */
+  --width-sidebar-victim:  220px;
+  --width-sidebar-officer: 200px;
+
+  /* ── Type scale (Figma) ── */
+  --text-display-2xl: 2.5rem;
+  --text-display-2xl--line-height: 1.15;
+  --text-heading-xl: 2rem;
+  --text-heading-xl--line-height: 1.2;
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.5;
 }
 
 /* ─── Base ─── */
@@ -75,4 +102,4 @@ h1, h2, h3, h4, h5, h6,
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb { background: var(--color-status-off); border-radius: 9999px; }

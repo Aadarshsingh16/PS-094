@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cap:sync": "npm run sync --prefix ../moible"
   },
   "dependencies": {
     "framer-motion": "^13.4.6",

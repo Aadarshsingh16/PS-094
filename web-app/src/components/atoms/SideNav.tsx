@@ -29,6 +29,10 @@ const officerNavItems = [
   { label: "Settings",      href: "/officer/settings",       Icon: Settings },
 ];
 
+interface SideNavFrameProps {
+  embedded?: boolean;
+}
+
 interface NavItemProps {
   label: string;
   href: string;
@@ -43,8 +47,8 @@ function NavItem({ label, href, Icon, active }: NavItemProps) {
       className={`
         flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors
         ${active
-          ? "bg-emerald-50 text-brand-primary"
-          : "text-text-secondary hover:bg-slate-100 hover:text-text-primary"
+          ? "bg-nav-active text-brand-primary"
+          : "text-text-secondary hover:bg-nav-hover hover:text-text-primary"
         }
       `}
     >
@@ -55,19 +59,20 @@ function NavItem({ label, href, Icon, active }: NavItemProps) {
 }
 
 /* ─── Victim Sidebar ─── */
-export function VictimSideNav() {
+export function VictimSideNav({ embedded = false }: SideNavFrameProps) {
   const pathname = usePathname();
 
   return (
     <aside
-      className="fixed left-0 top-0 h-full bg-bg-primary border-r border-border-default flex flex-col"
-      style={{ width: "220px" }}
+      className={`bg-bg-primary border-r border-border-default flex flex-col w-sidebar-victim ${
+        embedded ? "relative h-[720px] shrink-0" : "fixed left-0 top-0 h-full"
+      }`}
     >
       {/* Logo */}
       <div className="px-4 py-5 border-b border-border-subtle">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center">
-            <span className="text-white font-bold text-sm font-heading">S</span>
+            <span className="text-text-inverse font-bold text-sm font-heading">S</span>
           </div>
           <div>
             <div className="font-heading font-bold text-text-primary text-sm leading-tight">SAHAYAK</div>
@@ -90,12 +95,12 @@ export function VictimSideNav() {
       {/* Footer */}
       <div className="px-3 pb-4 flex flex-col gap-3">
         {/* Helpline card */}
-        <div className="bg-blue-50 rounded-xl p-3">
-          <div className="flex items-center gap-2 text-blue-700 text-xs font-medium mb-0.5">
+        <div className="bg-info-bg rounded-xl p-3">
+          <div className="flex items-center gap-2 text-info-text text-xs font-medium mb-0.5">
             <Phone size={12} />
             Need a person?
           </div>
-          <p className="text-blue-600 text-xs">Call 14566, free, any time.</p>
+          <p className="text-info-muted text-xs">Call 14566, free, any time.</p>
         </div>
 
         {/* Quick exit */}
@@ -103,7 +108,7 @@ export function VictimSideNav() {
 
         {/* User chip */}
         <div className="flex items-center gap-2 px-1 pt-1 border-t border-border-subtle">
-          <div className="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-text-secondary">
+          <div className="w-7 h-7 rounded-full bg-border-default flex items-center justify-center text-xs font-bold text-text-secondary">
             AS
           </div>
           <div>
@@ -117,7 +122,7 @@ export function VictimSideNav() {
 }
 
 /* ─── Officer Sidebar ─── */
-interface OfficerSideNavProps {
+interface OfficerSideNavProps extends SideNavFrameProps {
   userName?: string;
   userRole?: string;
   userLocation?: string;
@@ -129,19 +134,21 @@ export function OfficerSideNav({
   userRole = "Counsellor",
   userLocation = "Ghaziabad",
   initials = "PS",
+  embedded = false,
 }: OfficerSideNavProps) {
   const pathname = usePathname();
 
   return (
     <aside
-      className="fixed left-0 top-0 h-full bg-bg-primary border-r border-border-default flex flex-col"
-      style={{ width: "200px" }}
+      className={`bg-bg-primary border-r border-border-default flex flex-col w-sidebar-officer ${
+        embedded ? "relative h-[720px] shrink-0" : "fixed left-0 top-0 h-full"
+      }`}
     >
       {/* Logo */}
       <div className="px-4 py-5 border-b border-border-subtle">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center">
-            <span className="text-white font-bold text-sm font-heading">S</span>
+            <span className="text-text-inverse font-bold text-sm font-heading">S</span>
           </div>
           <div>
             <div className="font-heading font-bold text-text-primary text-sm leading-tight">SAHAYAK AI</div>
@@ -164,7 +171,7 @@ export function OfficerSideNav({
       {/* User chip */}
       <div className="px-3 pb-5 border-t border-border-subtle pt-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-xs font-bold text-brand-primary">
+          <div className="w-8 h-8 rounded-full bg-brand-subtle flex items-center justify-center text-xs font-bold text-brand-primary">
             {initials}
           </div>
           <div className="min-w-0">

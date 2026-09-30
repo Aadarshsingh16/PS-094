@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 web-app/node_modules/
+moible/node_modules/
 
 # Next.js build
 .next/

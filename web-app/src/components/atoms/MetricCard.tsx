@@ -54,7 +54,7 @@ function TrendChip({ value, direction }: TrendChipProps) {
   const colors = {
     up: "text-risk-critical-text bg-risk-critical-bg",
     down: "text-risk-low-text bg-risk-low-bg",
-    neutral: "text-text-secondary bg-slate-100",
+    neutral: "text-text-secondary bg-nav-hover",
   };
   const arrows = { up: "▲", down: "▼", neutral: "▶" };
   return (
@@ -94,7 +94,7 @@ export function MetricCard({
         <div>
           <div className="font-heading text-3xl font-bold text-text-primary">{value}</div>
           {chip && <div className="mt-1"><TrendChip {...chip} /></div>}
-          {subLabel && <div className="text-xs text-text-muted mt-1">{subLabel}</div>}
+          {subLabel && !progressBar && <div className="text-xs text-text-muted mt-1">{subLabel}</div>}
         </div>
         {sparklineData && (
           <MiniSparkline data={sparklineData} color={sparklineColor} />
@@ -103,15 +103,20 @@ export function MetricCard({
 
       {progressBar && (
         <div>
-          <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all"
-              style={{
-                width: `${(progressBar.value / progressBar.max) * 100}%`,
-                backgroundColor: progressBar.color ?? "var(--color-brand-primary)",
-              }}
+          <svg
+            viewBox="0 0 100 8"
+            className="w-full h-2"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <rect width="100" height="8" rx="4" className="fill-border-default" />
+            <rect
+              width={(progressBar.value / progressBar.max) * 100}
+              height="8"
+              rx="4"
+              fill={progressBar.color ?? "var(--color-brand-primary)"}
             />
-          </div>
+          </svg>
           {subLabel && (
             <div className="text-xs text-text-muted mt-1">{subLabel}</div>
           )}

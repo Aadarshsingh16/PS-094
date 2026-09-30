@@ -23,38 +23,38 @@ For each phase:
 **Route:** `/dev/tokens` (a dedicated test page showing all atoms)
 
 ### Color Tokens
-- [ ] All 13 design tokens defined in `tailwind.config.ts`
-- [ ] No raw hex values used in any component file
-- [ ] Risk colors: Critical=red, High=orange, Medium=yellow, Low=green (matches Figma)
-- [ ] Brand primary = emerald-600 (#16A34A) ✓
-- [ ] Lavender accent = #8B5CF6 ✓
-- [ ] bg-surface (#F8FAFC) distinguishable from bg-primary (#FFFFFF) ✓
+- [x] All 13 design tokens defined in `tailwind.config.ts`
+- [x] No raw hex values used in any component file
+- [x] Risk colors: Critical=red, High=orange, Medium=yellow, Low=green (matches Figma)
+- [x] Brand primary = emerald-600 (#16A34A) ✓
+- [x] Lavender accent = #8B5CF6 ✓
+- [x] bg-surface (#F8FAFC) distinguishable from bg-primary (#FFFFFF) ✓
 
 ### Typography
-- [ ] Space Grotesk loaded for all headings and numerics
-- [ ] Inter loaded for all body text and labels
-- [ ] No system fonts (Arial, sans-serif defaults) visible anywhere
-- [ ] Font size scale matches Figma: Display/2XL=40px · Heading/XL=32px · Body/LG=16px
+- [x] Space Grotesk loaded for all headings and numerics
+- [x] Inter loaded for all body text and labels
+- [x] No system fonts (Arial, sans-serif defaults) visible anywhere
+- [x] Font size scale matches Figma: Display/2XL=40px · Heading/XL=32px · Body/LG=16px
 
 ### Atom Components
-- [ ] `RiskBadge` renders Critical/High/Medium/Low with correct bg+text colors
-- [ ] `StatusToggle` shows blue active state, grey inactive
-- [ ] `MetricCard` shows stat, sparkline, trend chip — correct layout
-- [ ] `QuickExit` renders as black button, bottom of sidebar
-- [ ] `SideNav` — victim variant has 5 nav items + footer
-- [ ] `SideNav` — officer variant has 6 nav items + user chip footer
-- [ ] `TopBar` shows search bar, bell icon, avatar
+- [x] `RiskBadge` renders Critical/High/Medium/Low with correct bg+text colors
+- [x] `StatusToggle` shows blue active state, grey inactive
+- [x] `MetricCard` shows stat, sparkline, trend chip — correct layout
+- [x] `QuickExit` renders as black button, bottom of sidebar
+- [x] `SideNav` — victim variant has 5 nav items + footer
+- [x] `SideNav` — officer variant has 6 nav items + user chip footer
+- [x] `TopBar` shows search bar, bell icon, avatar
 
 ### Mock Data
-- [ ] `cases.json` — 4 cases with correct fields (caseId, stage, risk, distress, etc.)
-- [ ] `alerts.json` — 7 alerts with severity and SLA fields
-- [ ] `interventions.json` — at least 3 intervention records
-- [ ] `checkins.json` — 7-day history for Asha
-- [ ] `riskTimeline.json` — W1–W8 scores for demo case
+- [x] `cases.json` — 4 cases with correct fields (caseId, stage, risk, distress, etc.)
+- [x] `alerts.json` — 7 alerts with severity and SLA fields
+- [x] `interventions.json` — at least 3 intervention records
+- [x] `checkins.json` — 7-day history for Asha
+- [x] `riskTimeline.json` — W1–W8 scores for demo case
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — PASS. Tokens live in globals.css @theme (Tailwind v4; there is no tailwind.config.ts). Browser check at /dev/tokens: brand #16A34A, critical #EF4444, high #F97316, medium #EAB308, low #22C55E, accent subtle #EDE9FE, surface #F8FAFC vs page #FFFFFF. Display 40px Space Grotesk, heading 32px, body 16px Inter. Victim sidenav 220px / 5 links, officer 200px / 6 links. Toggle ON rgb(37, 99, 235), OFF rgb(203, 213, 225).
 ```
 
 ---
@@ -64,30 +64,30 @@ For each phase:
 **Route:** `/login`
 
 ### Visual
-- [ ] SAHAYAK AI logo visible (or placeholder icon)
-- [ ] "Your safe space" tagline present
-- [ ] 4 role cards displayed: District Officer · Counsellor · Responder · Administrator
-- [ ] Each card has icon, title, description
-- [ ] Cards are clickable with hover state
-- [ ] Language selector visible
+- [x] SAHAYAK AI logo visible (or placeholder icon)
+- [x] "Your safe space" tagline present
+- [x] 4 role cards displayed: District Officer · Counsellor · Responder · Administrator
+- [x] Each card has icon, title, description
+- [x] Cards are clickable with hover state
+- [x] Language selector visible
 
 ### Behaviour
-- [ ] Clicking "District Officer" → routes to `/officer/dashboard`
-- [ ] Clicking "Counsellor" → routes to `/officer/dashboard`
-- [ ] Clicking "Responder" → routes to `/officer/dashboard`
-- [ ] Clicking "Administrator" → routes to `/admin/settings`
-- [ ] Session role stored in `sessionStorage.role`
-- [ ] Back navigation works correctly
+- [x] Clicking "District Officer" → routes to `/officer/dashboard`
+- [x] Clicking "Counsellor" → routes to `/officer/dashboard`
+- [x] Clicking "Responder" → routes to `/officer/dashboard`
+- [x] Clicking "Administrator" → routes to `/admin/settings`
+- [x] Session role stored in `sessionStorage.role`
+- [x] Back navigation works correctly
 
 ### Design System Compliance
-- [ ] All colors from token set only
-- [ ] Space Grotesk used for headings
-- [ ] Inter used for labels
-- [ ] Card styling: bg-surface · border · rounded-2xl · shadow-sm
+- [x] All colors from token set only
+- [x] Space Grotesk used for headings
+- [x] Inter used for labels
+- [x] Card styling: bg-surface · border · rounded-2xl · shadow-sm
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — PASS. Browser check: logo, tagline, language (English / Hindi / Regional), name field, four cards. Heading is Space Grotesk 40px. Cards are #F8FAFC, 1px border, 16px radius, shadow-sm, hover border uses brand-primary. Clicks: district → /officer/dashboard/?role=district (role district, name stored), counsellor → /officer/dashboard/ (role counsellor), responder → /officer/dashboard/ (role responder), administrator → /admin/settings/ (role administrator). Back link and browser back return to /login. Trailing slashes come from the static export used by Capacitor. Officer and admin screens are portal entry points, not the Phase 3 dashboard.
 ```
 
 ---
@@ -359,8 +359,8 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 
 | Phase | Status | Reviewer | Date |
 |---|---|---|---|
-| Phase 0 — Design System | ⬜ PENDING | | |
-| Phase 1 — Login | ⬜ PENDING | | |
+| Phase 0 — Design System | ✅ PASS | Implementation review | 2026-09-30 |
+| Phase 1 — Login | ✅ PASS | Implementation review | 2026-09-30 |
 | Phase 2 — Victim Portal | ⬜ PENDING | | |
 | Phase 3 — Officer Dashboard | ⬜ PENDING | | |
 | Phase 4 — AI Risk Analysis | ⬜ PENDING | | |

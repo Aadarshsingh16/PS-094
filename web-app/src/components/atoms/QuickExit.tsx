@@ -16,11 +16,11 @@ export function QuickExit({ redirectUrl = "https://www.google.com" }: QuickExitP
       onClick={handleExit}
       className="
         w-full flex items-center justify-center gap-2
-        bg-slate-900 hover:bg-slate-800
-        text-white text-sm font-medium
+        bg-quick-exit hover:bg-quick-exit-hover
+        text-text-inverse text-sm font-medium
         rounded-xl px-4 py-2.5
         transition-colors duration-150
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-white
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-text-inverse
       "
       aria-label="Quick exit — leave this site immediately"
     >
