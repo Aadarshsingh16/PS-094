@@ -34,11 +34,15 @@ export function DistressTrend({ data, highlightWeek, highlightScore }: DistressT
         />
         <YAxis hide domain={[0, 100]} />
         <Tooltip
-          contentStyle={{
-            background: "var(--color-bg-primary)",
-            borderRadius: 12,
-            border: "1px solid var(--color-border-default)",
-            color: "var(--color-text-primary)",
+          content={({ active, payload, label }) => {
+            if (!active || !payload?.length) return null;
+            const point = payload[0];
+            return (
+              <div className="rounded-xl border border-border-default bg-bg-primary px-3 py-2 text-sm text-text-primary">
+                <p>{label}</p>
+                <p className="font-heading font-bold">{point && "value" in point ? String(point.value) : ""}</p>
+              </div>
+            );
           }}
         />
         <Line
