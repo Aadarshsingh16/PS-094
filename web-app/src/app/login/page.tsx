@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { HeartHandshake, Landmark, Settings, Shield } from "lucide-react";
+import { HeartHandshake, Landmark, Settings, Shield, User } from "lucide-react";
 import { enterPortal, PORTAL_ROLES, type PortalRoleId } from "@/lib/roles";
 
 const ROLE_ICONS = {
+  victim: User,
   district: Landmark,
   counsellor: HeartHandshake,
   responder: Shield,

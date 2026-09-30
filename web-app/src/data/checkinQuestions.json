@@ -16,13 +16,13 @@
     "id": "sleep",
     "category": "SLEEP",
     "prompt": "How well did you sleep last night?",
-    "heard": "I kept waking up. Tomorrow feels heavy.",
+    "heard": "“I slept only two hours. I kept waking up thinking about the hearing.”",
     "options": [
       "Very well",
       "Fairly well",
-      "Light or broken sleep",
-      "Very little",
-      "I did not sleep"
+      "Not very well",
+      "Poorly",
+      "I could not sleep"
     ]
   },
   {

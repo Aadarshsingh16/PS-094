@@ -1,4 +1,5 @@
 export type PortalRoleId =
+  | "victim"
   | "district"
   | "counsellor"
   | "responder"
@@ -12,6 +13,12 @@ export interface PortalRole {
 }
 
 export const PORTAL_ROLES: PortalRole[] = [
+  {
+    id: "victim",
+    title: "Asha (Victim Portal)",
+    description: "Threatened Witness · Safe daily check-in, case journey & private support.",
+    href: "/victim/home",
+  },
   {
     id: "district",
     title: "District Officer",
