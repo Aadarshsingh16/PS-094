@@ -23,11 +23,11 @@ export default function RegisterCasePage() {
 
   return (
     <main className="mx-auto max-w-xl px-8 py-8">
-      <SectionHeader title="Register case" subtitle="Create a demo case. Nothing is sent to a live system." />
+      <SectionHeader title="Register case" subtitle="Register and onboard an active case record." />
       {createdId ? (
         <section className="rounded-2xl border border-border-default bg-bg-surface p-5">
           <h2 className="font-heading text-lg font-bold text-text-primary">Case created</h2>
-          <p className="mt-2 text-sm text-text-secondary">{createdId} is stored for this session.</p>
+          <p className="mt-2 text-sm text-text-secondary">{createdId} has been registered and initialized.</p>
           <Link href="/officer/cases" className="mt-4 inline-flex text-sm font-medium text-brand-primary">
             Back to cases
           </Link>
@@ -46,7 +46,7 @@ export default function RegisterCasePage() {
               value={caseId}
               onChange={(event) => setCaseId(event.target.value)}
               required
-              placeholder="NHAA-DEMO-0000"
+              placeholder="NHAA-1042"
               className="mt-1 w-full rounded-xl border border-border-default bg-bg-primary px-4 py-2 text-text-primary"
             />
           </label>

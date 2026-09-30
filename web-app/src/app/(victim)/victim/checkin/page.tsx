@@ -7,7 +7,7 @@ import { ArrowLeft, Check, Lock, Mic, Volume2 } from "lucide-react";
 import questions from "@/data/checkinQuestions.json";
 import { saveCheckinAnswers } from "@/lib/checkin";
 
-type Mode = "tap" | "voice" | "chat";
+type Mode = "tap" | "voice";
 
 function minutesLeft(index: number, total: number) {
   return Math.max(1, Math.ceil((total - index) / 3));
@@ -32,7 +32,7 @@ export default function CheckinPage() {
     // Check url search params for mode
     const searchParams = new URLSearchParams(window.location.search);
     const m = searchParams.get("mode") as Mode;
-    if (m === "tap" || m === "voice" || m === "chat") {
+    if (m === "tap" || m === "voice") {
       setMode(m);
     }
   }, []);
@@ -234,9 +234,9 @@ export default function CheckinPage() {
 
       {/* Right Aside Panel matching Frame 2 */}
       <aside className="flex w-84 shrink-0 flex-col gap-5 border-l border-border-default bg-bg-primary p-6">
-        {/* Mode Tabs */}
-        <div className="grid grid-cols-3 rounded-full bg-slate-100 p-1">
-          {(["tap", "voice", "chat"] as const).map((item) => (
+        {/* Mode Tabs: Tap and Voice only */}
+        <div className="grid grid-cols-2 rounded-full bg-slate-100 p-1">
+          {(["tap", "voice"] as const).map((item) => (
             <button
               key={item}
               type="button"
@@ -247,7 +247,7 @@ export default function CheckinPage() {
                   : "text-text-muted hover:text-text-secondary"
               }`}
             >
-              {item === "tap" ? <span>⌨</span> : item === "voice" ? <span>🎙</span> : <span>💬</span>}
+              {item === "tap" ? <span>⌨</span> : <span>🎙</span>}
               <span>{item}</span>
             </button>
           ))}
@@ -334,13 +334,7 @@ export default function CheckinPage() {
 
         {mode === "tap" ? (
           <div className="rounded-2xl border border-border-default bg-bg-surface p-4 text-xs text-text-secondary leading-relaxed">
-            Tap any answer option on the left. You can change your selection at any time before proceeding.
-          </div>
-        ) : null}
-
-        {mode === "chat" ? (
-          <div className="rounded-2xl border border-border-default bg-bg-surface p-4 text-xs text-text-secondary leading-relaxed">
-            Type your response freely. SAHAYAK AI transcribes and structures your input for your counsellor's human review.
+            Tap any response card on the left. Zero typing required. You can switch to Voice at any time.
           </div>
         ) : null}
 
@@ -352,17 +346,13 @@ export default function CheckinPage() {
           </p>
         </section>
 
-        {/* Prefer to type card matching Frame 2 */}
-        <button
-          type="button"
-          onClick={() => setMode("chat")}
-          className="rounded-2xl bg-bg-accent-subtle p-4 text-left transition hover:bg-purple-100"
-        >
-          <p className="font-heading text-sm font-bold text-text-primary">Prefer to type?</p>
-          <p className="mt-1 text-xs text-text-secondary">
-            Switch to Chat any time — your answers stay in sync.
+        {/* Human Support Notice */}
+        <div className="rounded-2xl bg-bg-accent-subtle p-4 text-left">
+          <p className="font-heading text-sm font-bold text-text-primary">Need a person?</p>
+          <p className="mt-1 text-xs text-text-secondary leading-relaxed">
+            Call free 14566 or request a counsellor callback at any time.
           </p>
-        </button>
+        </div>
       </aside>
     </div>
   );

@@ -5,7 +5,7 @@ export default function OfficerSettingsPage() {
     <main className="px-8 py-8">
       <SectionHeader
         title="Settings"
-        subtitle="Officer preferences stay with the administrator in this prototype."
+        subtitle="Officer preferences and system notifications configuration."
       />
     </main>
   );

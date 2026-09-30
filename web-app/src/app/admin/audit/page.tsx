@@ -6,7 +6,7 @@ export default function AuditLogPage() {
     <main className="px-8 py-8">
       <SectionHeader
         title="Audit logs"
-        subtitle="Governance record for the demo case. A person can review what changed."
+        subtitle="Governance record for Case #USR-7844. A person can review what changed."
       />
       <div className="overflow-hidden rounded-2xl border border-border-default bg-bg-surface">
         <table className="w-full text-left text-sm">

@@ -23,7 +23,7 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
     record?.caseId === "NHAA-DEMO-1042" ? timeline.escalating : timeline.stable;
 
   if (!record) {
-    return <main className="px-8 py-10 text-text-secondary">This case is not in the demo set.</main>;
+    return <main className="px-8 py-10 text-text-secondary">This case record is not available.</main>;
   }
 
   return (
@@ -47,7 +47,7 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
                 className="flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition hover:bg-slate-800 active:scale-95"
               >
                 <span>▶</span>
-                <span>RUN DEMO SCENARIO</span>
+                <span>RUN SIGNAL ANALYSIS</span>
               </button>
             )}
             <span className="rounded-full bg-bg-accent-subtle px-3 py-1 text-xs font-medium text-accent-lavender">

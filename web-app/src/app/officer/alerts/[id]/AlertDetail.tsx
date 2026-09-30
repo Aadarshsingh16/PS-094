@@ -34,7 +34,7 @@ export function AlertDetail({ alertId }: { alertId: string }) {
   }, [seconds]);
 
   if (!alert) {
-    return <main className="px-8 py-10 text-text-secondary">This alert is not in the demo set.</main>;
+    return <main className="px-8 py-10 text-text-secondary">This alert record is not available.</main>;
   }
 
   const factors = record?.riskFactors ?? alert.reasons.map((label) => ({ label, score: 1 }));

@@ -33,7 +33,7 @@ export default function CasesPage() {
     <main className="px-8 py-8">
       <SectionHeader
         title="Cases"
-        subtitle="Four demo cases assigned to Priya Sharma."
+        subtitle="Active cases assigned to Priya Sharma."
         action={
           <Link href="/officer/cases/new" className="rounded-xl bg-brand-primary px-4 py-2 text-sm font-medium text-text-inverse">
             Register case

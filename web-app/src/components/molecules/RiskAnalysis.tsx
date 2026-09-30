@@ -109,7 +109,7 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
             className="flex items-center gap-2.5 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-md transition-all hover:bg-slate-800 active:scale-95"
           >
             <span className="text-xs">▶</span>
-            <span>RUN DEMO SCENARIO</span>
+            <span>RUN SIGNAL ANALYSIS</span>
           </button>
         </section>
       ) : null}

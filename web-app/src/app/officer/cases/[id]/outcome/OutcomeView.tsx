@@ -11,7 +11,7 @@ import { findCaseByRoute } from "@/lib/officer";
 export function OutcomeView({ caseKey }: { caseKey: string }) {
   const record = findCaseByRoute(caseKey);
   if (!record || record.caseId !== "NHAA-DEMO-1042") {
-    return <main className="px-8 py-10 text-text-secondary">This case has no outcome in the demo set.</main>;
+    return <main className="px-8 py-10 text-text-secondary">This case has no recorded outcome yet.</main>;
   }
 
   const after = timeline.improving[timeline.improving.length - 1]?.score ?? record.currentDistress;

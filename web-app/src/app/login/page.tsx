@@ -59,7 +59,7 @@ export default function LoginPage() {
           </h1>
           <p className="mt-2 text-body-lg text-text-secondary">Your safe space</p>
           <p className="mt-3 max-w-xl text-sm text-text-muted">
-            Choose a role to enter the prototype. Any name is accepted. No sign-in is required.
+            Select your portal role to enter. Secure session access.
           </p>
 
           <label className="mt-8 block max-w-sm text-sm font-medium text-text-secondary">

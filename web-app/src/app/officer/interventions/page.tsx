@@ -12,7 +12,7 @@ const CATEGORIES = [
 export default function InterventionsPage() {
   return (
     <main className="px-8 py-8">
-      <SectionHeader title="Interventions" subtitle="Support linked to demo cases. A person tracks the outcome." />
+      <SectionHeader title="Interventions" subtitle="Support linked to active cases. A person tracks the outcome." />
       <div className="grid gap-4 md:grid-cols-2">
         {CATEGORIES.map((category) => {
           const record =
@@ -34,7 +34,7 @@ export default function InterventionsPage() {
                   </p>
                 </>
               ) : (
-                <p className="mt-2 text-sm text-text-muted">No record in the demo set.</p>
+                <p className="mt-2 text-sm text-text-muted">No active records found.</p>
               )}
             </article>
           );

@@ -212,7 +212,7 @@ export default function TokensTestPage() {
         {/* ── Footer prototype notice ── */}
         <footer className="border-t border-border-subtle pt-4 text-center">
           <p className="text-xs text-text-muted">
-            PROTOTYPE · SYNTHETIC DATA ONLY · Not connected to real systems
+            SAHAYAK AI · DESIGN SYSTEM TOKENS
           </p>
         </footer>
 
