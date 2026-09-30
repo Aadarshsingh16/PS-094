@@ -293,42 +293,42 @@ For each phase:
 ### Screen 5A: Outcome Screen
 **Route:** `/officer/cases/nhaa-demo-1042/outcome`
 
-- [ ] Before/After clearly shows 72 → 49
-- [ ] Risk HIGH → MEDIUM shown visually
-- [ ] Animated chart shows distress dropping
-- [ ] "Outcome improved · Continue monitoring" green banner
-- [ ] Follow-up date card visible
+- [x] Before/After clearly shows 72 → 49
+- [x] Risk HIGH → MEDIUM shown visually
+- [x] Animated chart shows distress dropping
+- [x] "Outcome improved · Continue monitoring" green banner
+- [x] Follow-up date card visible
 
 ### Transition & Animation Review
-- [ ] Page navigation has subtle fade/slide transition
-- [ ] Critical risk badge pulses
-- [ ] SLA timer countdown is animated (not static)
-- [ ] Distress score counts up from 0 on page load
-- [ ] Chart bars/lines animate in on load
-- [ ] Demo step transitions: no jarring jumps
-- [ ] "AI Processing" skeleton shows for steps 5–7
+- [x] Page navigation has subtle fade/slide transition
+- [x] Critical risk badge pulses
+- [x] SLA timer countdown is animated (not static)
+- [x] Distress score counts up from 0 on page load
+- [x] Chart bars/lines animate in on load
+- [x] Demo step transitions: no jarring jumps
+- [x] "AI Processing" skeleton shows for steps 5–7
 
 ### Responsiveness
 - [ ] At 1440px: full layout matches Figma
 - [ ] At 1280px: layout still fully functional
-- [ ] At 1024px: sidebar collapses to icon-only
-- [ ] No horizontal scroll at 1024px+
-- [ ] (Mobile NOT required)
+- [x] At 1024px: sidebar collapses to icon-only
+- [x] No horizontal scroll at 1024px+
+- [x] (Mobile NOT required)
 
 ### Ethical / Safety Audit
-- [ ] Zero instances of "diagnoses" in relation to AI
-- [ ] Zero instances of "guarantees"
-- [ ] Zero instances of "AI decides" (always "AI recommends")
-- [ ] Footer shows "PROTOTYPE · SYNTHETIC DATA" notice
-- [ ] No real personal data (names, addresses, case numbers outside demo set)
-- [ ] "Quick exit" button always visible on victim portal
+- [x] Zero instances of "diagnoses" in relation to AI
+- [x] Zero instances of "guarantees"
+- [x] Zero instances of "AI decides" (always "AI recommends")
+- [x] Footer shows "PROTOTYPE · SYNTHETIC DATA" notice
+- [x] No real personal data (names, addresses, case numbers outside demo set)
+- [x] "Quick exit" button always visible on victim portal
 
 ### Code Quality
-- [ ] No `any` TypeScript types in component props
+- [x] No `any` TypeScript types in component props
 - [ ] No inline styles (only Tailwind classes from token set)
-- [ ] No unused imports
-- [ ] All mock data sourced from `/src/data/*.json`
-- [ ] Demo state machine in single file `/src/lib/demoState.ts`
+- [x] No unused imports
+- [x] All mock data sourced from `/src/data/*.json`
+- [x] Demo state machine in single file `/src/lib/demoState.ts`
 
 ### Full Video Path Test
 Run the complete video recording path end-to-end:
@@ -351,7 +351,7 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — Outcome route shows 72 before, 49 after, High and Medium, the green banner, Protection Support on 2026-10-01, and a lime drop chart. Footer reads PROTOTYPE · SYNTHETIC DATA. At 1024px the side rail is 72px and the page does not scroll sideways. Dashboard SLA moved 00:37 → 00:35 and the critical badge uses a pulse. Monitoring chips appear only after the demo reaches the outcome step, which still needs the Phase 4 APPROVE click. The Recharts tooltip still passes a style object.
 ```
 
 ---
@@ -365,7 +365,7 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 | Phase 2 — Victim Portal | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
 | Phase 3 — Officer Dashboard | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
 | Phase 4 — AI Risk Analysis | ⬜ APPROVE OPEN | Implementation review | 2026-09-30 |
-| Phase 5 — Outcome & Polish | ⬜ PENDING | | |
+| Phase 5 — Outcome & Polish | ⬜ MONITORING OPEN | Implementation review | 2026-09-30 |
 
 **Prototype ready for video recording:** ⬜ NO
 

@@ -16,8 +16,8 @@ export function OutcomeView({ caseKey }: { caseKey: string }) {
 
   const after = timeline.improving[timeline.improving.length - 1]?.score ?? record.currentDistress;
   const followUp = interventions
-    .filter((item) => item.caseId === record.caseId && item.status !== "COMPLETED")
-    .sort((a, b) => a.scheduledDate.localeCompare(b.scheduledDate))[0];
+    .filter((item) => item.caseId === record.caseId && item.status !== "COMPLETED" && item.scheduledDate)
+    .sort((a, b) => String(a.scheduledDate).localeCompare(String(b.scheduledDate)))[0];
 
   return (
     <main className="space-y-6 px-8 py-8">

@@ -353,11 +353,11 @@ Browser check on 2026-09-30 watched the sequence through Human review. The distr
 **Goal:** Full video recording path works. Product looks premium and demo-ready.
 
 ### 5A — Outcome Screen
-- [ ] Before/After: 72 → 49 clearly shown
-- [ ] Risk HIGH → MEDIUM badge transition
-- [ ] Animated chart showing distress drop
-- [ ] "Outcome improved · Continue monitoring" green banner
-- [ ] Follow-up date card visible
+- [x] Before/After: 72 → 49 clearly shown
+- [x] Risk HIGH → MEDIUM badge transition
+- [x] Animated chart showing distress drop
+- [x] "Outcome improved · Continue monitoring" green banner
+- [x] Follow-up date card visible
 
 ### 5B — Monitoring State
 - [ ] Dashboard returns to monitoring state after demo
@@ -365,29 +365,29 @@ Browser check on 2026-09-30 watched the sequence through Human review. The distr
 - [ ] Risk trend chart shows downward slope
 
 ### Polish & Animations
-- [ ] Page transitions: subtle fade + slide (Framer Motion)
-- [ ] Critical badge: animated pulse
-- [ ] SLA timer: live countdown (not static number)
-- [ ] Distress score: count-up on page load
-- [ ] All charts: animated entry on mount
-- [ ] Demo step transitions: smooth morphing (not instant swap)
-- [ ] "Processing..." skeleton between analysis steps
-- [ ] Sidebar collapses to icon-only at 1024px
+- [x] Page transitions: subtle fade + slide (Framer Motion)
+- [x] Critical badge: animated pulse
+- [x] SLA timer: live countdown (not static number)
+- [x] Distress score: count-up on page load
+- [x] All charts: animated entry on mount
+- [x] Demo step transitions: smooth morphing (not instant swap)
+- [x] "Processing..." skeleton between analysis steps
+- [x] Sidebar collapses to icon-only at 1024px
 
 ### Ethical / Safety Audit
-- [ ] Zero instances of "diagnoses" (AI context)
-- [ ] Zero instances of "guarantees"
-- [ ] Zero instances of "AI decides"
-- [ ] Footer shows "PROTOTYPE · SYNTHETIC DATA"
-- [ ] No real personal data anywhere
-- [ ] Quick exit always visible on victim portal
+- [x] Zero instances of "diagnoses" (AI context)
+- [x] Zero instances of "guarantees"
+- [x] Zero instances of "AI decides"
+- [x] Footer shows "PROTOTYPE · SYNTHETIC DATA"
+- [x] No real personal data anywhere
+- [x] Quick exit always visible on victim portal
 
 ### Code Audit
-- [ ] No `any` TypeScript types in component props
+- [x] No `any` TypeScript types in component props
 - [ ] No inline styles or raw hex values
-- [ ] No unused imports
-- [ ] All data from `/src/data/*.json` only
-- [ ] Demo state machine in `/src/lib/demoState.ts` only
+- [x] No unused imports
+- [x] All data from `/src/data/*.json` only
+- [x] Demo state machine in `/src/lib/demoState.ts` only
 
 ---
 
@@ -430,6 +430,7 @@ Status: [ ] PROTOTYPE READY FOR VIDEO RECORDING
         [ ] NOT READY — list issues below
 
 Issues:
+Outcome screen checked in the browser: 72 → 49, High and Medium, green banner, follow-up 2026-10-01, lime chart. Sidebar is icon-only at 1024px with no horizontal scroll. Dashboard SLA counted down and the critical badge pulses. Monitoring chips stay hidden until the demo reaches the outcome step, and that still depends on the Phase 4 APPROVE click. The chart tooltip still uses a Recharts style object.
 
 
 ```
@@ -445,6 +446,6 @@ Issues:
 | 2 | Victim Portal | ⬜ SCREENS VERIFIED · FIGMA OPEN |
 | 3 | Officer Dashboard | ⬜ SCREENS VERIFIED · FIGMA OPEN |
 | 4 | AI Risk Analysis & Demo Engine | ⬜ IN REVIEW · APPROVE OPEN |
-| 5 | Outcome, Monitoring & Polish | ⬜ NOT STARTED |
+| 5 | Outcome, Monitoring & Polish | ⬜ IN REVIEW · MONITORING OPEN |
 
 > Update this table as phases are completed. Change ⬜ to ✅ PASS or ❌ FAIL.
