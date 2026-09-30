@@ -8,6 +8,7 @@ import { RiskAnalysis } from "@/components/molecules/RiskAnalysis";
 import alerts from "@/data/alerts.json";
 import interventions from "@/data/interventions.json";
 import timeline from "@/data/riskTimeline.json";
+import { useDemoState } from "@/lib/demoState";
 import { asRisk, findCaseByRoute } from "@/lib/officer";
 
 const TABS = ["Overview", "Risk Analysis", "Interventions", "History"] as const;
@@ -36,6 +37,19 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            {record.caseId === "NHAA-DEMO-1042" && (
+              <button
+                type="button"
+                onClick={() => {
+                  setTab("Risk Analysis");
+                  useDemoState.getState().autoPlay();
+                }}
+                className="flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition hover:bg-slate-800 active:scale-95"
+              >
+                <span>▶</span>
+                <span>RUN DEMO SCENARIO</span>
+              </button>
+            )}
             <span className="rounded-full bg-bg-accent-subtle px-3 py-1 text-xs font-medium text-accent-lavender">
               {record.stage}
             </span>

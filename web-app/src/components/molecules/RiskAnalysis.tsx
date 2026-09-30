@@ -106,9 +106,10 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
           <button
             type="button"
             onClick={autoPlay}
-            className="rounded-xl bg-brand-primary px-5 py-3 text-sm font-medium text-text-inverse"
+            className="flex items-center gap-2.5 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-md transition-all hover:bg-slate-800 active:scale-95"
           >
-            Analyse Incoming Signals →
+            <span className="text-xs">▶</span>
+            <span>RUN DEMO SCENARIO</span>
           </button>
         </section>
       ) : null}
