@@ -170,78 +170,79 @@ For each phase:
 **Route:** `/officer/dashboard`
 **Figma Reference:** Frame 5 (Screenshot 2026-09-30 162310.png)
 
-- [ ] Sidebar: SAHAYAK AI · "Well-being monitoring" · 6 nav items · PS user chip (Priya Sharma · Counsellor · Ghaziabad)
-- [ ] "Good morning, Priya" H1 greeting
-- [ ] Subtitle: "Well-being overview for your 48 assigned cases · Mon, 28 Sep 2026"
-- [ ] Search bar in top bar
-- [ ] Notification bell with badge (1 or 7)
-- [ ] Avatar initials "PS" visible
+- [x] Sidebar: SAHAYAK AI · "Well-being monitoring" · 6 nav items · PS user chip (Priya Sharma · Counsellor · Ghaziabad)
+- [x] "Good morning, Priya" H1 greeting
+- [x] Subtitle: "Well-being overview for your 48 assigned cases · Mon, 28 Sep 2026"
+- [x] Search bar in top bar
+- [x] Notification bell with badge (1 or 7)
+- [x] Avatar initials "PS" visible
 
 **Metric Cards:**
-- [ ] "Assigned cases" card: 48 · "+4 this week" chip · green bar sparkline
-- [ ] "Active alerts" card: 7 · "2 critical" chip · red/pink sparkline
-- [ ] "SLA compliance" card: 94% · "Target 90%" · green bar
-- [ ] "Avg distress score" card: 61 · "+9 vs 14d" · purple sparkline
-- [ ] All 4 cards same height, uniform design
+- [x] "Assigned cases" card: 48 · "+4 this week" chip · green bar sparkline
+- [x] "Active alerts" card: 7 · "2 critical" chip · red/pink sparkline
+- [x] "SLA compliance" card: 94% · "Target 90%" · green bar
+- [x] "Avg distress score" card: 61 · "+9 vs 14d" · purple sparkline
+- [x] All 4 cards same height, uniform design
 
 **Distress Trend Chart:**
-- [ ] Dark background card (bg-slate-900 or similar)
-- [ ] "Distress trend" title in white
-- [ ] "Average across assigned cases" subtitle in muted grey
-- [ ] "Last 8 weeks" dropdown
-- [ ] Large numeral "68" with "9.6%" green trend chip
-- [ ] Line chart: W1–W8 on X-axis, lime-green (#A3E635) line
-- [ ] Data point at W8 = 72 with tooltip visible
+- [x] Dark background card (bg-slate-900 or similar)
+- [x] "Distress trend" title in white
+- [x] "Average across assigned cases" subtitle in muted grey
+- [x] "Last 8 weeks" dropdown
+- [x] Large numeral "68" with "9.6%" green trend chip
+- [x] Line chart: W1–W8 on X-axis, lime-green (#A3E635) line
+- [x] Data point at W8 = 72 with tooltip visible
 
 **Risk Distribution:**
-- [ ] Donut chart, center shows "48" + "active cases"
-- [ ] 4 segments: Critical (red) · High (orange) · Medium (yellow) · Low (green)
-- [ ] Legend with counts and percentages matching Figma
+- [x] Donut chart, center shows "48" + "active cases"
+- [x] 4 segments: Critical (red) · High (orange) · Medium (yellow) · Low (green)
+- [x] Legend with counts and percentages matching Figma
 
 **Priority Cases Table:**
-- [ ] 4 data rows matching Figma
-- [ ] Row 1: #USR-7844 · Threatened Witness · Critical (red dot) · 72 ▲ · 00:42 (red, urgent)
-- [ ] Row 2: #USR-5120 · Sexual Violence · High (orange dot) · 66 ▲ · 01:58
-- [ ] Row 3: #USR-3391 · Caste-based Violence · Medium (yellow dot) · 51 · 03:20
-- [ ] Row 4: #USR-9027 · Serious Violence · Low (green dot) · 34 ▼ · On track
-- [ ] Score column shows trend arrows (▲▼)
-- [ ] SLA timer for #USR-7844 is red/urgent
+- [x] 4 data rows matching Figma
+- [x] Row 1: #USR-7844 · Threatened Witness · Critical (red dot) · 72 ▲ · 00:42 (red, urgent)
+- [x] Row 2: #USR-5120 · Sexual Violence · High (orange dot) · 66 ▲ · 01:58
+- [x] Row 3: #USR-3391 · Caste-based Violence · Medium (yellow dot) · 51 · 03:20
+- [x] Row 4: #USR-9027 · Serious Violence · Low (green dot) · 34 ▼ · On track
+- [x] Score column shows trend arrows (▲▼)
+- [x] SLA timer for #USR-7844 is red/urgent
 
 **"Why Risk Changed" Panel:**
-- [ ] Right panel has lavender background
-- [ ] Header: "Why risk changed"
-- [ ] Sub: "#USR-7844 · 54 → 72 in 14 days"
-- [ ] 6 factor bars with scores (+12 to +4)
-- [ ] Factor labels match Figma: Legal stress, Recent threat indicators, Hearing postponed, Sleep deterioration, Negative language, Reduced engagement
-- [ ] Bars proportional to scores
-- [ ] "RECOMMENDED · HUMAN REVIEW" section with checkmarks
-- [ ] Green "Review & assign" CTA button
+- [x] Right panel has lavender background
+- [x] Header: "Why risk changed"
+- [x] Sub: "#USR-7844 · 54 → 72 in 14 days"
+- [x] 6 factor bars with scores (+12 to +4)
+- [x] Factor labels match Figma: Legal stress, Recent threat indicators, Hearing postponed, Sleep deterioration, Negative language, Reduced engagement
+- [x] Bars proportional to scores
+- [x] "RECOMMENDED · HUMAN REVIEW" section with checkmarks
+- [x] Green "Review & assign" CTA button
 
-- [ ] "Weekly well-being brief" card visible bottom-left
+- [x] "Weekly well-being brief" card visible bottom-left
 
 ### Screen 3C: Case Detail
 **Route:** `/officer/cases/nhaa-demo-1042`
 
-- [ ] Case header shows masked name, Case ID, Stage badge, Consent badge, Risk badge
-- [ ] 4 tabs visible: Overview · Risk Analysis · Interventions · History
-- [ ] Overview tab: case timeline + key risk factors + recent events
-- [ ] Action bar: 3 action buttons
-- [ ] Well-being chart renders with W1–W8 data
+- [x] Case header shows masked name, Case ID, Stage badge, Consent badge, Risk badge
+- [x] 4 tabs visible: Overview · Risk Analysis · Interventions · History
+- [x] Overview tab: case timeline + key risk factors + recent events
+- [x] Action bar: 3 action buttons
+- [x] Well-being chart renders with W1–W8 data
 
 ### Screen 3E: Alert Detail
 **Route:** `/officer/alerts/[id]`
 
-- [ ] Risk level badge prominent at top
-- [ ] "Why risk increased" factor list
-- [ ] SLA timer animated (countdown)
-- [ ] APPROVE button: large, green, prominent
-- [ ] MODIFY and REJECT as secondary buttons
-- [ ] Notes textarea
+- [x] Risk level badge prominent at top
+- [x] "Why risk increased" factor list
+- [x] SLA timer animated (countdown)
+- [x] APPROVE button: large, green, prominent
+- [x] MODIFY and REJECT as secondary buttons
+- [x] Notes textarea
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — Screen items PASS in the browser at 1440px. Dashboard shows Priya, 48 / 7 / 94% / 61, lime distress line with W8 label 72, donut 48 active cases, priority row #USR-7844 Critical 72 ▲ 00:42 in red, lavender why-risk panel, Review & assign. Case row opens detail; four tabs and Schedule Follow-up work. Critical filter leaves one alert. ALT-001 countdown moved 00:40 → 00:39. APPROVE on ALT-004 wrote a human-review confirmation. Interventions show five categories. Reports show trend, donut, and SLA 94% / Target 90%. Frame 5 PNG is not in the repo, so pixel side-by-side is still open. Assign Responder was not clicked.
 ```
+
 
 ---
 
@@ -362,7 +363,7 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 | Phase 0 — Design System | ✅ PASS | Implementation review | 2026-09-30 |
 | Phase 1 — Login | ✅ PASS | Implementation review | 2026-09-30 |
 | Phase 2 — Victim Portal | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
-| Phase 3 — Officer Dashboard | ⬜ PENDING | | |
+| Phase 3 — Officer Dashboard | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
 | Phase 4 — AI Risk Analysis | ⬜ PENDING | | |
 | Phase 5 — Outcome & Polish | ⬜ PENDING | | |
 
