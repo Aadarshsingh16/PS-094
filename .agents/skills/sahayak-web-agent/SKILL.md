@@ -31,6 +31,13 @@ If any question cannot be answered, STOP and ask the user to clarify before proc
 
 ## Hard Rules — NEVER Violate
 
+### 0. Phase Gate Enforcement (HIGHEST PRIORITY)
+Before writing ANY code for a new phase:
+- Open `PHASE_GATES.md`
+- Confirm the previous phase gate is signed off (`[ ] PASS`)
+- If NOT signed off → STOP. Do not write code. Tell the user to complete the gate review first.
+- The agent must never skip or auto-pass a gate.
+
 ### 1. Build Only What's In The Phase
 - Do NOT implement features from future phases
 - Do NOT add "nice to have" features not listed in the current phase deliverables
