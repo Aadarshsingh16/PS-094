@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { DistressTrend } from "@/components/molecules/DistressTrend";
 import signals from "@/data/signals.json";
 import { useDemoState } from "@/lib/demoState";
@@ -278,7 +279,12 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
       ) : null}
 
       {step >= 15 ? (
-        <p className="rounded-2xl bg-brand-subtle px-4 py-3 text-sm font-medium text-brand-primary">{signals.outcome}</p>
+        <Link
+          href="/officer/cases/nhaa-demo-1042/outcome"
+          className="block rounded-2xl bg-brand-subtle px-4 py-3 text-sm font-medium text-brand-primary"
+        >
+          {signals.outcome}
+        </Link>
       ) : null}
 
       <button type="button" onClick={reset} className="text-xs text-text-muted underline">

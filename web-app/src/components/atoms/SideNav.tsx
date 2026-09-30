@@ -95,7 +95,7 @@ export function VictimSideNav({ embedded = false }: SideNavFrameProps) {
       {/* Footer */}
       <div className="px-3 pb-4 flex flex-col gap-3">
         {/* Helpline card */}
-        <div className="bg-info-bg rounded-xl p-3">
+        <div className="side-extra bg-info-bg rounded-xl p-3">
           <div className="flex items-center gap-2 text-info-text text-xs font-medium mb-0.5">
             <Phone size={12} />
             Need a person?

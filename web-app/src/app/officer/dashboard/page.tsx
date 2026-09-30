@@ -1,23 +1,58 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { MetricCard, RiskBadge, TopBar } from "@/components/atoms";
+import { CountUp } from "@/components/molecules/CountUp";
 import { DistressTrend } from "@/components/molecules/DistressTrend";
 import { RiskDonut } from "@/components/molecules/RiskDonut";
 import alerts from "@/data/alerts.json";
 import cases from "@/data/cases.json";
 import dashboard from "@/data/dashboard.json";
+import signals from "@/data/signals.json";
 import timeline from "@/data/riskTimeline.json";
+import { useDemoState } from "@/lib/demoState";
 import { asRisk, casePath, scoreTrend } from "@/lib/officer";
+
+function parseClock(value: string) {
+  const match = /^(\d{2}):(\d{2})$/.exec(value);
+  if (!match) return null;
+  return Number(match[1]) * 60 + Number(match[2]);
+}
+
+function formatClock(total: number) {
+  const minutes = Math.floor(total / 60);
+  const seconds = total % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
+function LiveSla({ value }: { value: string }) {
+  const clock = parseClock(value);
+  const [seconds, setSeconds] = useState(clock);
+
+  useEffect(() => {
+    if (clock === null) return;
+    const timer = setInterval(() => {
+      setSeconds((current) => (current === null || current <= 0 ? 0 : current - 1));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [clock]);
+
+  return <>{seconds === null ? value : formatClock(seconds)}</>;
+}
 
 const ARROWS = { up: "▲", down: "▼", flat: "" };
 
 export default function OfficerDashboardPage() {
   const router = useRouter();
+  const monitoring = useDemoState((state) => state.step) >= 15;
   const metrics = dashboard.metrics;
   const maxFactor = Math.max(...dashboard.whyRisk.factors.map((factor) => factor.score));
+  const trendSeries = monitoring ? timeline.improving : timeline.counsellorDashboard;
+  const trendValue = monitoring ? trendSeries[trendSeries.length - 1]?.score ?? 49 : Number(dashboard.trend.value);
+  const trendHighlight = monitoring ? trendValue : dashboard.trend.highlightScore;
 
   return (
     <div>
@@ -28,6 +63,16 @@ export default function OfficerDashboardPage() {
         userInitials="PS"
         showSearch
       />
+      {monitoring ? (
+        <div className="flex flex-wrap items-center gap-2 px-8 pt-4">
+          <span className="rounded-full bg-brand-subtle px-3 py-1 text-xs font-semibold text-brand-primary">
+            {signals.monitoring}
+          </span>
+          <span className="rounded-full bg-bg-accent-subtle px-3 py-1 text-xs font-medium text-accent-lavender">
+            {signals.nextCheckin}
+          </span>
+        </div>
+      ) : null}
       <div className="space-y-6 px-8 py-6">
         <div className="grid grid-cols-4 gap-4">
           <MetricCard
@@ -80,15 +125,17 @@ export default function OfficerDashboardPage() {
                 </select>
               </div>
               <div className="mt-4 flex items-end gap-3">
-                <span className="font-heading text-display-2xl font-bold">{dashboard.trend.value}</span>
+                <span className="font-heading text-display-2xl font-bold">
+                  <CountUp from={0} to={trendValue} />
+                </span>
                 <span className="mb-2 rounded-full bg-brand-primary px-2 py-0.5 text-xs font-semibold">
                   {dashboard.trend.delta}
                 </span>
               </div>
               <DistressTrend
-                data={timeline.counsellorDashboard}
-                highlightWeek={dashboard.trend.highlightWeek}
-                highlightScore={dashboard.trend.highlightScore}
+                data={trendSeries}
+                highlightWeek="W8"
+                highlightScore={trendHighlight}
               />
             </section>
 
@@ -106,8 +153,11 @@ export default function OfficerDashboardPage() {
                 </thead>
                 <tbody>
                   {cases.map((item) => {
-                    const trend = scoreTrend(item.currentDistress, item.baselineDistress);
-                    const urgent = item.userId === "#USR-7844";
+                    const settled = monitoring && item.userId === "#USR-7844";
+                    const score = settled ? trendValue : item.currentDistress;
+                    const level = settled ? "MEDIUM" : item.riskLevel;
+                    const trend = scoreTrend(score, item.baselineDistress);
+                    const urgent = item.userId === "#USR-7844" && !settled;
                     return (
                       <tr
                         key={item.caseId}
@@ -117,13 +167,13 @@ export default function OfficerDashboardPage() {
                         <td className="py-3 font-medium text-text-primary">{item.userId}</td>
                         <td className="py-3 text-text-secondary">{item.category}</td>
                         <td className="py-3">
-                          <RiskBadge level={asRisk(item.riskLevel)} />
+                          <RiskBadge level={asRisk(level)} />
                         </td>
                         <td className="py-3 font-heading font-bold text-text-primary">
-                          {item.currentDistress} {ARROWS[trend]}
+                          {score} {ARROWS[trend]}
                         </td>
                         <td className={`py-3 font-medium ${urgent ? "text-risk-critical" : "text-text-secondary"}`}>
-                          {item.slaRemaining}
+                          <LiveSla value={item.slaRemaining} />
                         </td>
                       </tr>
                     );
