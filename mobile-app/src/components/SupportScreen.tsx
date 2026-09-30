@@ -14,15 +14,6 @@ export const SupportScreen: React.FC<SupportScreenProps> = ({
 }) => {
   return (
     <div className="min-h-full flex flex-col p-4 pb-24 bg-[#F8FAFC]">
-      {/* Top Header */}
-      <div className="flex justify-between items-center text-xs font-semibold text-slate-800 mb-3 px-1">
-        <span>9:41</span>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-slate-800"></span>
-          <span className="text-[10px]">5G</span>
-        </div>
-      </div>
-
       <div className="flex items-center justify-between mb-4">
         <div>
           <h1 className="text-xl font-bold text-slate-900 tracking-tight">Support Directory</h1>

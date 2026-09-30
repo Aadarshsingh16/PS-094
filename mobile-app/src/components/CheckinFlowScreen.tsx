@@ -98,15 +98,6 @@ export const CheckinFlowScreen: React.FC<CheckinFlowScreenProps> = ({
     <div className="min-h-full flex flex-col justify-between p-4 pb-6 bg-[#F8FAFC]">
       {/* Top Header */}
       <div>
-        {/* Status Bar simulation */}
-        <div className="flex justify-between items-center text-xs font-semibold text-slate-800 mb-3 px-1">
-          <span>9:41</span>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-slate-800"></span>
-            <span className="text-[10px]">5G</span>
-          </div>
-        </div>
-
         {/* Navigation & Quick Exit Bar */}
         <div className="flex items-center justify-between mb-4">
           <button

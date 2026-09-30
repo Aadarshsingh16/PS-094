@@ -18,15 +18,6 @@ export const WelcomeSafeScreen: React.FC<WelcomeSafeScreenProps> = ({
     <div className="min-h-full flex flex-col justify-between p-5 pb-8 bg-[#F8FAFC]">
       {/* Top Header */}
       <div>
-        {/* Status Bar simulation time */}
-        <div className="flex justify-between items-center text-xs font-semibold text-slate-800 mb-4 px-1">
-          <span>9:41</span>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-slate-800"></span>
-            <span className="text-[10px]">5G</span>
-          </div>
-        </div>
-
         {/* Brand Bar */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">

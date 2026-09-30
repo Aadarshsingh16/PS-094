@@ -41,9 +41,9 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-800 flex flex-col items-center justify-center p-0 sm:p-4 select-none">
+    <div className="min-h-screen bg-slate-100 text-slate-800 flex flex-col items-center justify-start select-none">
       {/* Floating Demo Control Header (Desktop/Testing) */}
-      <aside aria-label="Demo controls" className="w-full max-w-md hidden sm:flex items-center justify-between mb-3 px-3 py-2 bg-slate-800/90 backdrop-blur-md rounded-2xl border border-slate-700/80 shadow-md text-white text-xs">
+      <aside aria-label="Demo controls" className="w-full max-w-md hidden sm:flex items-center justify-between my-2 px-3 py-2 bg-slate-800/90 backdrop-blur-md rounded-2xl border border-slate-700/80 shadow-md text-white text-xs">
         <div className="flex items-center gap-2">
           <span className="font-heading font-bold tracking-tight text-blue-400">SAHAYAK</span>
           <span className="text-slate-400">· Mobile App</span>
@@ -76,33 +76,14 @@ export function App() {
               Counsellor App
             </button>
           </div>
-
-          <button
-            onClick={() => setIsPhoneFrame(!isPhoneFrame)}
-            title={isPhoneFrame ? "Fullscreen view" : "Phone frame view"}
-            className="p-1.5 rounded-lg bg-slate-700/70 hover:bg-slate-700 text-slate-300"
-          >
-            {isPhoneFrame ? <Maximize2 className="w-3.5 h-3.5" /> : <Minimize2 className="w-3.5 h-3.5" />}
-          </button>
         </div>
       </aside>
 
-      {/* Mobile Device Frame Container */}
-      <div 
-        className={`w-full overflow-hidden transition-all duration-300 bg-white relative shadow-2xl flex flex-col ${
-          isPhoneFrame 
-            ? 'max-w-[420px] h-[92vh] max-h-[890px] sm:rounded-[44px] sm:border-[8px] sm:border-slate-800' 
-            : 'max-w-md h-screen rounded-none'
-        }`}
-      >
-        {/* Dynamic Island / Notch Simulation on mobile frame */}
-        <div className="hidden sm:flex justify-center pt-2 pb-1 bg-inherit z-40">
-          <div className="w-24 h-4 rounded-full bg-slate-800"></div>
-        </div>
-
+      {/* Main Responsive App Container */}
+      <div className="w-full max-w-md min-h-screen sm:min-h-[90vh] bg-white relative shadow-xl flex flex-col sm:rounded-3xl overflow-hidden border-0 sm:border sm:border-slate-200">
         {/* Call Toast Notification */}
         {callToast && (
-          <div className="absolute top-12 left-4 right-4 z-50 p-3.5 rounded-2xl bg-slate-900/95 text-white flex items-center justify-between text-xs font-semibold shadow-2xl border border-slate-700 animate-slideDown">
+          <div className="absolute top-4 left-4 right-4 z-50 p-3.5 rounded-2xl bg-slate-900/95 text-white flex items-center justify-between text-xs font-semibold shadow-2xl border border-slate-700 animate-slideDown">
             <div className="flex items-center gap-2.5">
               <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center animate-pulse">
                 <PhoneCall className="w-3.5 h-3.5 text-white" />

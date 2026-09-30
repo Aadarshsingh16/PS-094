@@ -17,15 +17,6 @@ export const CheckinSummaryScreen: React.FC<CheckinSummaryScreenProps> = ({
   return (
     <div className="min-h-full flex flex-col justify-between p-4 pb-8 bg-[#F8FAFC]">
       <div>
-        {/* Status Bar simulation */}
-        <div className="flex justify-between items-center text-xs font-semibold text-slate-800 mb-3 px-1">
-          <span>9:41</span>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-slate-800"></span>
-            <span className="text-[10px]">5G</span>
-          </div>
-        </div>
-
         {/* Top Quick Exit */}
         <div className="flex justify-end mb-4">
           <button
