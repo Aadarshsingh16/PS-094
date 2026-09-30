@@ -3,20 +3,20 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 interface Segment {
-  key: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW";
+  key: string;
   label: string;
   count: number;
   percent: string;
 }
 
-const FILLS: Record<Segment["key"], string> = {
+const FILLS: Record<"CRITICAL" | "HIGH" | "MEDIUM" | "LOW", string> = {
   CRITICAL: "var(--color-risk-critical)",
   HIGH: "var(--color-risk-high)",
   MEDIUM: "var(--color-risk-medium)",
   LOW: "var(--color-risk-low)",
 };
 
-const DOTS: Record<Segment["key"], string> = {
+const DOTS: Record<"CRITICAL" | "HIGH" | "MEDIUM" | "LOW", string> = {
   CRITICAL: "bg-risk-critical",
   HIGH: "bg-risk-high",
   MEDIUM: "bg-risk-medium",
@@ -27,6 +27,11 @@ interface RiskDonutProps {
   segments: Segment[];
   center: string;
   caption: string;
+}
+
+function tone(key: string): "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" {
+  if (key === "CRITICAL" || key === "HIGH" || key === "MEDIUM" || key === "LOW") return key;
+  return "MEDIUM";
 }
 
 export function RiskDonut({ segments, center, caption }: RiskDonutProps) {
@@ -44,7 +49,7 @@ export function RiskDonut({ segments, center, caption }: RiskDonutProps) {
               stroke="none"
             >
               {segments.map((segment) => (
-                <Cell key={segment.key} fill={FILLS[segment.key]} />
+                <Cell key={segment.key} fill={FILLS[tone(segment.key)]} />
               ))}
             </Pie>
           </PieChart>
@@ -58,7 +63,7 @@ export function RiskDonut({ segments, center, caption }: RiskDonutProps) {
         {segments.map((segment) => (
           <li key={segment.key} className="flex items-center justify-between text-sm">
             <span className="flex items-center gap-2 text-text-secondary">
-              <span className={`h-2.5 w-2.5 rounded-full ${DOTS[segment.key]}`} />
+              <span className={`h-2.5 w-2.5 rounded-full ${DOTS[tone(segment.key)]}`} />
               {segment.label}
             </span>
             <span className="font-medium text-text-primary">
