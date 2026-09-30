@@ -1,0 +1,81 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Build & Package Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java 21 (JDK)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Accept Android SDK Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+      - name: Install Web App Dependencies
+        working-directory: ./web-app
+        run: |
+          npm install
+
+      - name: Build Web Application
+        working-directory: ./web-app
+        run: |
+          npm run build
+
+      - name: Install Mobile Dependencies
+        working-directory: ./moible
+        run: |
+          npm install
+
+      - name: Sync Capacitor Android Project
+        working-directory: ./moible
+        run: |
+          npx cap sync android
+
+      - name: Grant Execute Permission for Gradle Wrapper
+        working-directory: ./moible/android
+        run: |
+          chmod +x gradlew
+
+      - name: Build Debug APK via Gradle
+        working-directory: ./moible/android
+        run: |
+          ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Verify APK Generated
+        run: |
+          ls -la moible/android/app/build/outputs/apk/debug/
+
+      - name: Upload APK as Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sahayak-ai-mobile-debug-apk
+          path: moible/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
+
+      - name: Job Summary
+        run: |
+          echo "### 🚀 SAHAYAK AI Android APK Built Successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "You can download the APK directly from the **Artifacts** section of this workflow run." >> $GITHUB_STEP_SUMMARY
+          echo "File: **sahayak-ai-mobile-debug-apk**" >> $GITHUB_STEP_SUMMARY
