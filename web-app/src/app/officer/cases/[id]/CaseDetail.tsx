@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { RiskBadge } from "@/components/atoms";
 import { DistressTrend } from "@/components/molecules/DistressTrend";
+import { RiskAnalysis } from "@/components/molecules/RiskAnalysis";
 import alerts from "@/data/alerts.json";
 import interventions from "@/data/interventions.json";
 import timeline from "@/data/riskTimeline.json";
@@ -61,7 +62,17 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
         ))}
       </div>
 
-      {tab === "Overview" || tab === "Risk Analysis" ? (
+      {tab === "Risk Analysis" && record.caseId === "NHAA-DEMO-1042" ? (
+        <RiskAnalysis
+          userId={record.userId}
+          baseline={record.baselineDistress}
+          current={record.currentDistress}
+          factors={record.riskFactors}
+          series={series}
+        />
+      ) : null}
+
+      {tab === "Overview" || (tab === "Risk Analysis" && record.caseId !== "NHAA-DEMO-1042") ? (
         <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <section className="rounded-2xl bg-bg-dark-chart p-5 text-text-inverse">
             <h2 className="font-heading text-lg font-bold">Well-being</h2>

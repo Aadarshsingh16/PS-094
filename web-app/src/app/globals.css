@@ -135,6 +135,10 @@ h1, h2, h3, h4, h5, h6,
   animation: factor-in 500ms ease-in-out both;
 }
 
+.factor-delay-1 { animation-delay: 400ms; }
+.factor-delay-2 { animation-delay: 800ms; }
+.factor-delay-3 { animation-delay: 1200ms; }
+
 .fusion-pulse {
   animation: fusion-pulse 1s ease-in-out infinite;
 }
