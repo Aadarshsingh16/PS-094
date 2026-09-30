@@ -12,6 +12,10 @@
     {
       "title": "PRIORITY ROUTING",
       "detail": "Routed to the protection officer ahead of other signals."
+    },
+    {
+      "title": "HUMAN REVIEW",
+      "detail": "Assigned officer verifies the alert and confirms emergency intervention."
     }
   ]
 }
