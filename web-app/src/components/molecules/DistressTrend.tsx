@@ -23,7 +23,7 @@ interface DistressTrendProps {
 
 export function DistressTrend({ data, highlightWeek, highlightScore }: DistressTrendProps) {
   return (
-    <ResponsiveContainer width="100%" height={220}>
+    <ResponsiveContainer width="100%" height={220} initialDimension={{ width: 640, height: 220 }}>
       <LineChart data={data} margin={{ top: 24, right: 12, left: 0, bottom: 0 }}>
         <XAxis
           dataKey="week"

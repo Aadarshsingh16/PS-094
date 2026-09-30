@@ -38,7 +38,7 @@ export function RiskDonut({ segments, center, caption }: RiskDonutProps) {
   return (
     <div>
       <div className="relative h-52">
-        <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 280, height: 208 }}>
           <PieChart>
             <Pie
               data={segments}

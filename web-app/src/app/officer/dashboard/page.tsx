@@ -71,9 +71,13 @@ export default function OfficerDashboardPage() {
                   <h2 className="font-heading text-lg font-bold">{dashboard.trend.title}</h2>
                   <p className="mt-1 text-sm text-text-muted">{dashboard.trend.subtitle}</p>
                 </div>
-                <span className="rounded-xl border border-text-inverse/20 px-3 py-1 text-xs text-text-muted">
-                  {dashboard.trend.rangeLabel}
-                </span>
+                <select
+                  aria-label="Trend range"
+                  defaultValue={dashboard.trend.rangeLabel}
+                  className="rounded-xl border border-text-inverse/20 bg-transparent px-3 py-1 text-xs text-text-muted"
+                >
+                  <option>{dashboard.trend.rangeLabel}</option>
+                </select>
               </div>
               <div className="mt-4 flex items-end gap-3">
                 <span className="font-heading text-display-2xl font-bold">{dashboard.trend.value}</span>
