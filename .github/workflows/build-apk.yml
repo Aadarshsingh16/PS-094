@@ -29,8 +29,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Accept Android SDK Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Install Mobile App Dependencies
         working-directory: ./mobile-app
@@ -68,7 +69,7 @@ jobs:
           path: mobile-app/android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 14
 
-      - name: Summary
+      - name: Job Summary
         run: |
           echo "### 🚀 SAHAYAK AI Android APK Built Successfully!" >> $GITHUB_STEP_SUMMARY
           echo "You can download the APK directly from the **Artifacts** section of this workflow run." >> $GITHUB_STEP_SUMMARY
