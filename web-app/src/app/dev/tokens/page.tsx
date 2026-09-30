@@ -209,7 +209,7 @@ export default function TokensTestPage() {
           </div>
         </section>
 
-        {/* ── Footer prototype notice ── */}
+        {/* ── Footer design tokens notice ── */}
         <footer className="border-t border-border-subtle pt-4 text-center">
           <p className="text-xs text-text-muted">
             SAHAYAK AI · DESIGN SYSTEM TOKENS

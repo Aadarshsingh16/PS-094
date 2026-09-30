@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Check, Lock, Mic, Volume2 } from "lucide-react";
+import { ArrowLeft, Check, Lock, MessageSquare, Mic, Send, Volume2 } from "lucide-react";
 import questions from "@/data/checkinQuestions.json";
 import { saveCheckinAnswers } from "@/lib/checkin";
 
-type Mode = "tap" | "voice";
+type Mode = "tap" | "voice" | "chat";
 
 function minutesLeft(index: number, total: number) {
   return Math.max(1, Math.ceil((total - index) / 3));
@@ -23,6 +23,8 @@ export default function CheckinPage() {
   const [isSimulating, setIsSimulating] = useState(false);
   const [typedHeard, setTypedHeard] = useState("");
   const [detectedVoice, setDetectedVoice] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+  const [chatSubmitted, setChatSubmitted] = useState<string | null>(null);
 
   const question = questions[index] ?? questions[0];
   const selected = answers[index];
@@ -32,7 +34,7 @@ export default function CheckinPage() {
     // Check url search params for mode
     const searchParams = new URLSearchParams(window.location.search);
     const m = searchParams.get("mode") as Mode;
-    if (m === "tap" || m === "voice") {
+    if (m === "tap" || m === "voice" || m === "chat") {
       setMode(m);
     }
   }, []);
@@ -46,6 +48,40 @@ export default function CheckinPage() {
 
   function choose(option: string) {
     setAnswers((current) => current.map((value, itemIndex) => (itemIndex === index ? option : value)));
+  }
+
+  function handleSendChat(customText?: string) {
+    const text = (customText ?? chatInput).trim();
+    if (!text) return;
+    setChatSubmitted(text);
+    setTypedHeard(text);
+    setChatInput("");
+    setDetectedVoice(true);
+
+    const lower = text.toLowerCase();
+    let matched = question.options[2] ?? question.options[1];
+    if (
+      lower.includes("not") ||
+      lower.includes("poor") ||
+      lower.includes("bad") ||
+      lower.includes("threat") ||
+      lower.includes("afraid") ||
+      lower.includes("alone") ||
+      lower.includes("could not") ||
+      lower.includes("two") ||
+      lower.includes("2")
+    ) {
+      matched = question.options[question.options.length - 1] ?? question.options[2];
+    } else if (
+      lower.includes("yes") ||
+      lower.includes("good") ||
+      lower.includes("well") ||
+      lower.includes("safe") ||
+      lower.includes("steady")
+    ) {
+      matched = question.options[0];
+    }
+    choose(matched);
   }
 
   function toggleListening() {
@@ -99,6 +135,8 @@ export default function CheckinPage() {
     setIsSimulating(false);
     setTypedHeard("");
     setDetectedVoice(false);
+    setChatInput("");
+    setChatSubmitted(null);
   }
 
   function goBack() {
@@ -112,6 +150,8 @@ export default function CheckinPage() {
     setIsSimulating(false);
     setTypedHeard("");
     setDetectedVoice(false);
+    setChatInput("");
+    setChatSubmitted(null);
   }
 
   const clock = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
@@ -160,8 +200,74 @@ export default function CheckinPage() {
             {question.prompt}
           </h2>
           <p className="mt-2 text-sm text-text-muted">
-            There are no right or wrong answers. You can skip any question.
+            {mode === "chat"
+              ? "Type your response below freely in your own words, or tap an option to select."
+              : "There are no right or wrong answers. You can skip any question."}
           </p>
+
+          {/* Interactive Chat & Typing Input Card when mode === 'chat' */}
+          {mode === "chat" && (
+            <div className="mt-5 rounded-2xl border-2 border-brand-primary/40 bg-emerald-50/20 p-5 shadow-xs">
+              <div className="flex items-center justify-between gap-2">
+                <span className="flex items-center gap-2 font-heading text-xs font-bold text-brand-primary uppercase tracking-wider">
+                  <MessageSquare size={15} /> Type your answer
+                </span>
+                <span className="text-xs text-text-muted">Press Enter ↵ to send</span>
+              </div>
+
+              <div className="mt-3 flex gap-2">
+                <textarea
+                  rows={2}
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSendChat();
+                    }
+                  }}
+                  placeholder="Type how you are feeling in your own words (English, Hindi, regional)..."
+                  className="w-full resize-none rounded-xl border border-border-default bg-bg-surface px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary"
+                />
+                <button
+                  type="button"
+                  onClick={() => handleSendChat()}
+                  disabled={!chatInput.trim()}
+                  className="self-end inline-flex items-center gap-1.5 rounded-xl bg-brand-primary px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-brand-secondary disabled:opacity-40 disabled:hover:bg-brand-primary"
+                >
+                  <Send size={13} />
+                  <span>Send</span>
+                </button>
+              </div>
+
+              {/* Quick suggestion chips */}
+              <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                <span className="text-[11px] font-medium text-text-muted">Quick suggestions:</span>
+                {question.options.slice(0, 3).map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => handleSendChat(opt)}
+                    className="rounded-full border border-border-default bg-bg-surface px-2.5 py-1 text-xs text-text-secondary hover:border-brand-primary hover:text-brand-primary transition"
+                  >
+                    + {opt}
+                  </button>
+                ))}
+              </div>
+
+              {chatSubmitted && (
+                <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-900">
+                  <div className="flex items-center gap-1.5 font-bold text-emerald-700">
+                    <Check size={14} /> Message recorded
+                  </div>
+                  <p className="mt-1 italic">&ldquo;{chatSubmitted}&rdquo;</p>
+                  <p className="mt-2 text-emerald-700">
+                    Categorized as <strong>{selected}</strong>. Click <strong>Continue</strong> below to proceed.
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="mt-6 space-y-3">
             {question.options.map((option) => {
@@ -234,9 +340,9 @@ export default function CheckinPage() {
 
       {/* Right Aside Panel matching Frame 2 */}
       <aside className="flex w-84 shrink-0 flex-col gap-5 border-l border-border-default bg-bg-primary p-6">
-        {/* Mode Tabs: Tap and Voice only */}
-        <div className="grid grid-cols-2 rounded-full bg-slate-100 p-1">
-          {(["tap", "voice"] as const).map((item) => (
+        {/* Mode Tabs: Tap, Voice, and Chat */}
+        <div className="grid grid-cols-3 rounded-full bg-slate-100 p-1">
+          {(["tap", "voice", "chat"] as const).map((item) => (
             <button
               key={item}
               type="button"
@@ -247,7 +353,7 @@ export default function CheckinPage() {
                   : "text-text-muted hover:text-text-secondary"
               }`}
             >
-              {item === "tap" ? <span>⌨</span> : <span>🎙</span>}
+              {item === "tap" ? <span>⌨</span> : item === "voice" ? <span>🎙</span> : <span>💬</span>}
               <span>{item}</span>
             </button>
           ))}
@@ -332,9 +438,49 @@ export default function CheckinPage() {
           </div>
         ) : null}
 
+        {/* Chat Mode Card in Aside */}
+        {mode === "chat" ? (
+          <div className="flex flex-col gap-3 rounded-2xl border border-border-default bg-bg-surface p-4 shadow-xs">
+            <div className="flex items-center justify-between border-b border-border-subtle pb-2.5">
+              <div className="flex items-center gap-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-subtle text-brand-primary">
+                  <MessageSquare size={14} />
+                </span>
+                <span className="font-heading text-xs font-bold text-text-primary">Chat with Sahayak</span>
+              </div>
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 border border-emerald-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Online
+              </span>
+            </div>
+
+            <div className="space-y-2 text-xs">
+              <div className="rounded-xl rounded-tl-sm bg-slate-100 p-2.5 text-text-secondary leading-relaxed">
+                <p className="font-bold text-text-primary mb-0.5">Sahayak</p>
+                Asha, you can type your answer freely in the box on the left. Everything is transcribed securely for your counsellor.
+              </div>
+
+              {chatSubmitted ? (
+                <div className="rounded-xl rounded-tr-sm bg-brand-primary p-2.5 text-white leading-relaxed text-right">
+                  <p className="font-bold mb-0.5 text-emerald-100">You</p>
+                  {chatSubmitted}
+                </div>
+              ) : null}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setMode("voice")}
+              className="mt-1 text-xs font-medium text-brand-primary hover:underline text-left"
+            >
+              Prefer to speak? Switch to Voice mode →
+            </button>
+          </div>
+        ) : null}
+
         {mode === "tap" ? (
           <div className="rounded-2xl border border-border-default bg-bg-surface p-4 text-xs text-text-secondary leading-relaxed">
-            Tap any response card on the left. Zero typing required. You can switch to Voice at any time.
+            Tap any response card on the left. Zero typing required. You can switch to Voice or Chat at any time.
           </div>
         ) : null}
 

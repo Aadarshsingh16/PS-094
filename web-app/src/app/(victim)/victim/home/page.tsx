@@ -93,7 +93,7 @@ export default function VictimHomePage() {
               How are you feeling today?
             </h2>
             <p className="mt-2 text-sm text-slate-300 max-w-xl">
-              Daily check-in · about 3 minutes. Answer by tapping or speaking.
+              Daily check-in · about 3 minutes. Answer by tapping, speaking or chatting.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -114,6 +114,12 @@ export default function VictimHomePage() {
                 className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur hover:bg-white/20"
               >
                 <span>🎙</span> Voice
+              </Link>
+              <Link
+                href="/victim/checkin?mode=chat"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium text-white backdrop-blur hover:bg-white/20"
+              >
+                <span>💬</span> Chat &amp; Type
               </Link>
             </div>
           </section>
@@ -252,7 +258,7 @@ export default function VictimHomePage() {
               </Link>
 
               <Link
-                href="/victim/support"
+                href="/victim/checkin?mode=chat"
                 className="flex items-center justify-between rounded-2xl border border-border-default bg-bg-surface p-3.5 transition hover:border-slate-300 shadow-xs"
               >
                 <div className="flex items-center gap-3">
@@ -260,8 +266,8 @@ export default function VictimHomePage() {
                     <MessageSquare size={17} />
                   </span>
                   <div>
-                    <p className="text-xs font-bold text-text-primary">Support Assistant</p>
-                    <p className="text-xs text-text-muted">Private, any time</p>
+                    <p className="text-xs font-bold text-text-primary">Chat with Sahayak</p>
+                    <p className="text-xs text-text-muted">Type answers privately</p>
                   </div>
                 </div>
                 <ChevronRight size={16} className="text-text-muted" />
