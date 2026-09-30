@@ -16,6 +16,13 @@ const FILLS: Record<Segment["key"], string> = {
   LOW: "var(--color-risk-low)",
 };
 
+const DOTS: Record<Segment["key"], string> = {
+  CRITICAL: "bg-risk-critical",
+  HIGH: "bg-risk-high",
+  MEDIUM: "bg-risk-medium",
+  LOW: "bg-risk-low",
+};
+
 interface RiskDonutProps {
   segments: Segment[];
   center: string;
@@ -51,7 +58,7 @@ export function RiskDonut({ segments, center, caption }: RiskDonutProps) {
         {segments.map((segment) => (
           <li key={segment.key} className="flex items-center justify-between text-sm">
             <span className="flex items-center gap-2 text-text-secondary">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: FILLS[segment.key] }} />
+              <span className={`h-2.5 w-2.5 rounded-full ${DOTS[segment.key]}`} />
               {segment.label}
             </span>
             <span className="font-medium text-text-primary">
