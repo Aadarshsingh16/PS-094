@@ -155,16 +155,27 @@ web-app/
 
 ## Demo Simulation State Machine
 
-Lives in `/src/lib/demoState.ts`. 13 states:
+Lives in `/src/lib/demoState.ts`. Zustand store with `autoPlay()` action.
 
+**LOCKED TRIGGER:** The only entry point is the `Analyse Incoming Signals →` button
+(emerald filled, in the incoming signals banner at top of Risk Analysis tab).
+
+**NEVER build:** a visible demo controller, step buttons, state labels, or any UI that
+reveals this is a mock. The system must look real to a video viewer.
+
+States:
 ```
-stable → court_event → safety_concern → missed_checkin
-→ ai_detecting → risk_high → explainability → alert_created
-→ human_review → intervention_approved → followup
-→ risk_improving → monitoring
+stable → processing → signals_filled → analysing
+→ baseline_updated → risk_high → explainability
+→ alert_created → human_review → intervention_approved
+→ followup → risk_improving → monitoring
 ```
 
-Each transition updates: risk score · risk level badge · factor bars · alert list · distress chart
+Each transition updates: risk score · risk level badge · signal panels · factor bars · alert list · distress chart
+
+Auto-play timing: ~1.5–2s per step via `setTimeout` chain in `autoPlay()` action.
+
+Reset: `↺ Reset to initial state` — tiny `text-xs text-slate-400` link at page bottom only.
 
 ---
 

@@ -264,49 +264,92 @@ Priya can: view dashboard → click priority case → view case detail → click
 ### Screens
 #### 4A. AI Risk Analysis Tab (within Case Detail)
 
-Components:
-- 4 signal source panels:
-  - Text Analysis — fear indicators, isolation markers, stress language
-  - Voice Analysis — waveform icon, "Elevated stress indicator", emotion chips
-  - Behaviour Analysis — "2 missed check-ins", "Reduced engagement -40%"
-  - Case Context — "Court hearing 14 Oct", "Investigation delay", "Threat report filed"
-- Visual flow arrow: 4 signals → Personal Baseline → Dynamic Risk
-- Personal Baseline panel:
-  - Baseline: 28 · Current: 72 · Change: +44
-  - Side-by-side bar visual
-- Dynamic Risk panel (lavender-to-red gradient):
-  - Risk Level: HIGH badge
-  - Distress Score: 72/100 animated arc
-  - Escalation Risk: Elevated
-- Explainable factors panel ("Why did risk increase?"):
-  - +18 Increased fear indicators
-  - +14 Missed two check-ins
-  - +11 New safety concern
-  - +09 Upcoming court hearing
-  - Each as colored bar with score
-- Processing path badge: "Fast Crisis Path" or "Deep AI Path"
+**Incoming Signals Banner (the real-looking demo trigger):**
 
-#### 4B. Demo Simulation Panel
-- Collapsible panel: "Demo Simulation Mode"
-- 13 step buttons matching the mock event sequence:
-  - [1] Stable Case
-  - [2] New Court Event
-  - [3] Safety Concern
-  - [4] Missed Check-in
-  - [5] AI Detects Change
-  - [6] Risk LOW → HIGH (animated)
-  - [7] Explainability appears
-  - [8] Alert Created
-  - [9] Human Review
-  - [10] Intervention Approved
-  - [11] Follow-up
-  - [12] Risk Improves (72→49)
-  - [13] Continue Monitoring
-- Each step triggers smooth UI state change
-- "Reset demo" button
+At the top of the Risk Analysis tab, when the demo is in `stable` state, show a
+natural-looking system notification banner:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  🔔  New signals received for Case #USR-7844                 │
+│      Text · Voice · Behaviour · Case Event  ·  3 min ago    │
+│                              [ Analyse Incoming Signals → ]  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+- Banner style: subtle amber/yellow border, bg-amber-50, NOT a "demo" panel
+- Button label: **`Analyse Incoming Signals →`** (emerald filled, white text)
+- Clicking this button auto-plays the full 13-step sequence with no further input needed
+- The banner disappears once analysis begins (replaced by the live signal panels)
+- This looks 100% like a legitimate system action to any video viewer
+
+**Signal Source Panels (fill in as demo auto-advances):**
+- Text Analysis — fear indicators, isolation markers, stress language
+- Voice Analysis — waveform icon, "Elevated stress indicator", emotion chips
+- Behaviour Analysis — "2 missed check-ins", "Reduced engagement -40%"
+- Case Context — "Court hearing 14 Oct", "Investigation delay", "Threat report filed"
+- Visual flow arrow: 4 signals → Personal Baseline → Dynamic Risk
+
+**Personal Baseline panel:**
+- Baseline: 28 · Current: 72 · Change: +44
+- Side-by-side bar visual
+
+**Dynamic Risk panel (lavender-to-red gradient):**
+- Risk Level: HIGH badge
+- Distress Score: 72/100 animated arc
+- Escalation Risk: Elevated
+
+**Explainable factors panel ("Why did risk increase?"):**
+- +18 Increased fear indicators
+- +14 Missed two check-ins
+- +11 New safety concern
+- +09 Upcoming court hearing
+- Each as colored bar with score
+
+**Processing path badge:** "Fast Crisis Path" or "Deep AI Path"
+
+#### 4B. Auto-Play Sequence (triggered by `Analyse Incoming Signals`)
+
+> **Design principle:** This must look like a real AI system processing events,
+> NOT a demo controller. No step labels, no visible state names, no "demo mode" UI.
+
+Auto-play runs these transitions sequentially (~2s per step):
+
+| Step | What the UI shows | Duration |
+|---|---|---|
+| 1 | Banner disappears, "Processing signals..." skeleton appears | 1.5s |
+| 2 | Text signal panel fills in (fear keywords highlight) | 1.5s |
+| 3 | Voice signal panel fills in (stress indicator animates) | 1.5s |
+| 4 | Behaviour panel fills in (missed check-ins count appears) | 1.5s |
+| 5 | Case context panel fills (court hearing date appears) | 1.5s |
+| 6 | Fusion arrow pulses, "Analysing..." loader | 2s |
+| 7 | Baseline comparison animates: 28 → 72 count-up | 2s |
+| 8 | Risk badge flips LOW → HIGH with pulse animation | 1s |
+| 9 | Explainability factors slide in one by one | 2s |
+| 10 | Alert auto-creates: toast "⚠ HIGH RISK alert created for #USR-7844" | 1s |
+| 11 | Human Review panel slides in with Approve/Modify/Reject | — |
+
+After APPROVE click:
+
+| Step | What the UI shows | Duration |
+|---|---|---|
+| 12 | Intervention confirmed cards animate in | 1.5s |
+| 13 | Follow-up scheduled, distress count-down 72 → 49 | 2s |
+| 14 | Risk badge flips HIGH → MEDIUM | 1s |
+| 15 | "Outcome improved · Continue monitoring" green banner | — |
+
+**Reset control:**
+- Small, unobtrusive link at bottom of page: `↺ Reset to initial state`
+- Style: `text-xs text-slate-400 underline` — barely visible, not a prominent button
+- Resets all state to `stable`, banner reappears
+
+**Implementation:** `/src/lib/demoState.ts` — Zustand store with `autoPlay()` action
+that dispatches each step with `setTimeout` delays.
 
 ### Definition of Done
-Demo panel advances all 13 steps with smooth data transitions. AI screen shows all 4 signal types, baseline comparison, risk score, and explainability factors.
+Clicking `Analyse Incoming Signals →` auto-plays the full sequence without any
+manual step clicking. Every transition is smooth and looks like a real AI system
+processing events. No UI element reveals this is a mock simulation to a video viewer.
 
 ---
 
