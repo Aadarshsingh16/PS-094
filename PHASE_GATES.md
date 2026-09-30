@@ -119,60 +119,60 @@ None. `/` and `/login` show the role screen. Card clicks stored `sessionStorage.
 **Goal:** Asha can complete a full check-in (Home → Q1 → Q8 → Complete) and navigate all 6 victim screens.
 
 ### 2A — Victim Home (match Figma Frame 1)
-- [ ] Left sidebar: logo + 5 nav items + helpline card + Quick exit + user chip (AS · Asha · SMS · English)
-- [ ] Quick exit button always visible
-- [ ] Greeting: "Good evening, Asha" (or time-appropriate)
-- [ ] Hero card: dark gradient background (NOT white)
-- [ ] "TODAY'S CHECK-IN" label in orange
-- [ ] "How are you feeling today?" as H1
-- [ ] Orange "Start check-in →" button
-- [ ] Tap · Voice · Chat mode pills below button
-- [ ] "Your week" card: 7 bars (Mon–Sun) + "5 of 7 days" label + insight text
-- [ ] "Right now I feel..." card: 5 emoji mood options (Calm/Okay/Tense/Afraid/Low)
-- [ ] Case journey timeline: 4 steps with dates and icons
-- [ ] Right sidebar: 3 "Talk to someone" cards + "What happens next" list + lavender check-in time panel
+- [x] Left sidebar: logo + 5 nav items + helpline card + Quick exit + user chip (AS · Asha · SMS · English)
+- [x] Quick exit button always visible
+- [x] Greeting: "Good evening, Asha" (or time-appropriate)
+- [x] Hero card: dark gradient background (NOT white)
+- [x] "TODAY'S CHECK-IN" label in orange
+- [x] "How are you feeling today?" as H1
+- [x] Orange "Start check-in →" button
+- [x] Tap · Voice · Chat mode pills below button
+- [x] "Your week" card: 7 bars (Mon–Sun) + "5 of 7 days" label + insight text
+- [x] "Right now I feel..." card: 5 emoji mood options (Calm/Okay/Tense/Afraid/Low)
+- [x] Case journey timeline: 4 steps with dates and icons
+- [x] Right sidebar: 3 "Talk to someone" cards + "What happens next" list + lavender check-in time panel
 
 ### 2B — Check-in Flow (match Figma Frame 2)
-- [ ] "Daily check-in" title + "Question X of 8 · about Y min left"
-- [ ] "Private · only your counsellor sees this" top-right
-- [ ] Blue progress bar proportional to current question
-- [ ] Category chip (SLEEP / SAFETY / etc.) in lavender
-- [ ] Question text in large bold font
-- [ ] "No right or wrong answers. You can skip." in muted text
-- [ ] 5 radio options, selected = blue fill + checkmark
-- [ ] Back · "I would rather not answer" · Continue bar at bottom
-- [ ] Right panel: Tap · Voice · Chat tabs
-- [ ] Voice tab: dark bg + "Listening" pill + timer + waveform + orange mic button
-- [ ] "WHAT WE HEARD" transcript section
-- [ ] Lavender "Prefer to type?" card
-- [ ] All 8 questions navigable (Back/Continue)
+- [x] "Daily check-in" title + "Question X of 8 · about Y min left"
+- [x] "Private · only your counsellor sees this" top-right
+- [x] Blue progress bar proportional to current question
+- [x] Category chip (SLEEP / SAFETY / etc.) in lavender
+- [x] Question text in large bold font
+- [x] "No right or wrong answers. You can skip." in muted text
+- [x] 5 radio options, selected = blue fill + checkmark
+- [x] Back · "I would rather not answer" · Continue bar at bottom
+- [x] Right panel: Tap · Voice · Chat tabs
+- [x] Voice tab: dark bg + "Listening" pill + timer + waveform + orange mic button
+- [x] "WHAT WE HEARD" transcript section
+- [x] Lavender "Prefer to type?" card
+- [x] All 8 questions navigable (Back/Continue)
 
 ### 2C — Check-in Complete
-- [ ] "Thank you, Asha" heading
-- [ ] Distress signal shown (no diagnosis language)
-- [ ] "Your counsellor will review this" note
-- [ ] "Return to home" button works
+- [x] "Thank you, Asha" heading
+- [x] Distress signal shown (no diagnosis language)
+- [x] "Your counsellor will review this" note
+- [x] "Return to home" button works
 
 ### 2D — Privacy & Channels (match Figma Frame 3)
-- [ ] Page title + subtitle
-- [ ] 6 channel cards in 2×3 grid, each with toggle + icon + title + description
-- [ ] SMS = ON + "Preferred" badge · Web portal = OFF (matches Figma)
-- [ ] "Safe times" panel: day pills + time display
-- [ ] "Who can see my answers" 4 toggle rows
-- [ ] "Discreet mode" lavender panel with 3 toggles
-- [ ] All toggles are interactive
+- [x] Page title + subtitle
+- [x] 6 channel cards in 2×3 grid, each with toggle + icon + title + description
+- [x] SMS = ON + "Preferred" badge · Web portal = OFF (matches Figma)
+- [x] "Safe times" panel: day pills + time display
+- [x] "Who can see my answers" 4 toggle rows
+- [x] "Discreet mode" lavender panel with 3 toggles
+- [x] All toggles are interactive
 
 ### 2E & 2F — Support + My Case
-- [ ] Support page: active support list + emergency card
-- [ ] My Case: case ID + stage + timeline
+- [x] Support page: active support list + emergency card
+- [x] My Case: case ID + stage + timeline
 
 ---
 
 ### ✅ PHASE 2 GATE
 
 ```
-Reviewer sign-off: ______________________
-Date: ______________________
+Reviewer sign-off: Implementation review against REVIEW_CHECKLIST.md
+Date: 2026-09-30
 Figma Frame 1 side-by-side checked: [ ] YES
 Figma Frame 2 side-by-side checked: [ ] YES
 Figma Frame 3 side-by-side checked: [ ] YES
@@ -180,6 +180,7 @@ Status: [ ] PASS — proceed to Phase 3
         [ ] FAIL — list issues below
 
 Issues:
+Screen items were checked in the browser (home, check-in Q1–Q8, complete, privacy toggles, support, my case). The Figma PNGs named in REVIEW_CHECKLIST.md are not in the repo, so the three side-by-side boxes stay open. Do not start Phase 3 until those are checked against the frames.
 
 
 ```
@@ -439,7 +440,7 @@ Issues:
 |---|---|---|
 | 0 | Scaffold & Design System | ✅ PASS |
 | 1 | Login & Role Selection | ✅ PASS |
-| 2 | Victim Portal | ⬜ NOT STARTED |
+| 2 | Victim Portal | ⬜ SCREENS VERIFIED · FIGMA OPEN |
 | 3 | Officer Dashboard | ⬜ NOT STARTED |
 | 4 | AI Risk Analysis & Demo Engine | ⬜ NOT STARTED |
 | 5 | Outcome, Monitoring & Polish | ⬜ NOT STARTED |

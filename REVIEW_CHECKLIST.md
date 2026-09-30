@@ -98,68 +98,68 @@ For each phase:
 **Route:** `/victim/home`
 **Figma Reference:** Frame 1 (Screenshot 2026-09-30 162151.png)
 
-- [ ] Sidebar: SAHAYAK logo · 5 nav items · helpline card · Quick exit · user chip (AS · Asha · SMS · English)
-- [ ] Greeting: "Good evening, Asha" (time-aware or hardcoded for demo)
-- [ ] Subtitle: "You are safe here. Your next check-in is ready whenever you are."
-- [ ] Language dropdown top-right: English selected
-- [ ] Hero check-in card: dark gradient background, NOT white
-- [ ] "TODAY'S CHECK-IN" label in orange/amber color
-- [ ] "How are you feeling today?" as prominent H1 in white
-- [ ] Orange "Start check-in →" button present
-- [ ] Tap · Voice · Chat mode pills below the button
-- [ ] "Your week" card: 7 bars (Mon–Sun), "5 of 7 days" label, insight text
-- [ ] "Right now I feel..." card: 5 emoji mood options (Calm/Okay/Tense/Afraid/Low)
-- [ ] "Your case journey" timeline: 4 steps with dates, correct icons
-- [ ] Right sidebar: "Talk to someone" 3 cards, "What happens next" list, lavender check-in time panel
-- [ ] Quick exit button always visible at bottom of left sidebar
+- [x] Sidebar: SAHAYAK logo · 5 nav items · helpline card · Quick exit · user chip (AS · Asha · SMS · English)
+- [x] Greeting: "Good evening, Asha" (time-aware or hardcoded for demo)
+- [x] Subtitle: "You are safe here. Your next check-in is ready whenever you are."
+- [x] Language dropdown top-right: English selected
+- [x] Hero check-in card: dark gradient background, NOT white
+- [x] "TODAY'S CHECK-IN" label in orange/amber color
+- [x] "How are you feeling today?" as prominent H1 in white
+- [x] Orange "Start check-in →" button present
+- [x] Tap · Voice · Chat mode pills below the button
+- [x] "Your week" card: 7 bars (Mon–Sun), "5 of 7 days" label, insight text
+- [x] "Right now I feel..." card: 5 emoji mood options (Calm/Okay/Tense/Afraid/Low)
+- [x] "Your case journey" timeline: 4 steps with dates, correct icons
+- [x] Right sidebar: "Talk to someone" 3 cards, "What happens next" list, lavender check-in time panel
+- [x] Quick exit button always visible at bottom of left sidebar
 
 ### Screen 2B: Check-in Flow
 **Route:** `/victim/checkin`
 **Figma Reference:** Frame 2 (Screenshot 2026-09-30 162207.png)
 
-- [ ] "Daily check-in" title with "Question X of 8 · about Y minutes left"
-- [ ] "Private · only your counsellor sees this" top-right in muted color
-- [ ] Blue progress bar proportional to question number
-- [ ] Category chip (e.g., "SLEEP") in lavender rounded chip
-- [ ] Question text in large, bold font
-- [ ] "No right or wrong answers. You can skip." note in muted text
-- [ ] Radio options: 5 options, selected = blue fill + checkmark
-- [ ] Bottom bar: Back · "I would rather not answer" link · Continue button
-- [ ] Right panel: Tap · Voice · Chat tabs
-- [ ] Voice mode panel: dark bg, "Listening" indicator, timer, waveform, orange mic button
-- [ ] "WHAT WE HEARD" transcript section
-- [ ] Lavender "Prefer to type?" card at bottom right
-- [ ] Navigating through all 8 questions works (Next/Back)
+- [x] "Daily check-in" title with "Question X of 8 · about Y minutes left"
+- [x] "Private · only your counsellor sees this" top-right in muted color
+- [x] Blue progress bar proportional to question number
+- [x] Category chip (e.g., "SLEEP") in lavender rounded chip
+- [x] Question text in large, bold font
+- [x] "No right or wrong answers. You can skip." note in muted text
+- [x] Radio options: 5 options, selected = blue fill + checkmark
+- [x] Bottom bar: Back · "I would rather not answer" link · Continue button
+- [x] Right panel: Tap · Voice · Chat tabs
+- [x] Voice mode panel: dark bg, "Listening" indicator, timer, waveform, orange mic button
+- [x] "WHAT WE HEARD" transcript section
+- [x] Lavender "Prefer to type?" card at bottom right
+- [x] Navigating through all 8 questions works (Next/Back)
 
 ### Screen 2C: Check-in Complete
 **Route:** `/victim/checkin/complete`
 
-- [ ] "Thank you, Asha" heading
-- [ ] Distress signal shown (NOT a diagnosis)
-- [ ] "Your counsellor will review this" note
-- [ ] Next check-in reminder
-- [ ] "Return to home" button functional
+- [x] "Thank you, Asha" heading
+- [x] Distress signal shown (NOT a diagnosis)
+- [x] "Your counsellor will review this" note
+- [x] Next check-in reminder
+- [x] "Return to home" button functional
 
 ### Screen 2D: Privacy & Channels
 **Route:** `/victim/privacy`
 **Figma Reference:** Frame 3 (Screenshot 2026-09-30 162222.png)
 
-- [ ] "Privacy & channels" heading + subtitle
-- [ ] 6 channel cards in 2x3 grid: SMS (Preferred badge) · IVRS · Chatbot · Mobile app · Web portal · Helpline 14566
-- [ ] Each card has toggle, icon, title, description
-- [ ] SMS toggle = ON (blue), Web portal = OFF (grey) as per Figma
-- [ ] "Safe times to reach me" panel: day-of-week pills (T, T highlighted), time display
-- [ ] "Who can see my answers" 4 toggle rows
-- [ ] "Discreet mode" lavender bg panel with 3 toggles
-- [ ] Toggles are interactive (click to toggle state)
+- [x] "Privacy & channels" heading + subtitle
+- [x] 6 channel cards in 2x3 grid: SMS (Preferred badge) · IVRS · Chatbot · Mobile app · Web portal · Helpline 14566
+- [x] Each card has toggle, icon, title, description
+- [x] SMS toggle = ON (blue), Web portal = OFF (grey) as per Figma
+- [x] "Safe times to reach me" panel: day-of-week pills (T, T highlighted), time display
+- [x] "Who can see my answers" 4 toggle rows
+- [x] "Discreet mode" lavender bg panel with 3 toggles
+- [x] Toggles are interactive (click to toggle state)
 
 ### Screens 2E & 2F
-- [ ] Support page renders with mock support list
-- [ ] My Case page shows case timeline correctly
+- [x] Support page renders with mock support list
+- [x] My Case page shows case timeline correctly
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — Screen items PASS in the browser at desktop width. Home hero is a dark gradient, check-in label and button are #F97316, week reads 5 of 7 days, check-in runs Q1–Q8 to the thank-you screen, privacy toggles change state, support lists counselling / protection / legal aid plus the emergency card, my case shows NHAA-DEMO-1042 · Court Hearing · timeline · Next hearing: 14 Oct. Figma PNGs are not in the repo, so pixel side-by-side is still open.
 ```
 
 ---
@@ -361,7 +361,7 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 |---|---|---|---|
 | Phase 0 — Design System | ✅ PASS | Implementation review | 2026-09-30 |
 | Phase 1 — Login | ✅ PASS | Implementation review | 2026-09-30 |
-| Phase 2 — Victim Portal | ⬜ PENDING | | |
+| Phase 2 — Victim Portal | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
 | Phase 3 — Officer Dashboard | ⬜ PENDING | | |
 | Phase 4 — AI Risk Analysis | ⬜ PENDING | | |
 | Phase 5 — Outcome & Polish | ⬜ PENDING | | |

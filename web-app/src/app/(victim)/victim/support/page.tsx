@@ -5,8 +5,9 @@ const CASE_ID = "NHAA-DEMO-1042";
 
 export default function SupportPage() {
   const active = interventions.filter((item) => item.caseId === CASE_ID);
+  const today = new Date().toISOString().slice(0, 10);
   const upcoming = active
-    .filter((item) => item.scheduledDate)
+    .filter((item) => item.scheduledDate && item.status !== "COMPLETED" && item.scheduledDate >= today)
     .sort((a, b) => String(a.scheduledDate).localeCompare(String(b.scheduledDate)));
   const next = upcoming[0];
 
