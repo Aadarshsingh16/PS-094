@@ -1,0 +1,373 @@
+# SAHAYAK AI — Phase-wise Review Checklist
+
+> This document is the quality gate for each development phase.
+> A phase is only complete when ALL items in its checklist are PASS.
+> Review must be done by visual inspection + code review.
+
+---
+
+## How to Review
+
+For each phase:
+1. Run the dev server: `npm run dev` in `web-app/`
+2. Open the browser at the specified route
+3. Compare side-by-side with the corresponding Figma frame
+4. Check each item — mark PASS / FAIL / PARTIAL
+5. Document any FAIL items with a note
+6. Only proceed to the next phase when all items are PASS
+
+---
+
+## Phase 0 Review — Design System & Scaffold
+
+**Route:** `/dev/tokens` (a dedicated test page showing all atoms)
+
+### Color Tokens
+- [ ] All 13 design tokens defined in `tailwind.config.ts`
+- [ ] No raw hex values used in any component file
+- [ ] Risk colors: Critical=red, High=orange, Medium=yellow, Low=green (matches Figma)
+- [ ] Brand primary = emerald-600 (#16A34A) ✓
+- [ ] Lavender accent = #8B5CF6 ✓
+- [ ] bg-surface (#F8FAFC) distinguishable from bg-primary (#FFFFFF) ✓
+
+### Typography
+- [ ] Space Grotesk loaded for all headings and numerics
+- [ ] Inter loaded for all body text and labels
+- [ ] No system fonts (Arial, sans-serif defaults) visible anywhere
+- [ ] Font size scale matches Figma: Display/2XL=40px · Heading/XL=32px · Body/LG=16px
+
+### Atom Components
+- [ ] `RiskBadge` renders Critical/High/Medium/Low with correct bg+text colors
+- [ ] `StatusToggle` shows blue active state, grey inactive
+- [ ] `MetricCard` shows stat, sparkline, trend chip — correct layout
+- [ ] `QuickExit` renders as black button, bottom of sidebar
+- [ ] `SideNav` — victim variant has 5 nav items + footer
+- [ ] `SideNav` — officer variant has 6 nav items + user chip footer
+- [ ] `TopBar` shows search bar, bell icon, avatar
+
+### Mock Data
+- [ ] `cases.json` — 4 cases with correct fields (caseId, stage, risk, distress, etc.)
+- [ ] `alerts.json` — 7 alerts with severity and SLA fields
+- [ ] `interventions.json` — at least 3 intervention records
+- [ ] `checkins.json` — 7-day history for Asha
+- [ ] `riskTimeline.json` — W1–W8 scores for demo case
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
+## Phase 1 Review — Login & Role Selection
+
+**Route:** `/login`
+
+### Visual
+- [ ] SAHAYAK AI logo visible (or placeholder icon)
+- [ ] "Your safe space" tagline present
+- [ ] 4 role cards displayed: District Officer · Counsellor · Responder · Administrator
+- [ ] Each card has icon, title, description
+- [ ] Cards are clickable with hover state
+- [ ] Language selector visible
+
+### Behaviour
+- [ ] Clicking "District Officer" → routes to `/officer/dashboard`
+- [ ] Clicking "Counsellor" → routes to `/officer/dashboard`
+- [ ] Clicking "Responder" → routes to `/officer/dashboard`
+- [ ] Clicking "Administrator" → routes to `/admin/settings`
+- [ ] Session role stored in `sessionStorage.role`
+- [ ] Back navigation works correctly
+
+### Design System Compliance
+- [ ] All colors from token set only
+- [ ] Space Grotesk used for headings
+- [ ] Inter used for labels
+- [ ] Card styling: bg-surface · border · rounded-2xl · shadow-sm
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
+## Phase 2 Review — Victim Portal
+
+### Screen 2A: Victim Home
+**Route:** `/victim/home`
+**Figma Reference:** Frame 1 (Screenshot 2026-09-30 162151.png)
+
+- [ ] Sidebar: SAHAYAK logo · 5 nav items · helpline card · Quick exit · user chip (AS · Asha · SMS · English)
+- [ ] Greeting: "Good evening, Asha" (time-aware or hardcoded for demo)
+- [ ] Subtitle: "You are safe here. Your next check-in is ready whenever you are."
+- [ ] Language dropdown top-right: English selected
+- [ ] Hero check-in card: dark gradient background, NOT white
+- [ ] "TODAY'S CHECK-IN" label in orange/amber color
+- [ ] "How are you feeling today?" as prominent H1 in white
+- [ ] Orange "Start check-in →" button present
+- [ ] Tap · Voice · Chat mode pills below the button
+- [ ] "Your week" card: 7 bars (Mon–Sun), "5 of 7 days" label, insight text
+- [ ] "Right now I feel..." card: 5 emoji mood options (Calm/Okay/Tense/Afraid/Low)
+- [ ] "Your case journey" timeline: 4 steps with dates, correct icons
+- [ ] Right sidebar: "Talk to someone" 3 cards, "What happens next" list, lavender check-in time panel
+- [ ] Quick exit button always visible at bottom of left sidebar
+
+### Screen 2B: Check-in Flow
+**Route:** `/victim/checkin`
+**Figma Reference:** Frame 2 (Screenshot 2026-09-30 162207.png)
+
+- [ ] "Daily check-in" title with "Question X of 8 · about Y minutes left"
+- [ ] "Private · only your counsellor sees this" top-right in muted color
+- [ ] Blue progress bar proportional to question number
+- [ ] Category chip (e.g., "SLEEP") in lavender rounded chip
+- [ ] Question text in large, bold font
+- [ ] "No right or wrong answers. You can skip." note in muted text
+- [ ] Radio options: 5 options, selected = blue fill + checkmark
+- [ ] Bottom bar: Back · "I would rather not answer" link · Continue button
+- [ ] Right panel: Tap · Voice · Chat tabs
+- [ ] Voice mode panel: dark bg, "Listening" indicator, timer, waveform, orange mic button
+- [ ] "WHAT WE HEARD" transcript section
+- [ ] Lavender "Prefer to type?" card at bottom right
+- [ ] Navigating through all 8 questions works (Next/Back)
+
+### Screen 2C: Check-in Complete
+**Route:** `/victim/checkin/complete`
+
+- [ ] "Thank you, Asha" heading
+- [ ] Distress signal shown (NOT a diagnosis)
+- [ ] "Your counsellor will review this" note
+- [ ] Next check-in reminder
+- [ ] "Return to home" button functional
+
+### Screen 2D: Privacy & Channels
+**Route:** `/victim/privacy`
+**Figma Reference:** Frame 3 (Screenshot 2026-09-30 162222.png)
+
+- [ ] "Privacy & channels" heading + subtitle
+- [ ] 6 channel cards in 2x3 grid: SMS (Preferred badge) · IVRS · Chatbot · Mobile app · Web portal · Helpline 14566
+- [ ] Each card has toggle, icon, title, description
+- [ ] SMS toggle = ON (blue), Web portal = OFF (grey) as per Figma
+- [ ] "Safe times to reach me" panel: day-of-week pills (T, T highlighted), time display
+- [ ] "Who can see my answers" 4 toggle rows
+- [ ] "Discreet mode" lavender bg panel with 3 toggles
+- [ ] Toggles are interactive (click to toggle state)
+
+### Screens 2E & 2F
+- [ ] Support page renders with mock support list
+- [ ] My Case page shows case timeline correctly
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
+## Phase 3 Review — Officer Dashboard
+
+### Screen 3A: Counsellor Dashboard
+**Route:** `/officer/dashboard`
+**Figma Reference:** Frame 5 (Screenshot 2026-09-30 162310.png)
+
+- [ ] Sidebar: SAHAYAK AI · "Well-being monitoring" · 6 nav items · PS user chip (Priya Sharma · Counsellor · Ghaziabad)
+- [ ] "Good morning, Priya" H1 greeting
+- [ ] Subtitle: "Well-being overview for your 48 assigned cases · Mon, 28 Sep 2026"
+- [ ] Search bar in top bar
+- [ ] Notification bell with badge (1 or 7)
+- [ ] Avatar initials "PS" visible
+
+**Metric Cards:**
+- [ ] "Assigned cases" card: 48 · "+4 this week" chip · green bar sparkline
+- [ ] "Active alerts" card: 7 · "2 critical" chip · red/pink sparkline
+- [ ] "SLA compliance" card: 94% · "Target 90%" · green bar
+- [ ] "Avg distress score" card: 61 · "+9 vs 14d" · purple sparkline
+- [ ] All 4 cards same height, uniform design
+
+**Distress Trend Chart:**
+- [ ] Dark background card (bg-slate-900 or similar)
+- [ ] "Distress trend" title in white
+- [ ] "Average across assigned cases" subtitle in muted grey
+- [ ] "Last 8 weeks" dropdown
+- [ ] Large numeral "68" with "9.6%" green trend chip
+- [ ] Line chart: W1–W8 on X-axis, lime-green (#A3E635) line
+- [ ] Data point at W8 = 72 with tooltip visible
+
+**Risk Distribution:**
+- [ ] Donut chart, center shows "48" + "active cases"
+- [ ] 4 segments: Critical (red) · High (orange) · Medium (yellow) · Low (green)
+- [ ] Legend with counts and percentages matching Figma
+
+**Priority Cases Table:**
+- [ ] 4 data rows matching Figma
+- [ ] Row 1: #USR-7844 · Threatened Witness · Critical (red dot) · 72 ▲ · 00:42 (red, urgent)
+- [ ] Row 2: #USR-5120 · Sexual Violence · High (orange dot) · 66 ▲ · 01:58
+- [ ] Row 3: #USR-3391 · Caste-based Violence · Medium (yellow dot) · 51 · 03:20
+- [ ] Row 4: #USR-9027 · Serious Violence · Low (green dot) · 34 ▼ · On track
+- [ ] Score column shows trend arrows (▲▼)
+- [ ] SLA timer for #USR-7844 is red/urgent
+
+**"Why Risk Changed" Panel:**
+- [ ] Right panel has lavender background
+- [ ] Header: "Why risk changed"
+- [ ] Sub: "#USR-7844 · 54 → 72 in 14 days"
+- [ ] 6 factor bars with scores (+12 to +4)
+- [ ] Factor labels match Figma: Legal stress, Recent threat indicators, Hearing postponed, Sleep deterioration, Negative language, Reduced engagement
+- [ ] Bars proportional to scores
+- [ ] "RECOMMENDED · HUMAN REVIEW" section with checkmarks
+- [ ] Green "Review & assign" CTA button
+
+- [ ] "Weekly well-being brief" card visible bottom-left
+
+### Screen 3C: Case Detail
+**Route:** `/officer/cases/nhaa-demo-1042`
+
+- [ ] Case header shows masked name, Case ID, Stage badge, Consent badge, Risk badge
+- [ ] 4 tabs visible: Overview · Risk Analysis · Interventions · History
+- [ ] Overview tab: case timeline + key risk factors + recent events
+- [ ] Action bar: 3 action buttons
+- [ ] Well-being chart renders with W1–W8 data
+
+### Screen 3E: Alert Detail
+**Route:** `/officer/alerts/[id]`
+
+- [ ] Risk level badge prominent at top
+- [ ] "Why risk increased" factor list
+- [ ] SLA timer animated (countdown)
+- [ ] APPROVE button: large, green, prominent
+- [ ] MODIFY and REJECT as secondary buttons
+- [ ] Notes textarea
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
+## Phase 4 Review — AI Risk Analysis
+
+### Screen 4A: AI Risk Analysis Tab
+**Route:** `/officer/cases/nhaa-demo-1042` (Risk Analysis tab)
+
+- [ ] 4 signal panels visible: Text · Voice · Behaviour · Case Context
+- [ ] Each panel has correct icon and signal indicators
+- [ ] Visual flow arrow: 4 signals → Baseline → Risk
+- [ ] Personal Baseline panel: shows 28 (baseline) vs 72 (current) vs +44 (change)
+- [ ] Dynamic Risk panel: "HIGH" badge prominent, 72/100 score, arc/ring animation
+- [ ] "Escalation Risk: Elevated" label
+- [ ] Explainability panel: 4 factors with scores and colored bars
+- [ ] "+18 Increased fear indicators" · "+14 Missed check-ins" · "+11 Safety concern" · "+09 Court hearing"
+- [ ] "Fast Crisis Path" or "Deep AI Path" processing badge
+
+### Screen 4B: Demo Simulation Panel
+
+- [ ] Panel collapses/expands cleanly
+- [ ] 13 step buttons visible, labeled correctly
+- [ ] Current step highlighted
+- [ ] Completed steps marked/greyed
+- [ ] "Reset demo" button resets all state to stable
+- [ ] Step 1: Dashboard shows LOW risk, distress=28
+- [ ] Step 2–4: Events appear in event feed
+- [ ] Step 5: "Processing..." skeleton loader appears
+- [ ] Step 6: Risk badge animates LOW → HIGH, score animates 28 → 72
+- [ ] Step 7: Explainability panel animates in
+- [ ] Step 8: New alert appears in alert list
+- [ ] Step 9: Alert detail opens with review buttons
+- [ ] Step 10: Approve click triggers intervention confirmed state
+- [ ] Step 11–12: Distress score animates 72 → 49, badge HIGH → MEDIUM
+- [ ] Step 13: "Monitoring active" state, charts show downward trend
+- [ ] All transitions smooth (no instant data swaps)
+- [ ] Demo simulation never crashes or shows undefined data
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
+## Phase 5 Review — Outcome & Polish
+
+### Screen 5A: Outcome Screen
+**Route:** `/officer/cases/nhaa-demo-1042/outcome`
+
+- [ ] Before/After clearly shows 72 → 49
+- [ ] Risk HIGH → MEDIUM shown visually
+- [ ] Animated chart shows distress dropping
+- [ ] "Outcome improved · Continue monitoring" green banner
+- [ ] Follow-up date card visible
+
+### Transition & Animation Review
+- [ ] Page navigation has subtle fade/slide transition
+- [ ] Critical risk badge pulses
+- [ ] SLA timer countdown is animated (not static)
+- [ ] Distress score counts up from 0 on page load
+- [ ] Chart bars/lines animate in on load
+- [ ] Demo step transitions: no jarring jumps
+- [ ] "AI Processing" skeleton shows for steps 5–7
+
+### Responsiveness
+- [ ] At 1440px: full layout matches Figma
+- [ ] At 1280px: layout still fully functional
+- [ ] At 1024px: sidebar collapses to icon-only
+- [ ] No horizontal scroll at 1024px+
+- [ ] (Mobile NOT required)
+
+### Ethical / Safety Audit
+- [ ] Zero instances of "diagnoses" in relation to AI
+- [ ] Zero instances of "guarantees"
+- [ ] Zero instances of "AI decides" (always "AI recommends")
+- [ ] Footer shows "PROTOTYPE · SYNTHETIC DATA" notice
+- [ ] No real personal data (names, addresses, case numbers outside demo set)
+- [ ] "Quick exit" button always visible on victim portal
+
+### Code Quality
+- [ ] No `any` TypeScript types in component props
+- [ ] No inline styles (only Tailwind classes from token set)
+- [ ] No unused imports
+- [ ] All mock data sourced from `/src/data/*.json`
+- [ ] Demo state machine in single file `/src/lib/demoState.ts`
+
+### Full Video Path Test
+Run the complete video recording path end-to-end:
+
+1. [ ] `/login` → click Counsellor → lands on dashboard correctly
+2. [ ] `/login` → click "Demo as Victim" → Asha's home loads
+3. [ ] Asha's home → "Start check-in" → Q1 loads
+4. [ ] Q1–Q8 navigate with Back/Continue
+5. [ ] Q8 → Complete screen → "Return to home" works
+6. [ ] Counsellor dashboard → priority case click → case detail loads
+7. [ ] Case detail → Risk Analysis tab → 4 signal panels visible
+8. [ ] Demo panel → Step 6 → risk changes to HIGH animated
+9. [ ] Demo panel → Step 8 → alert appears
+10. [ ] Alerts list → alert detail → APPROVE button works
+11. [ ] Intervention screen confirms approved support
+12. [ ] Demo panel → Step 12 → risk drops to MEDIUM
+13. [ ] Outcome screen → 72 → 49 → "Monitoring" state
+
+All 13 steps checked = READY FOR VIDEO RECORDING.
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
+## Final Sign-Off
+
+| Phase | Status | Reviewer | Date |
+|---|---|---|---|
+| Phase 0 — Design System | ⬜ PENDING | | |
+| Phase 1 — Login | ⬜ PENDING | | |
+| Phase 2 — Victim Portal | ⬜ PENDING | | |
+| Phase 3 — Officer Dashboard | ⬜ PENDING | | |
+| Phase 4 — AI Risk Analysis | ⬜ PENDING | | |
+| Phase 5 — Outcome & Polish | ⬜ PENDING | | |
+
+**Prototype ready for video recording:** ⬜ NO
+
+---
+
+*This review doc should be updated after completing each phase. Change status to ✅ PASS when all items in that phase check out.*
