@@ -391,6 +391,39 @@ processing events. No UI element reveals this is a mock simulation to a video vi
 ### Definition of Done
 Complete video recording path works smoothly: role selection → victim check-in → counsellor dashboard → AI risk analysis → alert review → approve → outcome improvement → monitoring continues.
 
+### Add-ons (original feature list)
+These sit with the officer and admin portals. They use the same mock data and tokens.
+
+#### Register Case (`/officer/cases/new`)
+Opened from Cases → Register case.
+- Case ID
+- Case category
+- Case stage
+- Consent
+- Safe channel
+- Create case stores the case for the session and lists it on Cases
+
+#### Crisis fast-path (`/officer/cases/nhaa-demo-1042`, Risk Analysis tab)
+A visible action, separate from the analysis badge:
+```
+REPORT IMMEDIATE SAFETY CONCERN
+              ↓
+      CRITICAL ALERT
+              ↓
+       PRIORITY ROUTING
+```
+A person still confirms what happens next. The signal does not decide.
+
+#### Audit logs (`/admin/audit`)
+Administrator → Audit logs. Five demo rows:
+```
+10:42  Risk Updated     #USR-7844
+10:43  Alert Created    #USR-7844
+10:44  Human Review     Priya Sharma
+10:45  Intervention     Approved
+10:48  Follow-up        Scheduled
+```
+
 ---
 
 ## Development Order Summary
@@ -426,7 +459,9 @@ Scaffold     Login      Victim       Officer      AI Risk     Outcome
 /officer/reports           → Reports
 /officer/cases/[id]/outcome → Outcome & Monitoring
 
-/admin/settings            → Admin (Phase 5 placeholder)
+/officer/cases/new         → Register Case
+/admin/settings            → Admin settings
+/admin/audit               → Audit logs
 ```
 
 ---

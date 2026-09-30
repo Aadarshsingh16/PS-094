@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { RiskBadge, SectionHeader } from "@/components/atoms";
 import cases from "@/data/cases.json";
 import { asRisk, casePath } from "@/lib/officer";
+import { readRegisteredCases, type RegisteredCase } from "@/lib/registeredCases";
 
 const FILTERS = ["ALL", "CRITICAL", "HIGH", "MEDIUM", "LOW"] as const;
 
@@ -12,6 +14,11 @@ export default function CasesPage() {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [risk, setRisk] = useState<(typeof FILTERS)[number]>("ALL");
+  const [registered, setRegistered] = useState<RegisteredCase[]>([]);
+
+  useEffect(() => {
+    setRegistered(readRegisteredCases());
+  }, []);
 
   const rows = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -24,7 +31,27 @@ export default function CasesPage() {
 
   return (
     <main className="px-8 py-8">
-      <SectionHeader title="Cases" subtitle="Four demo cases assigned to Priya Sharma." />
+      <SectionHeader
+        title="Cases"
+        subtitle="Four demo cases assigned to Priya Sharma."
+        action={
+          <Link href="/officer/cases/new" className="rounded-xl bg-brand-primary px-4 py-2 text-sm font-medium text-text-inverse">
+            Register case
+          </Link>
+        }
+      />
+      {registered.length > 0 ? (
+        <ul className="mb-4 space-y-2">
+          {registered.map((item) => (
+            <li key={item.caseId} className="rounded-2xl border border-border-default bg-bg-surface px-4 py-3 text-sm">
+              <p className="font-medium text-text-primary">{item.caseId}</p>
+              <p className="mt-1 text-text-secondary">
+                {item.category} · {item.stage} · {item.consent ? "Consent on" : "Consent pending"} · {item.safeChannel}
+              </p>
+            </li>
+          ))}
+        </ul>
+      ) : null}
       <div className="mb-4 flex flex-wrap gap-3">
         <input
           type="search"

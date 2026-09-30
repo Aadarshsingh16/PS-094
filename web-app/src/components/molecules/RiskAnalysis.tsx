@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { CrisisPath } from "@/components/molecules/CrisisPath";
 import { DistressTrend } from "@/components/molecules/DistressTrend";
 import signals from "@/data/signals.json";
 import { useDemoState } from "@/lib/demoState";
@@ -95,6 +96,7 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
 
   return (
     <div className="mt-6 space-y-6">
+      <CrisisPath />
       {step === 0 ? (
         <section className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-risk-medium bg-bg-amber-banner p-5">
           <div>
