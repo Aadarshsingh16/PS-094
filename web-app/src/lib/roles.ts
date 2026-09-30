@@ -16,32 +16,26 @@ export const PORTAL_ROLES: PortalRole[] = [
   {
     id: "victim",
     title: "Asha (Victim Portal)",
-    description: "Threatened Witness · Safe daily check-in, case journey & private support.",
+    description: "Threatened Witness · Safe daily check-in, private case journey & 1-tap support.",
     href: "/victim/home",
   },
   {
-    id: "district",
-    title: "District Officer",
-    description: "Coordinate well-being monitoring across assigned cases.",
-    href: "/officer/dashboard?role=district",
-  },
-  {
     id: "counsellor",
-    title: "Counsellor / Mental Health Professional",
-    description: "Review distress signals and recommend support. A person decides.",
+    title: "Counsellor Portal (Priya Sharma)",
+    description: "Clinical triage · Review distress signals, explainable risk factors & human review.",
     href: "/officer/dashboard",
   },
   {
-    id: "responder",
-    title: "Responder / Protection Officer",
-    description: "Respond to safety alerts that need a human check.",
-    href: "/officer/dashboard",
+    id: "district",
+    title: "District Authority (Reports & SLA)",
+    description: "Macro oversight · District distress trajectory, SLA compliance & caseload distribution.",
+    href: "/officer/reports",
   },
   {
     id: "administrator",
-    title: "Administrator",
-    description: "Manage portal settings for this prototype.",
-    href: "/admin/settings",
+    title: "Administrator (Governance & Audit)",
+    description: "Accountability · Tamper-evident audit trail, AI vs. human decision logs & settings.",
+    href: "/admin/audit",
   },
 ];
 

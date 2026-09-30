@@ -9,8 +9,8 @@ import { saveCheckinAnswers } from "@/lib/checkin";
 
 type Mode = "tap" | "voice" | "chat";
 
-function minutesLeft(index: number) {
-  return Math.max(1, 3 - Math.floor(index / 2));
+function minutesLeft(index: number, total: number) {
+  return Math.max(1, Math.ceil((total - index) / 3));
 }
 
 export default function CheckinPage() {
@@ -18,7 +18,8 @@ export default function CheckinPage() {
   const [index, setIndex] = useState(1); // Default to Question 2 ("How well did you sleep last night?") matching Frame 2
   const [answers, setAnswers] = useState<(string | null)[]>(() => questions.map(() => null));
   const [mode, setMode] = useState<Mode>("voice");
-  const [seconds, setSeconds] = useState(12); // Initialized to 00:12 matching Frame 2
+  const [seconds, setSeconds] = useState(0); // Starts at 00:00 - timer only ticks when clicked
+  const [isListening, setIsListening] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
   const [typedHeard, setTypedHeard] = useState("");
   const [detectedVoice, setDetectedVoice] = useState(false);
@@ -36,17 +37,24 @@ export default function CheckinPage() {
     }
   }, []);
 
+  // Timer only runs when voice mode is active AND listening is explicitly turned on by user click
   useEffect(() => {
-    if (mode !== "voice") return;
+    if (mode !== "voice" || !isListening) return;
     const timer = setInterval(() => setSeconds((value) => value + 1), 1000);
     return () => clearInterval(timer);
-  }, [mode]);
+  }, [mode, isListening]);
 
   function choose(option: string) {
     setAnswers((current) => current.map((value, itemIndex) => (itemIndex === index ? option : value)));
   }
 
+  function toggleListening() {
+    if (isSimulating) return;
+    setIsListening((prev) => !prev);
+  }
+
   function simulateVoiceAnswer() {
+    setIsListening(true);
     setIsSimulating(true);
     setDetectedVoice(false);
     setTypedHeard("");
@@ -59,6 +67,7 @@ export default function CheckinPage() {
       if (charIndex >= targetText.length) {
         clearInterval(interval);
         setIsSimulating(false);
+        setIsListening(false);
         setDetectedVoice(true);
         // Automatically select the stressed/relevant option for this question
         const defaultChoice = question.options[2] ?? question.options[1];
@@ -85,6 +94,9 @@ export default function CheckinPage() {
       return;
     }
     setIndex(index + 1);
+    setSeconds(0);
+    setIsListening(false);
+    setIsSimulating(false);
     setTypedHeard("");
     setDetectedVoice(false);
   }
@@ -95,6 +107,9 @@ export default function CheckinPage() {
       return;
     }
     setIndex(index - 1);
+    setSeconds(0);
+    setIsListening(false);
+    setIsSimulating(false);
     setTypedHeard("");
     setDetectedVoice(false);
   }
@@ -118,7 +133,7 @@ export default function CheckinPage() {
             <div>
               <h1 className="font-heading text-xl font-bold text-text-primary">Daily check-in</h1>
               <p className="text-xs text-text-secondary">
-                Question {index + 1} of {questions.length} · about {minutesLeft(index)} minutes left
+                Question {index + 1} of {questions.length} · about {minutesLeft(index, questions.length)} minutes left
               </p>
             </div>
           </div>
@@ -242,10 +257,17 @@ export default function CheckinPage() {
         {mode === "voice" ? (
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#110e24] via-[#1c143a] to-[#120f26] p-6 text-center text-text-inverse shadow-md">
             <div className="flex items-center justify-center">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-black/40 px-3 py-1 text-xs font-medium text-emerald-400">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Listening
-              </span>
+              {isListening ? (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-black/40 px-3 py-1 text-xs font-medium text-emerald-400">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Listening...
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-xs font-medium text-slate-300">
+                  <span className="h-2 w-2 rounded-full bg-slate-400" />
+                  Tap mic to speak
+                </span>
+              )}
             </div>
 
             <p className="mt-4 font-heading text-4xl font-bold tracking-tight text-white">{clock}</p>
@@ -262,13 +284,17 @@ export default function CheckinPage() {
                   "bg-cyan-400",
                 ];
                 const color = colors[i % colors.length];
-                const heightClass = isSimulating ? `${Math.min(52, h + (i % 3) * 6)}px` : `${h}px`;
+                const heightClass = isListening
+                  ? `${Math.min(52, h + ((seconds + i) % 4) * 8)}px`
+                  : isSimulating
+                  ? `${Math.min(52, h + (i % 3) * 6)}px`
+                  : `${Math.max(6, Math.round(h * 0.35))}px`;
                 return (
                   <span
                     key={i}
                     style={{ height: heightClass }}
                     className={`w-1.5 rounded-full transition-all duration-150 ${color} ${
-                      isSimulating ? "opacity-100" : "opacity-80"
+                      isListening || isSimulating ? "opacity-100" : "opacity-40"
                     }`}
                   />
                 );
@@ -278,20 +304,27 @@ export default function CheckinPage() {
             {/* Microphone Button with Pulse */}
             <button
               type="button"
-              onClick={simulateVoiceAnswer}
-              className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-orange-600 text-white shadow-lg shadow-orange-600/40 transition hover:bg-orange-500 active:scale-95"
-              aria-label="Microphone"
+              onClick={toggleListening}
+              className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full text-white shadow-lg transition active:scale-95 ${
+                isListening
+                  ? "bg-orange-600 ring-4 ring-orange-500/40 shadow-orange-600/60 animate-pulse"
+                  : "bg-orange-600 hover:bg-orange-500 shadow-orange-600/40"
+              }`}
+              aria-label={isListening ? "Pause microphone" : "Start microphone"}
+              title={isListening ? "Click to pause" : "Click to speak"}
             >
               <Mic size={26} />
             </button>
-            <p className="mt-3 text-xs text-slate-300">Speak in your own language</p>
+            <p className="mt-3 text-xs text-slate-300">
+              {isListening ? "Listening to your voice... (tap mic to stop)" : "Click mic to speak in your own language"}
+            </p>
 
             {/* Quick Simulation Trigger for Demo */}
             <button
               type="button"
               onClick={simulateVoiceAnswer}
               disabled={isSimulating}
-              className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/20 active:scale-95"
+              className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/20 active:scale-95 disabled:opacity-50"
             >
               <Volume2 size={13} />
               <span>{isSimulating ? "Speaking..." : "Simulate Voice Answer"}</span>

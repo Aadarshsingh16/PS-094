@@ -52,6 +52,19 @@
     ]
   },
   {
+    "id": "isolation",
+    "category": "ISOLATION",
+    "prompt": "Have you felt isolated or disconnected from others?",
+    "heard": "“I stay inside the room mostly. I find it difficult to talk to anyone outside.”",
+    "options": [
+      "Not isolated at all",
+      "A little distant",
+      "Sometimes isolated",
+      "Frequently alone",
+      "Completely cut off"
+    ]
+  },
+  {
     "id": "support",
     "category": "SUPPORT",
     "prompt": "Do you feel supported by people around you?",
@@ -62,6 +75,19 @@
       "Only one person",
       "Not really",
       "I feel alone in this"
+    ]
+  },
+  {
+    "id": "coping",
+    "category": "COPING",
+    "prompt": "How manageable have things felt for you today?",
+    "heard": "“It has been overwhelming with the court dates coming up. I am trying my best to stay calm.”",
+    "options": [
+      "Completely manageable",
+      "Mostly fine",
+      "Struggling at times",
+      "Very overwhelmed",
+      "Unable to cope today"
     ]
   },
   {
@@ -88,6 +114,32 @@
       "Uncomfortable",
       "Quite unwell",
       "I need a person to check on me"
+    ]
+  },
+  {
+    "id": "legal",
+    "category": "LEGAL SAFETY",
+    "prompt": "Do you have any concerns about your upcoming court dates or legal safety?",
+    "heard": "“I am worried about seeing the accused's family on Thursday at the district court.”",
+    "options": [
+      "No concerns right now",
+      "Minor questions for lawyer",
+      "Somewhat worried",
+      "Very anxious about court",
+      "Immediate protection needed"
+    ]
+  },
+  {
+    "id": "nourishment",
+    "category": "NOURISHMENT",
+    "prompt": "Have you been able to eat meals regularly?",
+    "heard": "“I skipped lunch today. My stomach has been in knots from anxiety.”",
+    "options": [
+      "Eating regularly",
+      "Slightly less appetite",
+      "Skipped a meal",
+      "Barely able to eat",
+      "Have not eaten today"
     ]
   },
   {

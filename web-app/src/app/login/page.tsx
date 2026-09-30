@@ -74,24 +74,66 @@ export default function LoginPage() {
             />
           </label>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {PORTAL_ROLES.map((role) => {
               const Icon = ROLE_ICONS[role.id];
+              const tagMap: Record<string, { label: string; badgeCls: string; hoverBorder: string }> = {
+                victim: {
+                  label: "Survivor / Citizen Portal",
+                  badgeCls: "bg-emerald-50 text-emerald-700 border-emerald-200",
+                  hoverBorder: "hover:border-emerald-500",
+                },
+                counsellor: {
+                  label: "Mental Health / Clinician",
+                  badgeCls: "bg-purple-50 text-purple-700 border-purple-200",
+                  hoverBorder: "hover:border-purple-500",
+                },
+                district: {
+                  label: "District Authority / DLSA",
+                  badgeCls: "bg-blue-50 text-blue-700 border-blue-200",
+                  hoverBorder: "hover:border-blue-500",
+                },
+                administrator: {
+                  label: "Audit & Governance",
+                  badgeCls: "bg-slate-100 text-slate-700 border-slate-200",
+                  hoverBorder: "hover:border-slate-500",
+                },
+              };
+
+              const tag = tagMap[role.id] ?? {
+                label: "Portal",
+                badgeCls: "bg-slate-100 text-slate-700 border-slate-200",
+                hoverBorder: "hover:border-brand-primary",
+              };
+
               return (
                 <button
                   key={role.id}
                   type="button"
                   onClick={() => openRole(role.id)}
-                  className="flex flex-col items-start gap-3 rounded-2xl border border-border-default bg-bg-surface p-5 text-left shadow-sm transition-colors duration-200 hover:border-brand-primary"
+                  className={`group flex flex-col items-start justify-between gap-4 rounded-2xl border border-border-default bg-bg-surface p-5 text-left shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${tag.hoverBorder}`}
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-subtle text-brand-primary">
-                    <Icon size={20} strokeWidth={1.8} />
+                  <div className="w-full">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-subtle text-brand-primary">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </span>
+                      <span
+                        className={`rounded-full border px-2.5 py-0.5 font-heading text-[11px] font-semibold ${tag.badgeCls}`}
+                      >
+                        {tag.label}
+                      </span>
+                    </div>
+                    <span className="mt-3 block font-heading text-base font-bold text-text-primary group-hover:text-brand-primary transition-colors">
+                      {role.title}
+                    </span>
+                    <span className="mt-1 block text-xs text-text-secondary leading-relaxed">
+                      {role.description}
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-primary group-hover:translate-x-0.5 transition-transform">
+                    Enter portal →
                   </span>
-                  <span className="font-heading text-base font-bold text-text-primary">
-                    {role.title}
-                  </span>
-                  <span className="text-sm text-text-secondary">{role.description}</span>
-                  <span className="text-sm font-medium text-brand-primary">Enter portal →</span>
                 </button>
               );
             })}
