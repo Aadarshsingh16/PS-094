@@ -1,0 +1,31 @@
+{
+  "bannerTitle": "New signals received for Case #USR-7844",
+  "bannerDetail": "Text · Voice · Behaviour · Case Event · 3 min ago",
+  "panels": [
+    {
+      "id": "text",
+      "title": "Text analysis",
+      "points": ["Fear language in recent messages", "Isolation markers", "Stress language"]
+    },
+    {
+      "id": "voice",
+      "title": "Voice analysis",
+      "points": ["Elevated stress indicator", "Strain heard in the latest call"]
+    },
+    {
+      "id": "behaviour",
+      "title": "Behaviour analysis",
+      "points": ["2 missed check-ins", "Reduced engagement −40%"]
+    },
+    {
+      "id": "context",
+      "title": "Case context",
+      "points": ["Court hearing 14 Oct", "Investigation delay", "Threat report filed"]
+    }
+  ],
+  "path": "Fast Crisis Path",
+  "toast": "HIGH RISK alert created for #USR-7844",
+  "outcome": "Outcome improved · Continue monitoring",
+  "followUp": "Follow-up scheduled with Priya Sharma",
+  "confirmed": ["Counsellor follow-up", "Safety reassessment", "Legal-aid coordination"]
+}
