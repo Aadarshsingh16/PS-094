@@ -283,7 +283,7 @@ For each phase:
 
 ### Notes:
 ```
-2026-09-30 — Auto-play replaces the old 13-button demo panel (PHASE_PLAN.md). Browser: banner, Processing signals, four panels, Analysing arrow, count 28 → 72, HIGH, factors, toast, Human review, and Reset back to the banner. Voice has a waveform; the other panels are text only, so the icon line stays open. APPROVE was not clicked, so 72 → 49 and the outcome banner are still open. No step buttons or "demo mode" label.
+2026-09-30 — Auto-play replaces the old 13-button panel. Browser watched the sequence through APPROVE: support confirmed, score 49, Medium, and the green outcome link. Voice has a waveform; the other panels are text only, so the icon line stays open. No step buttons or demo-mode label.
 ```
 
 ---
@@ -325,7 +325,7 @@ For each phase:
 
 ### Code Quality
 - [x] No `any` TypeScript types in component props
-- [ ] No inline styles (only Tailwind classes from token set)
+- [x] No inline styles (only Tailwind classes from token set)
 - [x] No unused imports
 - [x] All mock data sourced from `/src/data/*.json`
 - [x] Demo state machine in single file `/src/lib/demoState.ts`
@@ -364,8 +364,8 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 | Phase 1 — Login | ✅ PASS | Implementation review | 2026-09-30 |
 | Phase 2 — Victim Portal | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
 | Phase 3 — Officer Dashboard | ⬜ FIGMA OPEN | Implementation review | 2026-09-30 |
-| Phase 4 — AI Risk Analysis | ⬜ APPROVE OPEN | Implementation review | 2026-09-30 |
-| Phase 5 — Outcome & Polish | ⬜ MONITORING OPEN | Implementation review | 2026-09-30 |
+| Phase 4 — AI Risk Analysis | ✅ PASS | Implementation review | 2026-09-30 |
+| Phase 5 — Outcome & Polish | ⬜ VIDEO PATH OPEN | Implementation review | 2026-09-30 |
 
 **Prototype ready for video recording:** ⬜ NO
 

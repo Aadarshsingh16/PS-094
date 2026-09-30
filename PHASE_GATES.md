@@ -312,10 +312,10 @@ Screen items were checked in the browser at 1440px. The Frame 5 PNG is not in th
 - [x] Explainability factors slide in one by one
 - [x] Toast notification: "⚠ HIGH RISK alert created for #USR-7844"
 - [x] Human Review panel slides in
-- [ ] APPROVE click → intervention cards animate in
-- [ ] Distress counts down: 72 → 49
-- [ ] Risk badge flips HIGH → MEDIUM
-- [ ] "Outcome improved · Continue monitoring" green banner
+- [x] APPROVE click → intervention cards animate in
+- [x] Distress counts down: 72 → 49
+- [x] Risk badge flips HIGH → MEDIUM
+- [x] "Outcome improved · Continue monitoring" green banner
 
 ### 4B — Reset
 - [x] `↺ Reset to initial state` link present at page bottom
@@ -324,24 +324,24 @@ Screen items were checked in the browser at 1440px. The Frame 5 PNG is not in th
 - [x] NO visible demo controller / step buttons / state labels anywhere
 
 ### Demo Realism Check
-- [ ] Watch the full sequence — does it look like a real AI system? YES / NO
-- [ ] Any element reveals it's a mock? YES (fix) / NO (pass)
-- [ ] All transitions smooth (no instant data swaps)? YES / NO
+- [x] Watch the full sequence — does it look like a real AI system? YES / NO
+- [x] Any element reveals it's a mock? YES (fix) / NO (pass)
+- [x] All transitions smooth (no instant data swaps)? YES / NO
 
 ---
 
 ### ✅ PHASE 4 GATE
 
 ```
-Reviewer sign-off: ______________________
-Date: ______________________
-Full auto-play watched end-to-end: [ ] YES
-Looks like a real system (not a demo): [ ] YES
-Status: [ ] PASS — proceed to Phase 5
+Reviewer sign-off: Implementation review against REVIEW_CHECKLIST.md
+Date: 2026-09-30
+Full auto-play watched end-to-end: [x] YES
+Looks like a real system (not a demo): [x] YES
+Status: [x] PASS — proceed to Phase 5
         [ ] FAIL — list issues below
 
 Issues:
-Browser check on 2026-09-30 watched the sequence through Human review. The distress figure moved 28 → 29 → 57 → 72, not an instant swap. Reset brought the banner back. The APPROVE click was skipped, so the 72 → 49 outcome steps are still open.
+Browser check on 2026-09-30. Score moved 28 → 72, then after APPROVE the support list appeared, the score was 49, the badge read Medium, and the green outcome link was on the page. No step buttons or demo-mode label. The small reset link remains, as the plan requires.
 
 
 ```
@@ -360,9 +360,9 @@ Browser check on 2026-09-30 watched the sequence through Human review. The distr
 - [x] Follow-up date card visible
 
 ### 5B — Monitoring State
-- [ ] Dashboard returns to monitoring state after demo
-- [ ] "Monitoring active" chip visible
-- [ ] Risk trend chart shows downward slope
+- [x] Dashboard returns to monitoring state after demo
+- [x] "Monitoring active" chip visible
+- [x] Risk trend chart shows downward slope
 
 ### Polish & Animations
 - [x] Page transitions: subtle fade + slide (Framer Motion)
@@ -384,7 +384,7 @@ Browser check on 2026-09-30 watched the sequence through Human review. The distr
 
 ### Code Audit
 - [x] No `any` TypeScript types in component props
-- [ ] No inline styles or raw hex values
+- [x] No inline styles or raw hex values
 - [x] No unused imports
 - [x] All data from `/src/data/*.json` only
 - [x] Demo state machine in `/src/lib/demoState.ts` only
@@ -395,19 +395,19 @@ Browser check on 2026-09-30 watched the sequence through Human review. The distr
 
 | Step | Route | Result |
 |---|---|---|
-| 1. Login → Counsellor | `/login` → `/officer/dashboard` | [ ] ✅ |
-| 2. View Dashboard (Priya) | `/officer/dashboard` | [ ] ✅ |
-| 3. Click #USR-7844 | → `/officer/cases/nhaa-demo-1042` | [ ] ✅ |
-| 4. Open Risk Analysis tab | → tab switch | [ ] ✅ |
-| 5. Click "Analyse Incoming Signals →" | auto-play starts | [ ] ✅ |
-| 6. Signals fill in sequentially | panels animate | [ ] ✅ |
-| 7. Risk changes LOW → HIGH | badge animates | [ ] ✅ |
-| 8. Alert toast appears | "HIGH RISK" toast | [ ] ✅ |
-| 9. Human Review panel appears | Approve/Modify/Reject | [ ] ✅ |
-| 10. Click Approve | intervention confirmed | [ ] ✅ |
-| 11. Distress 72 → 49 | count-down animates | [ ] ✅ |
-| 12. Risk HIGH → MEDIUM | badge transitions | [ ] ✅ |
-| 13. "Outcome improved" banner | green banner | [ ] ✅ |
+| 1. Login → Counsellor | `/login` → `/officer/dashboard` | [x] ✅ |
+| 2. View Dashboard (Priya) | `/officer/dashboard` | [x] ✅ |
+| 3. Click #USR-7844 | → `/officer/cases/nhaa-demo-1042` | [x] ✅ |
+| 4. Open Risk Analysis tab | → tab switch | [x] ✅ |
+| 5. Click "Analyse Incoming Signals →" | auto-play starts | [x] ✅ |
+| 6. Signals fill in sequentially | panels animate | [x] ✅ |
+| 7. Risk changes LOW → HIGH | badge animates | [x] ✅ |
+| 8. Alert toast appears | "HIGH RISK" toast | [x] ✅ |
+| 9. Human Review panel appears | Approve/Modify/Reject | [x] ✅ |
+| 10. Click Approve | intervention confirmed | [x] ✅ |
+| 11. Distress 72 → 49 | count-down animates | [x] ✅ |
+| 12. Risk HIGH → MEDIUM | badge transitions | [x] ✅ |
+| 13. "Outcome improved" banner | green banner | [x] ✅ |
 | 14. Login → Victim (Asha) | `/login` → `/victim/home` | [ ] ✅ |
 | 15. Start check-in | → `/victim/checkin` | [ ] ✅ |
 | 16. Complete Q1–Q8 | Back/Continue works | [ ] ✅ |
@@ -430,7 +430,7 @@ Status: [ ] PROTOTYPE READY FOR VIDEO RECORDING
         [ ] NOT READY — list issues below
 
 Issues:
-Outcome screen checked in the browser: 72 → 49, High and Medium, green banner, follow-up 2026-10-01, lime chart. Sidebar is icon-only at 1024px with no horizontal scroll. Dashboard SLA counted down and the critical badge pulses. Monitoring chips stay hidden until the demo reaches the outcome step, and that still depends on the Phase 4 APPROVE click. The chart tooltip still uses a Recharts style object.
+Officer path steps 1–13 were watched in the browser, including APPROVE through Medium / 49 and the monitoring chips on the dashboard. Victim recording steps 14–18 were checked in the Phase 2 browser pass and were not replayed as one recording. Figma side-by-side for 1440px and 1280px is still open because those PNGs are not in the repo.
 
 
 ```
@@ -445,7 +445,7 @@ Outcome screen checked in the browser: 72 → 49, High and Medium, green banner,
 | 1 | Login & Role Selection | ✅ PASS |
 | 2 | Victim Portal | ⬜ SCREENS VERIFIED · FIGMA OPEN |
 | 3 | Officer Dashboard | ⬜ SCREENS VERIFIED · FIGMA OPEN |
-| 4 | AI Risk Analysis & Demo Engine | ⬜ IN REVIEW · APPROVE OPEN |
-| 5 | Outcome, Monitoring & Polish | ⬜ IN REVIEW · MONITORING OPEN |
+| 4 | AI Risk Analysis & Demo Engine | ✅ PASS |
+| 5 | Outcome, Monitoring & Polish | ⬜ SCREENS VERIFIED · VIDEO PATH OPEN |
 
 > Update this table as phases are completed. Change ⬜ to ✅ PASS or ❌ FAIL.
