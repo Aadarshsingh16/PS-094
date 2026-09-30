@@ -356,6 +356,20 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 
 ---
 
+## Add-ons — Registration, Crisis Path, Audit
+
+- [ ] Register case: Case ID, category, stage, consent, safe channel, Create case
+- [ ] Created case appears on the Cases list for the session
+- [ ] Risk Analysis: REPORT IMMEDIATE SAFETY CONCERN → CRITICAL ALERT → PRIORITY ROUTING
+- [ ] Admin audit log shows the five demo rows for #USR-7844 and Priya Sharma
+
+### Notes:
+```
+[Add review notes here]
+```
+
+---
+
 ## Final Sign-Off
 
 | Phase | Status | Reviewer | Date |
