@@ -1,0 +1,75 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Build & Package Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java 17 (JDK)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Mobile App Dependencies
+        working-directory: ./mobile-app
+        run: |
+          npm install
+
+      - name: Build Web Application
+        working-directory: ./mobile-app
+        run: |
+          npm run build
+
+      - name: Sync Capacitor Android Project
+        working-directory: ./mobile-app
+        run: |
+          npx cap sync android
+
+      - name: Grant Execute Permission for Gradle Wrapper
+        working-directory: ./mobile-app/android
+        run: |
+          chmod +x gradlew
+
+      - name: Build Debug APK via Gradle
+        working-directory: ./mobile-app/android
+        run: |
+          ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Verify APK Generated
+        run: |
+          ls -la mobile-app/android/app/build/outputs/apk/debug/
+
+      - name: Upload APK as Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sahayak-ai-mobile-debug-apk
+          path: mobile-app/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
+
+      - name: Summary
+        run: |
+          echo "### 🚀 SAHAYAK AI Android APK Built Successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "You can download the APK directly from the **Artifacts** section of this workflow run." >> $GITHUB_STEP_SUMMARY
+          echo "File: **sahayak-ai-mobile-debug-apk**" >> $GITHUB_STEP_SUMMARY
