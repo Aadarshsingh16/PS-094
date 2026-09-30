@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+web-app/node_modules/
+
+# Next.js build
+.next/
+web-app/.next/
+out/
+web-app/out/
+
+# Environment files
+.env*.local
+.env
+web-app/.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+web-app/next-env.d.ts
+
+# OS files
+.DS_Store
+Thumbs.db

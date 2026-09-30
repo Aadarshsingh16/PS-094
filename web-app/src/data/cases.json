@@ -1,0 +1,96 @@
+[
+  {
+    "caseId": "NHAA-DEMO-1042",
+    "userId": "#USR-7844",
+    "displayName": "Asha (demo)",
+    "category": "Threatened Witness",
+    "stage": "Court Hearing",
+    "consent": true,
+    "safeChannel": "SMS",
+    "language": "English",
+    "baselineDistress": 28,
+    "currentDistress": 72,
+    "riskLevel": "HIGH",
+    "slaRemaining": "00:42",
+    "assignedCounsellor": "Priya Sharma",
+    "caseDate": "2026-08-12",
+    "nextHearing": "2026-10-14",
+    "riskFactors": [
+      { "label": "Increased fear indicators", "score": 18 },
+      { "label": "Missed two check-ins", "score": 14 },
+      { "label": "New safety concern", "score": 11 },
+      { "label": "Upcoming court hearing", "score": 9 }
+    ],
+    "recommendedAction": "Priority counselling follow-up",
+    "journey": [
+      { "step": "Complaint registered", "date": "12 Aug", "status": "done" },
+      { "step": "Counsellor assigned", "date": "14 Aug", "status": "done" },
+      { "step": "Legal aid ready", "date": "2 Sep", "status": "done" },
+      { "step": "Hearing", "date": "14 Oct", "status": "upcoming" }
+    ]
+  },
+  {
+    "caseId": "NHAA-DEMO-5120",
+    "userId": "#USR-5120",
+    "displayName": "Case #USR-5120",
+    "category": "Sexual Violence",
+    "stage": "Investigation",
+    "consent": true,
+    "safeChannel": "Chatbot",
+    "language": "Hindi",
+    "baselineDistress": 32,
+    "currentDistress": 66,
+    "riskLevel": "HIGH",
+    "slaRemaining": "01:58",
+    "assignedCounsellor": "Priya Sharma",
+    "caseDate": "2026-07-20",
+    "nextHearing": null,
+    "riskFactors": [
+      { "label": "Repeated help requests", "score": 15 },
+      { "label": "Isolation indicators", "score": 12 },
+      { "label": "Investigation delay", "score": 10 }
+    ],
+    "recommendedAction": "Immediate counsellor contact"
+  },
+  {
+    "caseId": "NHAA-DEMO-3391",
+    "userId": "#USR-3391",
+    "displayName": "Case #USR-3391",
+    "category": "Caste-based Violence",
+    "stage": "Compensation & Relief",
+    "consent": true,
+    "safeChannel": "SMS",
+    "language": "Hindi",
+    "baselineDistress": 25,
+    "currentDistress": 51,
+    "riskLevel": "MEDIUM",
+    "slaRemaining": "03:20",
+    "assignedCounsellor": "Priya Sharma",
+    "caseDate": "2026-06-15",
+    "nextHearing": null,
+    "riskFactors": [
+      { "label": "Compensation delay", "score": 12 },
+      { "label": "Stress language", "score": 8 }
+    ],
+    "recommendedAction": "Legal-aid coordination"
+  },
+  {
+    "caseId": "NHAA-DEMO-9027",
+    "userId": "#USR-9027",
+    "displayName": "Case #USR-9027",
+    "category": "Serious Violence",
+    "stage": "Rehabilitation",
+    "consent": true,
+    "safeChannel": "Mobile App",
+    "language": "English",
+    "baselineDistress": 40,
+    "currentDistress": 34,
+    "riskLevel": "LOW",
+    "slaRemaining": "On track",
+    "assignedCounsellor": "Priya Sharma",
+    "caseDate": "2026-05-10",
+    "nextHearing": null,
+    "riskFactors": [],
+    "recommendedAction": "Continue monitoring"
+  }
+]

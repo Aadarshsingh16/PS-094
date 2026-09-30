@@ -20,41 +20,41 @@
 **Goal:** Project runs locally. All design tokens and atom components are correct before any page is built.
 
 ### Setup
-- [ ] Next.js 14 project initialized in `web-app/` and runs with `npm run dev`
-- [ ] No TypeScript errors on first run
-- [ ] Tailwind CSS installed and configured
-- [ ] `tailwind.config.ts` has all design tokens defined (no raw hex in components)
-- [ ] Google Fonts loaded: Space Grotesk + Inter via `next/font`
+- [x] Next.js 14 project initialized in `web-app/` and runs with `npm run dev`
+- [x] No TypeScript errors on first run
+- [x] Tailwind CSS installed and configured
+- [x] `tailwind.config.ts` / CSS `@theme` has all design tokens defined (no raw hex in components)
+- [x] Google Fonts loaded: Space Grotesk + Inter via `next/font`
 
 ### Color Tokens (verify in browser)
-- [ ] `brand-primary` renders as emerald green (#16A34A)
-- [ ] `risk-critical` renders as red (#EF4444)
-- [ ] `risk-high` renders as orange (#F97316)
-- [ ] `risk-medium` renders as amber (#EAB308)
-- [ ] `risk-low` renders as green (#22C55E)
-- [ ] `bg-accent-subtle` renders as lavender (#EDE9FE)
-- [ ] `bg-surface` visually distinct from `bg-primary`
+- [x] `brand-primary` renders as emerald green (#16A34A)
+- [x] `risk-critical` renders as red (#EF4444)
+- [x] `risk-high` renders as orange (#F97316)
+- [x] `risk-medium` renders as amber (#EAB308)
+- [x] `risk-low` renders as green (#22C55E)
+- [x] `bg-accent-subtle` renders as lavender (#EDE9FE)
+- [x] `bg-surface` visually distinct from `bg-primary`
 
 ### Atom Components (render all on `/dev/tokens` test page)
-- [ ] `RiskBadge` — all 4 variants (Critical / High / Medium / Low) render correctly
-- [ ] `StatusToggle` — blue when ON, grey when OFF
-- [ ] `MetricCard` — number + sparkline + trend chip layout correct
-- [ ] `QuickExit` — black button, correct label
-- [ ] `SideNav` victim variant — 5 nav items + footer section
-- [ ] `SideNav` officer variant — 6 nav items + user chip footer
-- [ ] `TopBar` — search bar + bell icon + avatar
+- [x] `RiskBadge` — all 4 variants (Critical / High / Medium / Low) render correctly
+- [x] `StatusToggle` — blue when ON, grey when OFF
+- [x] `MetricCard` — number + sparkline + trend chip layout correct
+- [x] `QuickExit` — black button, correct label
+- [x] `SideNav` victim variant — 5 nav items + footer section
+- [x] `SideNav` officer variant — 6 nav items + user chip footer
+- [x] `TopBar` — search bar + bell icon + avatar
 
 ### Mock Data Files
-- [ ] `/src/data/cases.json` — 4 cases, all required fields present
-- [ ] `/src/data/alerts.json` — 7 alerts with severity + SLA fields
-- [ ] `/src/data/interventions.json` — at least 3 records
-- [ ] `/src/data/checkins.json` — 7-day history for Asha
-- [ ] `/src/data/riskTimeline.json` — W1–W8 distress scores
+- [x] `/src/data/cases.json` — 4 cases, all required fields present
+- [x] `/src/data/alerts.json` — 7 alerts with severity + SLA fields
+- [x] `/src/data/interventions.json` — at least 3 records
+- [x] `/src/data/checkins.json` — 7-day history for Asha
+- [x] `/src/data/riskTimeline.json` — W1–W8 distress scores
 
 ### Code Quality
-- [ ] No `any` TypeScript types in atom components
-- [ ] No inline hex values or inline styles in any component
-- [ ] Folder structure matches PHASE_PLAN.md spec
+- [x] No `any` TypeScript types in atom components
+- [x] No inline hex values or inline styles in any component
+- [x] Folder structure matches PHASE_PLAN.md spec
 
 ---
 

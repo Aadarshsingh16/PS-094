@@ -1,0 +1,62 @@
+[
+  {
+    "id": "INT-001",
+    "caseId": "NHAA-DEMO-1042",
+    "userId": "#USR-7844",
+    "type": "COUNSELLING",
+    "label": "Counselling Support",
+    "status": "IN_PROGRESS",
+    "assignedOfficer": "Priya Sharma",
+    "scheduledDate": "2026-10-02",
+    "scheduledTime": "4:00 PM",
+    "notes": "Priority session scheduled before court hearing on 14 Oct"
+  },
+  {
+    "id": "INT-002",
+    "caseId": "NHAA-DEMO-1042",
+    "userId": "#USR-7844",
+    "type": "PROTECTION",
+    "label": "Protection Support",
+    "status": "ASSIGNED",
+    "assignedOfficer": "Rahul Verma (Protection Officer)",
+    "scheduledDate": "2026-10-01",
+    "scheduledTime": "11:00 AM",
+    "notes": "Safety reassessment at district office"
+  },
+  {
+    "id": "INT-003",
+    "caseId": "NHAA-DEMO-1042",
+    "userId": "#USR-7844",
+    "type": "LEGAL_AID",
+    "label": "Legal Aid",
+    "status": "COMPLETED",
+    "assignedOfficer": "Legal Aid Officer",
+    "scheduledDate": "2026-09-02",
+    "scheduledTime": "10:00 AM",
+    "notes": "Legal aid assigned for court hearing"
+  },
+  {
+    "id": "INT-004",
+    "caseId": "NHAA-DEMO-5120",
+    "userId": "#USR-5120",
+    "type": "COUNSELLING",
+    "label": "Counselling Support",
+    "status": "PENDING",
+    "assignedOfficer": null,
+    "scheduledDate": null,
+    "scheduledTime": null,
+    "notes": "Awaiting human review approval"
+  },
+  {
+    "id": "INT-005",
+    "caseId": "NHAA-DEMO-9027",
+    "userId": "#USR-9027",
+    "type": "REHABILITATION",
+    "label": "Rehabilitation Support",
+    "status": "COMPLETED",
+    "assignedOfficer": "Welfare Officer",
+    "scheduledDate": "2026-08-15",
+    "scheduledTime": "2:00 PM",
+    "notes": "Rehabilitation referral completed successfully"
+  }
+]

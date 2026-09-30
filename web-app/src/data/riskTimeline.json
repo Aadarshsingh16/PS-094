@@ -1,0 +1,42 @@
+{
+  "stable": [
+    { "week": "W1", "score": 28 },
+    { "week": "W2", "score": 30 },
+    { "week": "W3", "score": 29 },
+    { "week": "W4", "score": 31 },
+    { "week": "W5", "score": 28 },
+    { "week": "W6", "score": 30 },
+    { "week": "W7", "score": 29 },
+    { "week": "W8", "score": 28 }
+  ],
+  "escalating": [
+    { "week": "W1", "score": 28 },
+    { "week": "W2", "score": 30 },
+    { "week": "W3", "score": 35 },
+    { "week": "W4", "score": 42 },
+    { "week": "W5", "score": 51 },
+    { "week": "W6", "score": 60 },
+    { "week": "W7", "score": 67 },
+    { "week": "W8", "score": 72 }
+  ],
+  "improving": [
+    { "week": "W1", "score": 28 },
+    { "week": "W2", "score": 35 },
+    { "week": "W3", "score": 51 },
+    { "week": "W4", "score": 60 },
+    { "week": "W5", "score": 72 },
+    { "week": "W6", "score": 65 },
+    { "week": "W7", "score": 56 },
+    { "week": "W8", "score": 49 }
+  ],
+  "counsellorDashboard": [
+    { "week": "W1", "score": 54 },
+    { "week": "W2", "score": 57 },
+    { "week": "W3", "score": 58 },
+    { "week": "W4", "score": 60 },
+    { "week": "W5", "score": 62 },
+    { "week": "W6", "score": 64 },
+    { "week": "W7", "score": 67 },
+    { "week": "W8", "score": 72 }
+  ]
+}

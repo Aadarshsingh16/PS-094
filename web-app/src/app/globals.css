@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   SAHAYAK AI — Design System Tokens (Tailwind v4)
+   All colors via @theme — no raw hex in components
+   ───────────────────────────────────────────── */
+
+@theme {
+  /* ── Fonts ── */
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+
+  /* ── Brand ── */
+  --color-brand-primary:   #16A34A;
+  --color-brand-secondary: #059669;
+  --color-brand-hover:     #15803D;
+
+  /* ── Accent ── */
+  --color-accent-lavender: #8B5CF6;
+  --color-accent-lavender-light: #EDE9FE;
+
+  /* ── Risk / Status ── */
+  --color-risk-critical:    #EF4444;
+  --color-risk-critical-bg: #FEE2E2;
+  --color-risk-critical-text: #991B1B;
+
+  --color-risk-high:        #F97316;
+  --color-risk-high-bg:     #FFF7ED;
+  --color-risk-high-text:   #9A3412;
+
+  --color-risk-medium:      #EAB308;
+  --color-risk-medium-bg:   #FEFCE8;
+  --color-risk-medium-text: #854D0E;
+
+  --color-risk-low:         #22C55E;
+  --color-risk-low-bg:      #F0FDF4;
+  --color-risk-low-text:    #166534;
+
+  /* ── Backgrounds ── */
+  --color-bg-primary:       #FFFFFF;
+  --color-bg-surface:       #F8FAFC;
+  --color-bg-accent-subtle: #EDE9FE;
+  --color-bg-dark-chart:    #0F172A;
+  --color-bg-amber-banner:  #FFFBEB;
+
+  /* ── Text ── */
+  --color-text-primary:   #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted:     #94A3B8;
+
+  /* ── Border ── */
+  --color-border-default: #E2E8F0;
+  --color-border-subtle:  #F1F5F9;
+
+  /* ── Spacing (sidebar widths) ── */
+  --sidebar-victim:  220px;
+  --sidebar-officer: 200px;
+}
+
+/* ─── Base ─── */
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-heading, .font-display, .font-numeral {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
