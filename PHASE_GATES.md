@@ -442,18 +442,18 @@ Officer path steps 1–13 were watched in the browser, including APPROVE through
 These were in the original feature list. They are not a new phase.
 
 ### Register Case
-- [ ] Cases page has Register case
-- [ ] Form: Case ID, category, stage, consent, safe channel
-- [ ] Create case stores it for the session and shows it on Cases
+- [x] Cases page has Register case
+- [x] Form: Case ID, category, stage, consent, safe channel
+- [x] Create case stores it for the session and shows it on Cases
 
 ### Crisis fast-path
-- [ ] Risk Analysis shows REPORT IMMEDIATE SAFETY CONCERN
-- [ ] Click reveals CRITICAL ALERT, then PRIORITY ROUTING
-- [ ] Copy says a person confirms the next step
+- [x] Risk Analysis shows REPORT IMMEDIATE SAFETY CONCERN
+- [x] Click reveals CRITICAL ALERT, then PRIORITY ROUTING
+- [x] Copy says a person confirms the next step
 
 ### Audit logs
-- [ ] Admin → Audit logs
-- [ ] Five rows: 10:42 Risk Updated, 10:43 Alert Created, 10:44 Human Review, 10:45 Intervention Approved, 10:48 Follow-up Scheduled
+- [x] Admin → Audit logs
+- [x] Five rows: 10:42 Risk Updated, 10:43 Alert Created, 10:44 Human Review, 10:45 Intervention Approved, 10:48 Follow-up Scheduled
 
 ---
 

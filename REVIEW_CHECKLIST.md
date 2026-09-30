@@ -358,14 +358,14 @@ All 13 steps checked = READY FOR VIDEO RECORDING.
 
 ## Add-ons — Registration, Crisis Path, Audit
 
-- [ ] Register case: Case ID, category, stage, consent, safe channel, Create case
-- [ ] Created case appears on the Cases list for the session
-- [ ] Risk Analysis: REPORT IMMEDIATE SAFETY CONCERN → CRITICAL ALERT → PRIORITY ROUTING
-- [ ] Admin audit log shows the five demo rows for #USR-7844 and Priya Sharma
+- [x] Register case: Case ID, category, stage, consent, safe channel, Create case
+- [x] Created case appears on the Cases list for the session
+- [x] Risk Analysis: REPORT IMMEDIATE SAFETY CONCERN → CRITICAL ALERT → PRIORITY ROUTING
+- [x] Admin audit log shows the five demo rows for #USR-7844 and Priya Sharma
 
 ### Notes:
 ```
-[Add review notes here]
+2026-09-30 — Browser: Register case created NHAA-DEMO-2201 and it appeared on Cases. Risk Analysis showed the safety-concern button, then CRITICAL ALERT and PRIORITY ROUTING. Admin audit lists 10:42 through 10:48.
 ```
 
 ---
