@@ -37,6 +37,7 @@
   /* ── Quick exit ── */
   --color-quick-exit:       #0F172A;
   --color-quick-exit-hover: #1E293B;
+  --color-chart-lime:       #A3E635;
 
   /* ── Risk / Status ── */
   --color-risk-critical:    #EF4444;
@@ -106,6 +107,10 @@ h1, h2, h3, h4, h5, h6,
 
 .victim-shell {
   margin-left: var(--width-sidebar-victim);
+}
+
+.officer-shell {
+  margin-left: var(--width-sidebar-officer);
 }
 
 .hero-panel {

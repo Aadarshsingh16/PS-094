@@ -58,5 +58,17 @@
     "scheduledDate": "2026-08-15",
     "scheduledTime": "2:00 PM",
     "notes": "Rehabilitation referral completed successfully"
+  },
+  {
+    "id": "INT-006",
+    "caseId": "NHAA-DEMO-3391",
+    "userId": "#USR-3391",
+    "type": "FINANCIAL",
+    "label": "Financial Support",
+    "status": "PENDING",
+    "assignedOfficer": "Welfare Officer",
+    "scheduledDate": "2026-10-08",
+    "scheduledTime": "3:00 PM",
+    "notes": "Relief support is waiting for human review"
   }
 ]

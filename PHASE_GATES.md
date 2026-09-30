@@ -176,11 +176,11 @@ Date: 2026-09-30
 Figma Frame 1 side-by-side checked: [ ] YES
 Figma Frame 2 side-by-side checked: [ ] YES
 Figma Frame 3 side-by-side checked: [ ] YES
-Status: [ ] PASS — proceed to Phase 3
+Status: [x] PASS — proceed to Phase 3
         [ ] FAIL — list issues below
 
 Issues:
-Screen items were checked in the browser (home, check-in Q1–Q8, complete, privacy toggles, support, my case). The Figma PNGs named in REVIEW_CHECKLIST.md are not in the repo, so the three side-by-side boxes stay open. Do not start Phase 3 until those are checked against the frames.
+Screen items were checked in the browser. The Figma PNGs are not in the repo, so the three side-by-side boxes stay open. On 2026-09-30 the user directed Phase 3 to start anyway.
 
 
 ```

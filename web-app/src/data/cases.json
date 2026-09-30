@@ -10,7 +10,7 @@
     "language": "English",
     "baselineDistress": 28,
     "currentDistress": 72,
-    "riskLevel": "HIGH",
+    "riskLevel": "CRITICAL",
     "slaRemaining": "00:42",
     "assignedCounsellor": "Priya Sharma",
     "caseDate": "2026-08-12",
