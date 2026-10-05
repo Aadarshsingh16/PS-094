@@ -43,7 +43,7 @@ export function TopBar({
       </div>
 
       {/* Right: search + bell + avatar */}
-      <div className="flex items-center gap-3 shrink-0">
+      <div className="phone-toolbar flex items-center gap-3 shrink-0">
         {greeting && showSearch && (
           <div className="relative">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" />

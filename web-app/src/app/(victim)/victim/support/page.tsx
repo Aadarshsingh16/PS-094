@@ -23,7 +23,7 @@ export default function SupportPage() {
             key={item.id}
             className="rounded-2xl border border-border-default bg-bg-surface p-5 shadow-sm"
           >
-            <div className="flex items-start justify-between gap-3">
+            <div className="app-row flex items-start justify-between gap-3">
               <h2 className="font-heading text-lg font-bold text-text-primary">{item.label}</h2>
               <span className="rounded-full bg-brand-subtle px-2.5 py-1 text-xs font-semibold text-brand-primary">
                 {item.status.replaceAll("_", " ")}

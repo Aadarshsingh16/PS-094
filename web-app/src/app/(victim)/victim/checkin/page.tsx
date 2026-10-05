@@ -160,7 +160,7 @@ export default function CheckinPage() {
     <div className="checkin-layout flex min-h-screen bg-bg-primary text-text-primary">
       <div className="checkin-main flex min-w-0 flex-1 flex-col">
         {/* Header matching Frame 2 */}
-        <header className="checkin-head flex items-center justify-between gap-4 px-8 py-5">
+        <header className="checkin-head app-row flex items-center justify-between gap-4 px-8 py-5">
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -184,7 +184,7 @@ export default function CheckinPage() {
         </header>
 
         {/* Linear progress bar spanning full width */}
-        <div className="w-full bg-border-subtle h-1">
+        <div className="checkin-head w-full bg-border-subtle h-1">
           <div
             className="h-full bg-blue-600 transition-all duration-300"
             style={{ width: `${progress}%` }}
@@ -208,14 +208,14 @@ export default function CheckinPage() {
           {/* Interactive Chat & Typing Input Card when mode === 'chat' */}
           {mode === "chat" && (
             <div className="mt-5 rounded-2xl border-2 border-brand-primary/40 bg-emerald-50/20 p-5 shadow-xs">
-              <div className="flex items-center justify-between gap-2">
+              <div className="app-row flex items-center justify-between gap-2">
                 <span className="flex items-center gap-2 font-heading text-xs font-bold text-brand-primary uppercase tracking-wider">
                   <MessageSquare size={15} /> Type your answer
                 </span>
                 <span className="text-xs text-text-muted">Press Enter ↵ to send</span>
               </div>
 
-              <div className="mt-3 flex gap-2">
+              <div className="app-row mt-3 flex gap-2">
                 <textarea
                   rows={2}
                   value={chatInput}

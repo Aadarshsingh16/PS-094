@@ -111,7 +111,7 @@ export default function OfficerDashboardPage() {
         <div className="phone-stack grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
           <div className="space-y-6">
             <section className="rounded-2xl bg-bg-dark-chart p-6 text-text-inverse">
-              <div className="flex items-start justify-between gap-4">
+              <div className="app-row flex items-start justify-between gap-4">
                 <div>
                   <h2 className="font-heading text-lg font-bold">{dashboard.trend.title}</h2>
                   <p className="mt-1 text-sm text-text-muted">{dashboard.trend.subtitle}</p>

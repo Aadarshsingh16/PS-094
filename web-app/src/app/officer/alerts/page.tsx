@@ -43,7 +43,7 @@ export default function AlertsPage() {
             key={item.id}
             className="rounded-2xl border border-border-default bg-bg-surface p-5 shadow-sm"
           >
-            <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="app-row flex flex-wrap items-start justify-between gap-3">
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <RiskBadge level={asRisk(item.severity)} />

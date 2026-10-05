@@ -29,14 +29,14 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
   return (
     <main className="px-8 py-8">
       <header className="rounded-2xl border border-border-default bg-bg-surface p-6">
-        <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="app-row flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 className="font-heading text-heading-xl font-bold text-text-primary">{record.displayName}</h1>
             <p className="mt-1 text-sm text-text-secondary">
               {record.caseId} · {record.userId}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="phone-actions flex flex-wrap items-center gap-2">
             {record.caseId === "NHAA-DEMO-1042" && (
               <button
                 type="button"

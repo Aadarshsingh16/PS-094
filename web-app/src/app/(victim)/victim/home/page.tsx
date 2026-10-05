@@ -163,7 +163,7 @@ export default function VictimHomePage() {
             <section className="rounded-2xl border border-border-default bg-bg-surface p-5 flex flex-col justify-between">
               <div>
                 <h3 className="font-heading text-base font-bold text-text-primary">Right now I feel...</h3>
-                <div className="mt-5 grid grid-cols-5 gap-2">
+                <div className="phone-mood mt-5 grid grid-cols-5 gap-2">
                   {MOODS.map((item) => {
                     const isSelected = mood === item.id;
                     return (

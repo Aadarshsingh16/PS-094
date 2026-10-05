@@ -231,6 +231,27 @@ h1, h2, h3, h4, h5, h6,
     grid-template-columns: 1fr !important;
   }
 
+  .phone-journey > li > div > div {
+    display: none;
+  }
+
+  .phone-mood button {
+    min-width: 0;
+    padding: 0.25rem;
+  }
+
+  .phone-mood button > span:first-child {
+    height: 2.25rem;
+    width: 2.25rem;
+    font-size: 1rem;
+  }
+
+  .phone-mood button > span:last-child {
+    line-height: 1.1;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
   .app-row {
     flex-direction: column;
     align-items: stretch;
@@ -247,6 +268,15 @@ h1, h2, h3, h4, h5, h6,
   .checkin-body,
   .checkin-head {
     order: 1;
+  }
+
+  .checkin-body {
+    flex: 0 1 auto;
+    justify-content: flex-start;
+  }
+
+  .checkin-body .text-3xl {
+    font-size: 1.5rem;
   }
 
   .checkin-aside {
@@ -294,9 +324,37 @@ h1, h2, h3, h4, h5, h6,
     padding-right: 1rem;
   }
 
-  .phone-title {
+  .phone-title,
+  .officer-shell .text-display-2xl,
+  .victim-shell .text-display-2xl,
+  .admin-shell .text-display-2xl {
     font-size: 1.75rem;
     line-height: 1.2;
+  }
+
+  .officer-shell .text-heading-xl,
+  .victim-shell .text-heading-xl {
+    font-size: 1.5rem;
+  }
+
+  .phone-field,
+  .app-row .max-w-sm,
+  .phone-toolbar,
+  .phone-toolbar .w-52 {
+    max-width: none;
+    width: 100%;
+  }
+
+  .phone-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .admin-desktop-header {
+    display: none;
+  }
+
+  .token-lab {
+    padding: 1rem;
   }
 
   .app-table-wrap {
