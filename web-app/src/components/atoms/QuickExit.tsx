@@ -13,7 +13,7 @@ export function QuickExit({ redirectUrl = "https://www.google.com", compact = fa
 
   return (
     <button
-      id="quick-exit-btn"
+      id={compact ? undefined : "quick-exit-btn"}
       onClick={handleExit}
       className={
         compact
