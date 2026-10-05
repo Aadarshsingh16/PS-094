@@ -27,7 +27,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen bg-bg-primary text-text-primary">
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-8">
-        <header className="flex items-center justify-between gap-4">
+        <header className="app-row flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-primary">
               <span className="font-heading text-sm font-bold text-text-inverse">S</span>
@@ -54,7 +54,7 @@ export default function LoginPage() {
         </header>
 
         <section className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center py-10">
-          <h1 className="font-heading text-display-2xl font-bold text-text-primary">
+          <h1 className="phone-title font-heading text-display-2xl font-bold text-text-primary">
             SAHAYAK AI
           </h1>
           <p className="mt-2 text-body-lg text-text-secondary">Your safe space</p>
@@ -62,7 +62,7 @@ export default function LoginPage() {
             Select your portal role to enter. Secure session access.
           </p>
 
-          <label className="mt-8 block max-w-sm text-sm font-medium text-text-secondary">
+          <label className="phone-field mt-8 block max-w-sm text-sm font-medium text-text-secondary">
             Name
             <input
               type="text"
@@ -74,7 +74,7 @@ export default function LoginPage() {
             />
           </label>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="phone-pair mt-8 grid gap-4 sm:grid-cols-2">
             {PORTAL_ROLES.map((role) => {
               const Icon = ROLE_ICONS[role.id];
               const tagMap: Record<string, { label: string; badgeCls: string; hoverBorder: string }> = {

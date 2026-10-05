@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AdminPhoneChrome } from "@/components/molecules/PhoneChrome";
 
 const LINKS = [
   { href: "/admin/settings", label: "Settings" },
@@ -15,7 +16,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="min-h-screen bg-bg-primary">
       <header className="border-b border-border-subtle px-8 py-4">
         <p className="font-heading text-sm font-bold text-text-primary">SAHAYAK AI · Administrator</p>
-        <nav className="mt-3 flex gap-2" aria-label="Administrator">
+        <nav className="admin-nav mt-3 flex gap-2" aria-label="Administrator">
           {LINKS.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
@@ -30,7 +31,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           })}
         </nav>
       </header>
-      {children}
+      <AdminPhoneChrome />
+      <div className="admin-shell">{children}</div>
     </div>
   );
 }

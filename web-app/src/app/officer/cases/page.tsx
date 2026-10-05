@@ -74,8 +74,8 @@ export default function CasesPage() {
           ))}
         </select>
       </div>
-      <div className="overflow-hidden rounded-2xl border border-border-default bg-bg-surface">
-        <table className="w-full text-left text-sm">
+      <div className="app-table-wrap overflow-hidden rounded-2xl border border-border-default bg-bg-surface">
+        <table className="app-table w-full text-left text-sm">
           <thead>
             <tr className="text-text-muted">
               <th className="px-4 py-3 font-medium">Case</th>
@@ -92,16 +92,16 @@ export default function CasesPage() {
                 className="cursor-pointer border-t border-border-subtle hover:bg-nav-hover"
                 onClick={() => router.push(casePath(item.caseId))}
               >
-                <td className="px-4 py-3">
+                <td data-label="Case" className="px-4 py-3">
                   <div className="font-medium text-text-primary">{item.userId}</div>
                   <div className="text-xs text-text-muted">{item.caseId}</div>
                 </td>
-                <td className="px-4 py-3 text-text-secondary">{item.category}</td>
-                <td className="px-4 py-3 text-text-secondary">{item.stage}</td>
-                <td className="px-4 py-3">
+                <td data-label="Category" className="px-4 py-3 text-text-secondary">{item.category}</td>
+                <td data-label="Stage" className="px-4 py-3 text-text-secondary">{item.stage}</td>
+                <td data-label="Risk" className="px-4 py-3">
                   <RiskBadge level={asRisk(item.riskLevel)} />
                 </td>
-                <td className="px-4 py-3 font-heading font-bold text-text-primary">{item.currentDistress}</td>
+                <td data-label="Score" className="px-4 py-3 font-heading font-bold text-text-primary">{item.currentDistress}</td>
               </tr>
             ))}
           </tbody>

@@ -89,7 +89,7 @@ export function AlertDetail({ alertId }: { alertId: string }) {
         >
           APPROVE
         </button>
-        <div className="mt-3 grid grid-cols-2 gap-3">
+        <div className="phone-pair mt-3 grid grid-cols-2 gap-3">
           <button
             type="button"
             onClick={() => setDecision("Modify requested. A person will adjust the support.")}

@@ -74,7 +74,7 @@ export default function OfficerDashboardPage() {
         </div>
       ) : null}
       <div className="space-y-6 px-8 py-6">
-        <div className="grid grid-cols-4 gap-4">
+        <div className="phone-metrics grid grid-cols-4 gap-4">
           <MetricCard
             id="metric-cases"
             title={metrics.assignedCases.title}
@@ -108,7 +108,7 @@ export default function OfficerDashboardPage() {
           />
         </div>
 
-        <div className="grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
+        <div className="phone-stack grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
           <div className="space-y-6">
             <section className="rounded-2xl bg-bg-dark-chart p-6 text-text-inverse">
               <div className="flex items-start justify-between gap-4">
@@ -141,7 +141,7 @@ export default function OfficerDashboardPage() {
 
             <section className="rounded-2xl border border-border-default bg-bg-surface p-5">
               <h2 className="font-heading text-lg font-bold text-text-primary">Priority cases</h2>
-              <table className="mt-4 w-full text-left text-sm">
+              <table className="app-table mt-4 w-full text-left text-sm">
                 <thead>
                   <tr className="text-text-muted">
                     <th className="pb-3 font-medium">Case</th>
@@ -164,15 +164,15 @@ export default function OfficerDashboardPage() {
                         className="cursor-pointer border-t border-border-subtle hover:bg-nav-hover"
                         onClick={() => router.push(casePath(item.caseId))}
                       >
-                        <td className="py-3 font-medium text-text-primary">{item.userId}</td>
-                        <td className="py-3 text-text-secondary">{item.category}</td>
-                        <td className="py-3">
+                        <td data-label="Case" className="py-3 font-medium text-text-primary">{item.userId}</td>
+                        <td data-label="Category" className="py-3 text-text-secondary">{item.category}</td>
+                        <td data-label="Risk" className="py-3">
                           <RiskBadge level={asRisk(level)} />
                         </td>
-                        <td className="py-3 font-heading font-bold text-text-primary">
+                        <td data-label="Score" className="py-3 font-heading font-bold text-text-primary">
                           {score} {ARROWS[trend]}
                         </td>
-                        <td className={`py-3 font-medium ${urgent ? "text-risk-critical" : "text-text-secondary"}`}>
+                        <td data-label="SLA" className={`py-3 font-medium ${urgent ? "text-risk-critical" : "text-text-secondary"}`}>
                           <LiveSla value={item.slaRemaining} />
                         </td>
                       </tr>

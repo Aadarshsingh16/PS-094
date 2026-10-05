@@ -53,9 +53,9 @@ export default function VictimHomePage() {
 
   return (
     <div className="px-8 py-6">
-      <header className="flex items-start justify-between gap-4">
+      <header className="app-row flex items-start justify-between gap-4">
         <div>
-          <h1 className="font-heading text-3xl font-bold text-text-primary">
+          <h1 className="phone-title font-heading text-3xl font-bold text-text-primary">
             {greeting}, Asha
           </h1>
           <p className="mt-1 text-sm text-text-secondary">
@@ -82,7 +82,7 @@ export default function VictimHomePage() {
         </label>
       </header>
 
-      <div className="mt-6 grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
+      <div className="phone-stack mt-6 grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
         <div className="space-y-6">
           {/* Hero Check-in Card matching Frame 1 */}
           <section className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#17132a] via-[#10192e] to-[#26143d] p-8 text-text-inverse shadow-md">
@@ -125,7 +125,7 @@ export default function VictimHomePage() {
           </section>
 
           {/* Middle Row: Your Week & Right now I feel... */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="phone-stack grid grid-cols-2 gap-6">
             {/* Your Week */}
             <section className="rounded-2xl border border-border-default bg-bg-surface p-5">
               <div className="flex items-center justify-between">
@@ -205,7 +205,7 @@ export default function VictimHomePage() {
               </span>
             </div>
 
-            <ol className="mt-5 grid grid-cols-4 gap-4 relative">
+            <ol className="phone-journey mt-5 grid grid-cols-4 gap-4 relative">
               {(asha?.journey ?? []).map((step, index) => {
                 const done = step.status === "done";
                 return (

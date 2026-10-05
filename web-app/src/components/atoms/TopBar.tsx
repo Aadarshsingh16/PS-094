@@ -21,7 +21,7 @@ export function TopBar({
   rightSlot,
 }: TopBarProps) {
   return (
-    <header className="flex items-center justify-between px-8 py-5 border-b border-border-subtle bg-bg-primary">
+    <header className="app-row flex items-center justify-between px-8 py-5 border-b border-border-subtle bg-bg-primary">
       {/* Left: greeting or search */}
       <div className="flex-1 min-w-0">
         {greeting ? (

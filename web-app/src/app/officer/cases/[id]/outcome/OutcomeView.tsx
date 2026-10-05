@@ -30,7 +30,7 @@ export function OutcomeView({ caseKey }: { caseKey: string }) {
 
       <p className="rounded-2xl bg-brand-subtle px-4 py-3 text-sm font-medium text-brand-primary">{signals.outcome}</p>
 
-      <section className="grid gap-4 sm:grid-cols-2">
+      <section className="phone-pair grid gap-4 sm:grid-cols-2">
         <div className="rounded-2xl border border-border-default bg-bg-surface p-5">
           <p className="text-sm text-text-secondary">Before</p>
           <p className="mt-2 font-heading text-display-2xl font-bold text-text-primary">{record.currentDistress}</p>

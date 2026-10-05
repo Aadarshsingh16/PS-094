@@ -7,7 +7,7 @@ import timeline from "@/data/riskTimeline.json";
 export default function ReportsPage() {
   return (
     <main className="px-8 py-8">
-      <div className="flex items-start justify-between gap-4">
+      <div className="app-row flex items-start justify-between gap-4">
         <SectionHeader title="Reports" subtitle="District view of distress trend, risk mix, and SLA." />
         <button
           type="button"
@@ -16,7 +16,7 @@ export default function ReportsPage() {
           Export
         </button>
       </div>
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="phone-stack grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <section className="rounded-2xl bg-bg-dark-chart p-6 text-text-inverse">
           <h2 className="font-heading text-lg font-bold">{dashboard.trend.title}</h2>
           <p className="mt-1 text-sm text-text-muted">{dashboard.trend.subtitle}</p>

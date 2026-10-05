@@ -61,7 +61,7 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
         </div>
       </header>
 
-      <div className="mt-6 flex gap-2 border-b border-border-subtle">
+      <div className="tab-scroller mt-6 flex gap-2 border-b border-border-subtle">
         {TABS.map((item) => (
           <button
             key={item}
@@ -87,7 +87,7 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
       ) : null}
 
       {tab === "Overview" || (tab === "Risk Analysis" && record.caseId !== "NHAA-DEMO-1042") ? (
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="phone-stack mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <section className="rounded-2xl bg-bg-dark-chart p-5 text-text-inverse">
             <h2 className="font-heading text-lg font-bold">Well-being</h2>
             <p className="mt-1 text-sm text-text-muted">W1–W8 distress signal</p>
@@ -150,7 +150,7 @@ export function CaseDetail({ caseKey }: { caseKey: string }) {
         </ul>
       ) : null}
 
-      <div className="mt-8 flex flex-wrap gap-3">
+      <div className="phone-actions mt-8 flex flex-wrap gap-3">
         <Link href="/officer/alerts" className="rounded-xl bg-brand-primary px-5 py-3 text-sm font-medium text-text-inverse">
           Create Alert
         </Link>

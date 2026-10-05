@@ -23,8 +23,8 @@ export default function PrivacyPage() {
   return (
     <main className="px-8 py-8">
       <SectionHeader title={privacyData.title} subtitle={privacyData.subtitle} />
-      <div className="grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="phone-stack grid grid-cols-[minmax(0,1fr)_320px] items-start gap-6">
+        <div className="phone-stack grid grid-cols-2 gap-4">
           {channels.map((channel) => {
             const Icon = CHANNEL_ICONS[channel.id as keyof typeof CHANNEL_ICONS];
             return (

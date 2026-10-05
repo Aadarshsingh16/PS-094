@@ -157,10 +157,10 @@ export default function CheckinPage() {
   const clock = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
 
   return (
-    <div className="flex min-h-screen bg-bg-primary text-text-primary">
-      <div className="flex min-w-0 flex-1 flex-col">
+    <div className="checkin-layout flex min-h-screen bg-bg-primary text-text-primary">
+      <div className="checkin-main flex min-w-0 flex-1 flex-col">
         {/* Header matching Frame 2 */}
-        <header className="flex items-center justify-between gap-4 px-8 py-5">
+        <header className="checkin-head flex items-center justify-between gap-4 px-8 py-5">
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -192,7 +192,7 @@ export default function CheckinPage() {
         </div>
 
         {/* Question Area */}
-        <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col justify-center px-8 py-8">
+        <div className="checkin-body mx-auto flex w-full max-w-2xl flex-1 flex-col justify-center px-8 py-8">
           <span className="w-fit rounded-full bg-bg-accent-subtle px-3 py-1 font-heading text-xs font-bold uppercase tracking-wider text-accent-lavender">
             {question.category}
           </span>
@@ -312,7 +312,7 @@ export default function CheckinPage() {
         </div>
 
         {/* Footer actions */}
-        <footer className="flex items-center justify-between gap-4 border-t border-border-subtle px-8 py-4 bg-bg-surface/50">
+        <footer className="checkin-actions flex items-center justify-between gap-4 border-t border-border-subtle px-8 py-4 bg-bg-surface/50">
           <button
             type="button"
             onClick={goBack}
@@ -339,7 +339,7 @@ export default function CheckinPage() {
       </div>
 
       {/* Right Aside Panel matching Frame 2 */}
-      <aside className="flex w-84 shrink-0 flex-col gap-5 border-l border-border-default bg-bg-primary p-6">
+      <aside className="checkin-aside flex w-84 shrink-0 flex-col gap-5 border-l border-border-default bg-bg-primary p-6">
         {/* Mode Tabs: Tap, Voice, and Chat */}
         <div className="grid grid-cols-3 rounded-full bg-slate-100 p-1">
           {(["tap", "voice", "chat"] as const).map((item) => (

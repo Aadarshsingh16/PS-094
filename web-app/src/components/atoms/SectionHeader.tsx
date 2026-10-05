@@ -8,7 +8,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle, action }: SectionHeaderProps) {
   return (
-    <div className="flex items-start justify-between gap-4 mb-6">
+    <div className="app-row flex items-start justify-between gap-4 mb-6">
       <div>
         <h1 className="font-heading text-2xl font-bold text-text-primary">{title}</h1>
         {subtitle && (

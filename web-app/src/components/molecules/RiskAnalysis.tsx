@@ -115,7 +115,7 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
       ) : null}
 
       {step === 0 ? (
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="phone-stack grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <section className="rounded-2xl bg-bg-dark-chart p-5 text-text-inverse">
             <h2 className="font-heading text-lg font-bold">Well-being</h2>
             <p className="mt-1 text-sm text-text-muted">W1–W8 distress signal</p>
@@ -138,7 +138,7 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
       {step === 1 ? (
         <section className="rounded-2xl border border-border-default bg-bg-surface p-5">
           <p className="text-sm font-medium text-text-secondary">Processing signals...</p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div className="phone-stack mt-4 grid gap-3 sm:grid-cols-2">
             {signals.panels.map((panel) => (
               <div key={panel.id} className="h-24 animate-pulse rounded-xl bg-nav-hover" />
             ))}
@@ -147,7 +147,7 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
       ) : null}
 
       {step >= 2 ? (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="phone-stack grid gap-4 sm:grid-cols-2">
           {revealed.map((panel) => (
             <section key={panel.id} className="factor-in rounded-2xl border border-border-default bg-bg-surface p-5">
               <div className="flex items-center justify-between gap-3">
@@ -174,7 +174,7 @@ export function RiskAnalysis({ userId, baseline, current, factors, series }: Ris
       ) : null}
 
       {step >= 6 ? (
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="phone-stack grid gap-4 lg:grid-cols-3">
           <section className="rounded-2xl border border-border-default bg-bg-surface p-5">
             <h2 className="font-heading text-base font-bold text-text-primary">Personal baseline</h2>
             <p className="mt-3 text-sm text-text-secondary">Baseline {baseline}</p>

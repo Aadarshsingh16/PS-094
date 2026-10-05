@@ -13,7 +13,7 @@ import {
 
 export default function TokensTestPage() {
   return (
-    <div className="min-h-screen bg-bg-primary p-10 font-body">
+    <div className="token-lab min-h-screen bg-bg-primary p-10 font-body">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Header */}

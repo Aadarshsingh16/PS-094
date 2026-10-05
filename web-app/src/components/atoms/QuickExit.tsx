@@ -2,9 +2,10 @@ import React from "react";
 
 interface QuickExitProps {
   redirectUrl?: string;
+  compact?: boolean;
 }
 
-export function QuickExit({ redirectUrl = "https://www.google.com" }: QuickExitProps) {
+export function QuickExit({ redirectUrl = "https://www.google.com", compact = false }: QuickExitProps) {
   const handleExit = () => {
     // Immediately navigate away from the page
     window.location.replace(redirectUrl);
@@ -14,18 +15,15 @@ export function QuickExit({ redirectUrl = "https://www.google.com" }: QuickExitP
     <button
       id="quick-exit-btn"
       onClick={handleExit}
-      className="
-        w-full flex items-center justify-center gap-2
-        bg-quick-exit hover:bg-quick-exit-hover
-        text-text-inverse text-sm font-medium
-        rounded-xl px-4 py-2.5
-        transition-colors duration-150
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-text-inverse
-      "
+      className={
+        compact
+          ? "inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-quick-exit px-3 py-2 text-xs font-medium text-text-inverse hover:bg-quick-exit-hover"
+          : "flex w-full items-center justify-center gap-2 rounded-xl bg-quick-exit px-4 py-2.5 text-sm font-medium text-text-inverse hover:bg-quick-exit-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-text-inverse"
+      }
       aria-label="Quick exit — leave this site immediately"
     >
       <span aria-hidden="true">✕</span>
-      <span className="nav-copy">Quick exit</span>
+      <span className={compact ? undefined : "nav-copy"}>Quick exit</span>
     </button>
   );
 }
