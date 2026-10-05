@@ -59,13 +59,13 @@ export default function CasesPage() {
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search cases"
           aria-label="Search cases"
-          className="w-64 rounded-xl border border-border-default bg-bg-surface px-4 py-2 text-sm text-text-primary"
+          className="phone-field w-64 rounded-xl border border-border-default bg-bg-surface px-4 py-2 text-sm text-text-primary"
         />
         <select
           aria-label="Filter by risk"
           value={risk}
           onChange={(event) => setRisk(event.target.value as (typeof FILTERS)[number])}
-          className="rounded-xl border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary"
+          className="phone-field rounded-xl border border-border-default bg-bg-surface px-3 py-2 text-sm text-text-primary"
         >
           {FILTERS.map((item) => (
             <option key={item} value={item}>
@@ -93,8 +93,10 @@ export default function CasesPage() {
                 onClick={() => router.push(casePath(item.caseId))}
               >
                 <td data-label="Case" className="px-4 py-3">
-                  <div className="font-medium text-text-primary">{item.userId}</div>
-                  <div className="text-xs text-text-muted">{item.caseId}</div>
+                  <div>
+                    <div className="font-medium text-text-primary">{item.userId}</div>
+                    <div className="text-xs text-text-muted">{item.caseId}</div>
+                  </div>
                 </td>
                 <td data-label="Category" className="px-4 py-3 text-text-secondary">{item.category}</td>
                 <td data-label="Stage" className="px-4 py-3 text-text-secondary">{item.stage}</td>

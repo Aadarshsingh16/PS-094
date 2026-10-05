@@ -97,7 +97,7 @@ export default function RegisterCasePage() {
               ))}
             </select>
           </label>
-          <button type="submit" className="rounded-xl bg-brand-primary px-5 py-3 text-sm font-medium text-text-inverse">
+          <button type="submit" className="phone-field rounded-xl bg-brand-primary px-5 py-3 text-sm font-medium text-text-inverse">
             Create case
           </button>
         </form>
